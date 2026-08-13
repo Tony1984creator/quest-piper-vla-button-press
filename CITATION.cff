@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If this research record is useful, please cite it as below."
+title: "Quest–Piper VLA Button-Press Research Log"
+authors:
+  - family-names: "Xiao"
+    given-names: "Yuantao"
+date-released: 2026-08-13
+version: 0.1.0
+url: "https://github.com/Tony1984creator/quest-piper-vla-button-press"
+license: MIT
