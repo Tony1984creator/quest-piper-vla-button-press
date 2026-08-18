@@ -40,12 +40,14 @@ for that split. Camera calibration is not part of this pixel-policy contract;
 if a later component uses geometric projection or pose estimation, it must
 introduce a versioned calibration contract and validation separately.
 
-## Target-button audit status
+## Visual-preannotation boundary
 
-The separate visual pre-annotation workflow has joined all 421 stable visual
-candidates to an episode and a task-text target floor. A fixed stratified
-review queue can select one representative candidate per episode for manual
-identity confirmation. Every selected row begins as `pending_human_review`; no
-row is promoted to task success by the join or queue. The next gate is human
-confirmation of the illuminated button's identity, then evidence of contact
-and retraction.
+The current public scope is a position-independent single-frame detector for a
+sufficiently large orange illuminated region. It returns a visual candidate and
+image-space bounding box only. Three regression tests cover an in-frame button,
+small orange noise, and a large image-edge artifact.
+
+This evidence does not identify the printed floor, link a visual candidate to a
+requested target, establish contact or retraction, or establish task success.
+Those questions remain evaluation-stage work and require separate task labels,
+reviewed evidence, and the guarded closed-loop protocol.
