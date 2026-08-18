@@ -27,3 +27,4 @@ checkpoints/
 *.png
 *.jpg
 *.jpeg
+.worktrees/
