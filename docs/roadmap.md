@@ -14,8 +14,9 @@
 
 Current evidence: the stored-data contract QC has passed for 40 episodes and
 14,653 frames. All 421 visual candidates have an episode/task-text target-floor
-join, but their target-button identities are still pending human review; this
-does not satisfy the success-label criterion.
+join. A deterministic episode-level, target-floor-stratified review queue can
+now freeze a manageable evaluation subset, but target-button identities remain
+pending human review; this does not satisfy the success-label criterion.
 
 ## Stage 2 — ACT baseline
 

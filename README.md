@@ -26,7 +26,7 @@ LeRobot episodes (two RGB cameras + 7D state/action)
   -> guarded real-robot button-press evaluation
 ```
 
-Detailed interfaces and safety boundaries are in [docs/architecture.md](docs/architecture.md). The project roadmap is in [docs/roadmap.md](docs/roadmap.md). The current private data-contract validation evidence and its public boundary are in [docs/data-contract-qc.md](docs/data-contract-qc.md).
+Detailed interfaces and safety boundaries are in [docs/architecture.md](docs/architecture.md). The project roadmap is in [docs/roadmap.md](docs/roadmap.md). The current private data-contract validation evidence and its public boundary are in [docs/data-contract-qc.md](docs/data-contract-qc.md). The fixed, human-in-the-loop target-identity review protocol is in [docs/target-identity-review-queue.md](docs/target-identity-review-queue.md).
 
 ## Evidence snapshot (2026-08)
 
@@ -39,6 +39,7 @@ Detailed interfaces and safety boundaries are in [docs/architecture.md](docs/arc
 | Real-data training | Smoke, three-step, diverse-sample, and 100-step pilot runs completed | The auxiliary loss decreased in the pilot; action loss is variable, so convergence is not claimed. |
 | Offline inference | 7x7 action chunk produced with `hardware_commands_sent=false` | Output shape and non-actuation boundary are verified. |
 | OpenCV pre-annotation | 12 wrist-camera videos, 188,418 frames, 421 stable visual-confirmation candidates; 48 stratified audit samples | Visual candidates are useful pre-annotations, **not** task success labels. |
+| Target-identity review | Deterministic episode-level, target-floor-stratified queue generator with annotated evidence frames | Human confirmation is still required before identity or success claims. |
 
 ## Research progression
 
@@ -64,7 +65,7 @@ For full video processing, install `opencv-python` and `numpy`, supply data thro
 ```text
 .
 ├── docs/                     # Architecture, data, experiments, portfolio evidence, roadmap
-├── opencv_preannotation/     # Dataset-independent visual candidate utilities
+├── opencv_preannotation/     # Dataset-independent visual candidate and review-queue utilities
 ├── tests/                    # Unit tests for the portable utilities
 ├── CITATION.cff
 ├── LICENSE                   # MIT for original public material in this repository

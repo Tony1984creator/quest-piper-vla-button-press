@@ -43,7 +43,9 @@ introduce a versioned calibration contract and validation separately.
 ## Target-button audit status
 
 The separate visual pre-annotation workflow has joined all 421 stable visual
-candidates to an episode and a task-text target floor. The generated
-target-identity review table begins with every row marked `pending`; no row is
-promoted to task success by this join. The next gate is human confirmation of
-the illuminated button's identity, then evidence of contact and retraction.
+candidates to an episode and a task-text target floor. A fixed stratified
+review queue can select one representative candidate per episode for manual
+identity confirmation. Every selected row begins as `pending_human_review`; no
+row is promoted to task success by the join or queue. The next gate is human
+confirmation of the illuminated button's identity, then evidence of contact
+and retraction.
