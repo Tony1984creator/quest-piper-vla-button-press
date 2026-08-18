@@ -32,6 +32,11 @@ The separate full read-only pass examined 12 wrist-camera videos comprising
 frame hits. A stratified manual audit sampled 48 candidates (four from each
 video chunk): 48 were judged yes, 0 no, and 0 uncertain.
 
+A private bookkeeping join associates those 421 candidate records with episode
+metadata and task text. It is deliberately not published in this repository,
+does not read or identify a button label from pixels, and must not be treated
+as a target-identity or success label.
+
 The observed 48/48 audit result is evidence that the heuristic can prioritize
 review in that sample. It is not evidence of universal detector precision or
 task success.
@@ -40,8 +45,8 @@ task success.
 
 `press_confirmed_visual` means only that a visually illuminated orange button
 candidate is present. It does **not** identify the printed floor, prove it is
-the requested target, prove contact force or approach/retraction, or determine
-`success` / `failure_reason` / `task_stage`.
+the requested target by vision, prove contact force or approach/retraction, or
+determine `success` / `failure_reason` / `task_stage`.
 
 The next validation work is separate from this detector: define reviewed task
 labels, fix the episode-level split, and combine visual evidence with guarded

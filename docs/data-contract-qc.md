@@ -4,8 +4,8 @@
 
 This record describes a private, hardware-independent validation run over the
 Quest/LeRobot dataset. It reports only aggregate evidence; raw episodes,
-videos, device paths, calibration material, and robot configuration remain
-private.
+videos, device paths, calibration material, task text, and robot configuration
+remain private.
 
 The validation checks metadata and stored observations. It does not assert
 camera exposure synchronization, geometric calibration quality, policy
@@ -42,12 +42,17 @@ introduce a versioned calibration contract and validation separately.
 
 ## Visual-preannotation boundary
 
+A private analysis joined 421 temporally stable visual-candidate records to
+episode metadata and task text. That join is a bookkeeping aid only: it is not
+a visual reading of a button label, is not published as a reusable artifact,
+and does not change the detector's claim.
+
 The current public scope is a position-independent single-frame detector for a
 sufficiently large orange illuminated region. It returns a visual candidate and
 image-space bounding box only. Three regression tests cover an in-frame button,
 small orange noise, and a large image-edge artifact.
 
 This evidence does not identify the printed floor, link a visual candidate to a
-requested target, establish contact or retraction, or establish task success.
-Those questions remain evaluation-stage work and require separate task labels,
-reviewed evidence, and the guarded closed-loop protocol.
+requested target by vision, establish contact or retraction, or establish task
+success. Those questions remain evaluation-stage work and require separate task
+labels, reviewed evidence, and the guarded closed-loop protocol.
