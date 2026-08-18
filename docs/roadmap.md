@@ -12,11 +12,13 @@
 - `success`, `failure_reason`, and `task_stage` defined and annotated for the evaluation set;
 - OpenCV candidates retained as review aids rather than substituted for success labels.
 
-Current evidence: the stored-data contract QC has passed for 40 episodes and
-14,653 frames. All 421 visual candidates have an episode/task-text target-floor
-join. A deterministic episode-level, target-floor-stratified review queue can
-now freeze a manageable evaluation subset, but target-button identities remain
-pending human review; this does not satisfy the success-label criterion.
+Current evidence: stored-data contract QC has passed for 40 episodes and
+14,653 frames. The OpenCV utility now has a position-independent single-frame
+illuminated-button detector with three regression tests: in-frame detection,
+small-noise rejection, and image-edge-artifact rejection. The detector reports
+visual illumination only; it has not identified a target floor or established
+contact, retraction, or success. The next gates are the unit/joint contract and
+a frozen episode-level split.
 
 ## Stage 2 — ACT baseline
 
