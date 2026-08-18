@@ -12,6 +12,11 @@
 - `success`, `failure_reason`, and `task_stage` defined and annotated for the evaluation set;
 - OpenCV candidates retained as review aids rather than substituted for success labels.
 
+Current evidence: the stored-data contract QC has passed for 40 episodes and
+14,653 frames. All 421 visual candidates have an episode/task-text target-floor
+join, but their target-button identities are still pending human review; this
+does not satisfy the success-label criterion.
+
 ## Stage 2 — ACT baseline
 
 **Goal:** establish the simplest action-chunk benchmark on the fixed split.

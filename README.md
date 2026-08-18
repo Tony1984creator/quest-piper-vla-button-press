@@ -26,7 +26,7 @@ LeRobot episodes (two RGB cameras + 7D state/action)
   -> guarded real-robot button-press evaluation
 ```
 
-Detailed interfaces and safety boundaries are in [docs/architecture.md](docs/architecture.md). The project roadmap is in [docs/roadmap.md](docs/roadmap.md).
+Detailed interfaces and safety boundaries are in [docs/architecture.md](docs/architecture.md). The project roadmap is in [docs/roadmap.md](docs/roadmap.md). The current private data-contract validation evidence and its public boundary are in [docs/data-contract-qc.md](docs/data-contract-qc.md).
 
 ## Evidence snapshot (2026-08)
 
@@ -34,6 +34,7 @@ Detailed interfaces and safety boundaries are in [docs/architecture.md](docs/arc
 | --- | --- | --- |
 | Teleoperation and hardware | Quest-to-ROS 2-to-IK-to-daemon-to-SDK/CAN chain exercised on a real Piper arm | Hardware path is established; commands remain safety-gated. |
 | Dataset | 40 episodes, 14,653 frames at 30 FPS; two 640x480 RGB streams; 7D state and action | Enough for a baseline/protocol, not a generalization claim. |
+| Data-contract QC | 40 episodes and 14,653 frames checked; metadata, indexes, timestamps, and both video streams passed the stored-data contract | Does not establish calibration quality or a frozen train/validation/test split. |
 | VLA-JEPA 2.0 -> 2.1 | 386 encoder tensors mapped; 12 reinitialized; teacher frozen contract verified | Interface upgrade and optimization path are verified. |
 | Real-data training | Smoke, three-step, diverse-sample, and 100-step pilot runs completed | The auxiliary loss decreased in the pilot; action loss is variable, so convergence is not claimed. |
 | Offline inference | 7x7 action chunk produced with `hardware_commands_sent=false` | Output shape and non-actuation boundary are verified. |
