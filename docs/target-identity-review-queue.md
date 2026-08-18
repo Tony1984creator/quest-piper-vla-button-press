@@ -21,6 +21,15 @@ The reviewer must independently decide whether the boxed button is the
 requested floor and record that decision. A `pending_human_review` record is
 not a successful press, even when the candidate appears illuminated.
 
+## Current private execution evidence
+
+On 2026-08-18, the private dataset execution created a frozen review cohort of
+120 evidence frames from 120 distinct episodes. The cohort is balanced across
+the 12 requested-floor strata (floors 24 through 35, ten episodes per floor)
+and each row has an evidence image. All 120 rows remain
+`pending_human_review`; no target identity, contact, retraction, or task
+success claim is made from this queue.
+
 ## Example invocation
 
 ```bash
