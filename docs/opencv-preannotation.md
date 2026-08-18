@@ -2,27 +2,47 @@
 
 ## Scope
 
-The portable utility looks for a visually illuminated elevator button in wrist-camera frames. It is intentionally read-only with respect to the source dataset and cannot start CAN, command the robot, or alter an episode.
+The portable utility looks for a visually illuminated elevator button in
+wrist-camera frames. It is intentionally read-only with respect to the source
+dataset and cannot start CAN, command the robot, or alter an episode.
 
-## Detector rule
+## Single-frame detector
 
-For each BGR frame:
+`opencv_preannotation/global_confirmed_detector.py` is position-independent:
+it searches the full BGR frame rather than a fixed wrist-camera ROI. For each
+frame it:
 
-1. convert to HSV;
-2. threshold a configurable orange range;
-3. find connected components;
-4. reject components touching a small image-edge margin;
-5. retain the largest component only if it has at least 1,000 pixels;
-6. emit a stage candidate only when it remains active for at least three consecutive frames.
+1. converts BGR to HSV and thresholds a configurable orange range;
+2. finds connected components;
+3. rejects components that touch an image-edge margin;
+4. keeps the largest remaining component only when it has at least 1,000
+   orange pixels;
+5. returns `is_active`, area-based `confidence`, `orange_pixels`, and an
+   image-space bounding box.
 
-The output is a compact segment record with start/end/representative frame, duration, confidence, and bounding box.
+The retained regression tests cover an illuminated button at an arbitrary
+in-frame location, small orange noise, and a large orange image-edge artifact.
+They are a detector-contract check, not a task benchmark.
 
-## Validation evidence
+## Temporal pre-annotation evidence
 
-The full read-only pass examined 12 wrist-camera videos comprising 188,418 frames. It generated 421 temporally stable `press_confirmed_visual` candidates. A stratified manual audit sampled 48 candidates (four from each video chunk): 48 were judged yes, 0 no, 0 uncertain.
+The separate full read-only pass examined 12 wrist-camera videos comprising
+188,418 frames. It generated 421 temporally stable
+`press_confirmed_visual` candidates after requiring at least three consecutive
+frame hits. A stratified manual audit sampled 48 candidates (four from each
+video chunk): 48 were judged yes, 0 no, and 0 uncertain.
 
-The observed audit precision was therefore 48/48 in this sample. This is evidence that the heuristic can prioritize review, not evidence of universal detector precision or task success.
+The observed 48/48 audit result is evidence that the heuristic can prioritize
+review in that sample. It is not evidence of universal detector precision or
+task success.
 
-## Next validation step
+## Strict capability boundary
 
-Join candidate segments to episode/task metadata; verify the requested floor; and combine approach, contact, retraction, and human-reviewed outcome labels. This yields a task-level evidence chain instead of a single visual event.
+`press_confirmed_visual` means only that a visually illuminated orange button
+candidate is present. It does **not** identify the printed floor, prove it is
+the requested target, prove contact force or approach/retraction, or determine
+`success` / `failure_reason` / `task_stage`.
+
+The next validation work is separate from this detector: define reviewed task
+labels, fix the episode-level split, and combine visual evidence with guarded
+state/action and trial evidence under the real-robot protocol.
