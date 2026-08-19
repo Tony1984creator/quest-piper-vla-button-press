@@ -29,6 +29,25 @@ raw demonstrations, checkpoints, internal paths, or task text.
 The action probe's values and private task text are intentionally omitted. The
 probe did not command the robot.
 
+
+## Verified Evo-Depth controlled-finetune and deployment-audit evidence
+
+This is a parallel action-policy engineering track. Its loss values are not
+compared with the VLA-JEPA probe because the model, action representation, and
+training configuration differ.
+
+| Item | Verified evidence | Interpretation boundary |
+| --- | --- | --- |
+| Controlled fine-tune | Action-head-only flow-matching run completed 300 steps on a leakage-safe split | This is a limited pilot, not a model-selection protocol. |
+| Fixed real-data evaluation | Same 187 fixed real-data batches and evaluator: 30-step reference mean masked flow loss 0.8415; 300-step pilot 0.2449 | The comparison is useful for this controlled offline check; it does not establish generalization or task success. |
+| Offline replay | 12 task instances, one episode each, five selected keyframes each (60 inputs); two checkpoints generated 120 action-jump metric rows | Replay measures candidate-action behavior only; no robot command was issued. |
+| Deployment contract audit | Recorded exchange contract was [50, 24]; client selects 25 steps and consumes only the first seven active dimensions | Runtime behavior outside the inspected session is not established. |
+| Safety audit | Offline tests covered shape/mask, selection, outlier filter, limits, measured-state delta limit, smoothing, and joint/gripper order: 13/13 passed | Tests use fakes or recorded exchanges and did not open robot, CAN, camera, or GPU-server resources. |
+| Residual policy | A bounded residual insertion point before the first safety filter is specified and zero-residual equivalence was tested | No residual term is wired into the deployed client. |
+
+The public record intentionally omits dataset paths, task descriptions, camera
+identifiers, server addresses, checkpoints, and deployment configuration.
+
 ## Report template for future runs
 
 Every run should record:
