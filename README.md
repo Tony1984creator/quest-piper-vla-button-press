@@ -38,6 +38,8 @@ Detailed interfaces and safety boundaries are in [docs/architecture.md](docs/arc
 | VLA-JEPA 2.0 -> 2.1 | 386 encoder tensors mapped; 12 reinitialized; teacher frozen contract verified | Interface upgrade and optimization path are verified. |
 | Real-data training | Smoke, three-step, diverse-sample, and 100-step pilot runs completed | The auxiliary loss decreased in the pilot; action loss is variable, so convergence is not claimed. |
 | Offline inference | 7x7 action chunk produced with `hardware_commands_sent=false` | Output shape and non-actuation boundary are verified. |
+| Evo-Depth controlled fine-tuning | Action-head-only 300-step pilot evaluated on a fixed 187-batch real-data set; mean masked flow loss 0.8415 (30-step reference) vs. 0.2449 (300-step pilot) | A matched offline validation loss is not a task-success or cross-model comparison. |
+| Evo-Depth deployment audit | Offline Piper action-chain audit: [50, 24] chunk, 25 executed steps, first 7 active dimensions; 13/13 synthetic/recorded-contract tests passed | The audit contacted no robot, CAN, camera, or GPU server; residual RL remains a specification, not production code. |
 | OpenCV pre-annotation | 12 wrist-camera videos, 188,418 frames, 421 stable visual-confirmation candidates; 48 stratified audit samples | Visual candidates are useful pre-annotations, **not** task success labels. |
 | Single-frame visual detection | Position-independent HSV orange detector; three regression tests cover detection, small-noise rejection, and edge-artifact rejection | Detects visual illumination only; it does not identify a floor, establish contact, or establish task success. |
 

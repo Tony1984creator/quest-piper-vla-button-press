@@ -9,6 +9,7 @@
 | Representation / VLA training | Performed V-JEPA 2.0->2.1 mapping and real-data training/inference probes | Validated frozen-teacher, gradient-flow, and action-chunk interfaces for an action-conditioned VLA-JEPA experiment. |
 | Visual validation | Built an OpenCV temporal pre-annotation workflow with audit sampling | Developed read-only visual candidate mining with temporal filtering and a stratified audit protocol. |
 | Experiment design | Separates smoke, pilot, offline inference, and closed-loop claims | Reports what each experiment establishes and avoids treating training loss as task success. |
+| Policy validation and deployment safety | Ran a controlled Evo-Depth action-head pilot on a fixed real-data evaluation set and audited the Piper action path offline | Designed matched offline checks, traced action units/horizons and documented which safety gates remain required before hardware. |
 
 ## Microelectronics-to-robotics mapping
 
