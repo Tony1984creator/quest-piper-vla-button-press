@@ -26,7 +26,7 @@ LeRobot episodes (two RGB cameras + 7D state/action)
   -> guarded real-robot button-press evaluation
 ```
 
-Detailed interfaces and safety boundaries are in [docs/architecture.md](docs/architecture.md). The project roadmap is in [docs/roadmap.md](docs/roadmap.md). The current private data-contract validation evidence and its public boundary are in [docs/data-contract-qc.md](docs/data-contract-qc.md). The current OpenCV scope and validation boundary are in [docs/opencv-preannotation.md](docs/opencv-preannotation.md).
+Detailed interfaces and safety boundaries are in [docs/architecture.md](docs/architecture.md). The project roadmap is in [docs/roadmap.md](docs/roadmap.md). The current private data-contract validation evidence and its public boundary are in [docs/data-contract-qc.md](docs/data-contract-qc.md). The current OpenCV scope and validation boundary are in [docs/opencv-preannotation.md](docs/opencv-preannotation.md). Public, sanitized Quest operational references are available as the [real-test safety guide](docs/quest-real-test-guide.md), [control principles](docs/quest-control-principles.md), and [VR recording contract](docs/quest-vr-recording-contract.md), and [VLA-JEPA 2.1 migration contract](docs/vla-jepa-21-migration-contract.md).
 
 ## Evidence snapshot (2026-08)
 
