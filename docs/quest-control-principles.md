@@ -1,64 +1,40 @@
-# Quest control principles
+# Quest VR pose-control principles
 
-## Scope
+## From controller pose to a safe joint candidate
 
-These principles summarize the verified Quest–Piper engineering contract without
-publishing launch commands, device identifiers, controller gains, network
-details, or robot configuration. They are not a substitute for a site-specific
-safety review or an operating procedure.
+Quest inside-out tracking
+  -> right-controller 4x4 pose + buttons
+  -> relative-pose anchor under B gate
+  -> coordinate mapping and pose conditioning
+  -> Pinocchio / CasADi IK
+  -> ROS 2 joint-command topic
+  -> guarded daemon final limit
+  -> Piper arm
 
-## One actuator owner
+The headset supplies the tracking reference for the right controller; its own pose is not a task-motion input. The implementation uses the current right-controller pose rather than treating camera frames or headset motion as a robot-control signal.
 
-Only one guarded actuation process may own a physical-arm channel. Quest input,
-ROS 2 transport, recording, model inference, and evaluation generate or observe
-candidate data; none may open a competing SDK/CAN channel.
+## Relative pose, not absolute teleoperation
 
-This rule applies independently to each arm in a future dual-arm system. It is
-not safe to copy a single-arm Piper process or CAN configuration directly into
-a NERO setup.
+When B is deliberately held, the system records a stable controller anchor and computes the desired motion as the current controller pose relative to that anchor and the robot reference pose:
 
-## Deliberate modes
+target_pose = robot_reference × inverse(controller_anchor) × controller_current
 
-| Mode | Permitted behavior | Prohibited behavior |
-| --- | --- | --- |
-| Dry path | Read Quest input, map pose, run IK, publish candidate commands | Enabling an arm or owning a hardware channel |
-| Guarded evaluation | A separately authorized actuator consumes fresh, valid candidates | Bypassing limits, freshness checks, or an operator abort |
-| Recording | Observe named command and measured-state streams at a declared rate | Running IK twice, writing hardware, or assuming image provenance |
-| Offline policy probe | Produce and inspect candidate actions | Treating tensor output as permission to actuate |
+Releasing B holds the last valid target. Re-pressing B creates a new anchor. This separation prevents a controller being moved while disengaged from creating a discontinuous robot motion on re-entry. A+B is handled as an explicit home/reset state, separate from B-controlled task motion.
 
-## Hold-to-enable and re-anchoring
+## Conditioning pipeline
 
-Teleoperation uses an explicit hold-to-enable gate. A new target is generated
-only while the gate is deliberately held and tracking is current. Releasing the
-gate holds the last safe target; it does not extrapolate from a stale pose.
-After a tracking interruption, re-establish a stable controller reference before
-generating another target.
+Each control cycle reads the controller pose/button state, rejects stale or discontinuous input, maps the Quest frame to the robot task frame, compensates the wrist pivot, filters pose history, computes B-relative pose, applies scaling/workspace/end-effector limits/deadbands/smoothing, solves IK from the prior valid joint solution, and publishes a joint candidate. The daemon then applies the final actuator-side limit.
 
-A separate deliberate combination is required for a home/reset request. Home
-motion and task motion are never inferred from ordinary tracking input.
+Short-window filtering and deadbands suppress hand tremor. Discontinuity rejection keeps the preceding valid state; it is a prompt to release B, re-establish stable tracking, and anchor again, not a reason to relax the safety threshold.
 
-## Tracking, time, and faults
+## IK and actuation separation
 
-Tracking freshness, command freshness, measured state, limits, and actuator
-health are first-class safety signals. Loss of tracking, a stale command,
-invalid state, a transport fault, or an operator abort stops **new** candidate
-generation. The event and its timestamps belong in the private trial record.
+Pinocchio, CasADi, and IPOPT produce a six-joint solution from a target 4x4 end-effector pose. The prior valid joint solution seeds the next solve to reduce branch jumps. IK checks solver status, joint constraints, and abnormal jumps; it does not own CAN.
 
-The response is not to enlarge discontinuity thresholds or continue from an
-old pose. Diagnose the failure at the input, ROS 2, IK, supervisor, and
-actuator boundary before a repeat.
+The ROS 2 candidate contains six arm joints plus gripper. The guarded daemon runs at a fixed command rate, applies its final per-step limit, and is the only component that reaches the SDK/CAN boundary.
 
-## Data ownership and units
+## Data and evidence boundary
 
-The recorder observes explicitly named command and measured-state streams,
-checks type/order, and writes at a declared fixed rate. Image-source provenance
-is a separate contract. For Quest/LeRobot data, state/action unit conversion has
-one declared owner; model, kinematics, and physical-client conventions must not
-silently duplicate conversion.
+The recorder observes joint command as action and measured joint state as observation; it does not recreate IK or open an actuator channel. Dataset arm state/action are stored in degrees, with gripper data in its declared physical convention. Conversion to radians has exactly one owner at a kinematic or model-computation boundary.
 
-## Evidence ladder
-
-Import checks, unit tests, dry-path mapping, training smoke, offline replay,
-and visual pre-annotation make bounded claims. A physical task-success claim
-requires a guarded trial protocol, reviewed evidence, explicit
-success/failure/stage labels, and an operator-authorized record.
+A correct pose-control graph, finite IK output, or an offline action chunk is not a robot-success claim. Closed-loop success requires a guarded trial, reviewed evidence, and explicit success/failure/stage labels.
