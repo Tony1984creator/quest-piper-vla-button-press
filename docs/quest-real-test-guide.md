@@ -1,65 +1,44 @@
 # Quest–Piper real-test safety guide
 
-## Purpose and public boundary
+## Scope and public boundary
 
-This guide abstracts the private, working-machine procedure into a
-reviewable safety contract. It intentionally omits commands, host/device
-identifiers, gains, workspace limits, calibration values, and recovery
-operations. It must not be used as a standalone robot launch guide.
+This guide describes the verified single-arm Quest-to-Piper test contract. It records the real control modes and safety logic, but deliberately omits host and device identifiers, CAN recovery commands, workspace limits, launch commands, and proprietary source. It is not a standalone robot operating procedure.
 
-## Roles and modes
+## Current control roles
 
-| Role or mode | Responsibility | Hardware boundary |
+Quest headset + right controller
+  -> pose / button stream
+  -> ROS 2 pose-control and IK client
+  -> joint-command topic
+  -> guarded Piper daemon
+  -> SDK / CAN
+  -> single Piper arm
+
+| Role | Responsibility | Boundary |
 | --- | --- | --- |
-| Quest/IK client | Maps current controller input into candidate joint targets | Does not own CAN by default |
-| Guarded actuator | Checks authorization, freshness, feedback, limits, and faults before actuation | Exactly one process owns the hardware channel |
-| Recorder | Observes command and measured-state streams at a fixed declared rate | Does not execute IK or write hardware |
-| Operator | Clears the workspace, authorizes the trial, and can abort | Remains present for every guarded trial |
+| Quest pose-control client | Right-controller pose processing, relative-pose mapping, filtering, workspace checks, and IK | Defaults to a non-hardware dry path. |
+| Guarded daemon | Owns the only actuator channel; checks fresh commands, faults, and final joint-step limits | The only process allowed to reach the SDK/CAN boundary. |
+| Recorder | Observes command and measured-state streams, then writes the dataset | Never repeats IK or writes hardware. |
+| Operator | Clears the workspace, authorizes a trial, and can abort it | Remains present in every guarded trial. |
 
-## Go/no-go before a guarded trial
+## Deliberate interaction model
 
-- The workspace is clear, the arm is mechanically stable, and a stop procedure
-  is known to the operator.
-- The intended task, initial condition, policy/teleoperation version, and
-  abort condition are recorded privately.
-- Exactly one actuator is present; no recorder, demo, policy, or example node
-  holds a second hardware channel.
-- Controller tracking, command freshness, measured-state validity, and limit
-  checks are current before motion begins.
-- Begin with a low-risk, small-amplitude observation; do not use a learned
-  action or a visual confirmation as a substitute for a safety gate.
+- The headset is fixed and only the right controller is used for task motion; headset pose is not used as a direct control input.
+- Holding B starts a new relative-pose session only after a short debounce and stable-pose anchor. The arm follows controller motion relative to that anchor, not controller world pose.
+- Releasing B holds the last valid target. It does not generate a new target from stale tracking.
+- A+B is a separate, deliberate home/reset request. Home motion is not inferred from ordinary controller tracking.
+- Re-engaging B establishes a new anchor, preventing a controller reposition from becoming an unintended arm jump.
 
-## Interaction and abort contract
+## Go/no-go and abort contract
 
-A deliberate hold-to-enable interaction starts new targets. Releasing it holds
-the last safe target rather than creating a new target from missing tracking.
-Tracking loss, stale input, invalid feedback, transport fault, limit violation,
-or operator abort ends new target generation.
+Before a guarded trial: clear the workspace, verify a known stop procedure, record the task/policy/initial condition/abort rule privately, ensure exactly one daemon owns actuation, and verify current tracking, command freshness, measured state, limits, and feedback.
 
-After an abort, preserve the relevant timestamps and logs. Review the failure
-at the Quest input, ROS 2 transport, IK, supervisor, and actuator boundary
-before another trial. Do not solve a fault by running a second daemon or by
-bypassing freshness and limit checks.
+New target generation stops on tracking loss, stale input, invalid state, transport fault, limit violation, or operator abort. Preserve logs and timestamps, then diagnose the issue at the input, ROS 2, IK, supervisor, and actuator boundary before another trial. Do not bypass checks or add a second daemon to work around a fault.
 
 ## Recording and visual evidence
 
-Recording is a read-only observer of command and measured-state streams. The
-OpenCV visual-confirmation tool is also read-only: it may create annotated
-video and CSV review artifacts, but it does not identify a target, prove
-contact/retraction, or determine task success. See
-[the visual-confirmation demo](quest-vr-opencv-demo.md).
+A completed episode records the command target as action and measured arm state as observation, together with the declared task and two RGB observations. The recording path is read-only with respect to actuation. The visual-confirmation tool is also read-only: it produces review evidence only and does not identify the requested target, prove contact/retraction, or determine success.
 
-## NERO separation
+## What this establishes
 
-The NERO dual-arm work is a separate, pre-power roadmap. Reusable principles
-are single actuator ownership, explicit namespaces, hold-to-enable,
-freshness/timeout checks, and trial logs. Piper-specific process topology,
-CAN configuration, gains, workspace limits, and real-arm evidence must not be
-reused as NERO operating settings. See
-[the NERO roadmap](nero-dual-arm-roadmap.md).
-
-## What this guide establishes
-
-It establishes a safety and evidence protocol for supervised evaluation. It
-does not establish calibration quality, controller robustness, task success,
-or permission for unattended operation.
+The recorded evidence establishes a safety-gated teleoperation and collection path. It does not establish calibration quality, policy robustness, task success, or unattended operation.
