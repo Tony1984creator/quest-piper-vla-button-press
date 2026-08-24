@@ -26,7 +26,7 @@ LeRobot episodes (two RGB cameras + 7D state/action)
   -> guarded real-robot button-press evaluation
 ```
 
-Detailed interfaces and safety boundaries are in [docs/architecture.md](docs/architecture.md). The project roadmap is in [docs/roadmap.md](docs/roadmap.md). The current private data-contract validation evidence and its public boundary are in [docs/data-contract-qc.md](docs/data-contract-qc.md). The current OpenCV scope and validation boundary are in [docs/opencv-preannotation.md](docs/opencv-preannotation.md). Public, sanitized Quest operational references are available as the [real-test safety guide](docs/quest-real-test-guide.md), [control principles](docs/quest-control-principles.md), and [VR recording contract](docs/quest-vr-recording-contract.md), and [VLA-JEPA 2.1 migration contract](docs/vla-jepa-21-migration-contract.md).
+Detailed interfaces and safety boundaries are in [docs/architecture.md](docs/architecture.md). The project roadmap is in [docs/roadmap.md](docs/roadmap.md). The current private data-contract validation evidence and its public boundary are in [docs/data-contract-qc.md](docs/data-contract-qc.md). The current OpenCV scope, validation boundary, and privacy-preserving visual-confirmation demonstration contract are in [docs/opencv-preannotation.md](docs/opencv-preannotation.md). Public, sanitized Quest operational references are available as the [real-test safety guide](docs/quest-real-test-guide.md), [control principles](docs/quest-control-principles.md), and [VR recording contract](docs/quest-vr-recording-contract.md), and [VLA-JEPA 2.1 migration contract](docs/vla-jepa-21-migration-contract.md).
 
 ## Evidence snapshot (2026-08)
 
@@ -41,6 +41,7 @@ Detailed interfaces and safety boundaries are in [docs/architecture.md](docs/arc
 | Evo-Depth controlled fine-tuning | Action-head-only 300-step pilot evaluated on a fixed 187-batch real-data set; mean masked flow loss 0.8415 (30-step reference) vs. 0.2449 (300-step pilot) | A matched offline validation loss is not a task-success or cross-model comparison. |
 | Evo-Depth deployment audit | Offline Piper action-chain audit: [50, 24] chunk, 25 executed steps, first 7 active dimensions; 13/13 synthetic/recorded-contract tests passed | The audit contacted no robot, CAN, camera, or GPU server; residual RL remains a specification, not production code. |
 | OpenCV pre-annotation | 12 wrist-camera videos, 188,418 frames, 421 stable visual-confirmation candidates; 48 stratified audit samples | Visual candidates are useful pre-annotations, **not** task success labels. |
+| Visual-confirmation demonstration | Read-only MP4 → HSV/component → ≥1,000 orange pixels → ≥3 consecutive hits → annotated MP4 and CSV review artifacts | The visualization does not identify a target, prove contact, or command hardware. |
 | Single-frame visual detection | Position-independent HSV orange detector; three regression tests cover detection, small-noise rejection, and edge-artifact rejection | Detects visual illumination only; it does not identify a floor, establish contact, or establish task success. |
 
 ## Research progression
