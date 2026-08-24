@@ -41,6 +41,25 @@ The observed 48/48 audit result is evidence that the heuristic can prioritize
 review in that sample. It is not evidence of universal detector precision or
 task success.
 
+
+## Visual-confirmation demonstration contract
+
+A local, read-only Quest demonstration makes the temporal rule inspectable without
+exposing raw robot data. Its reference flow is:
+
+```text
+wrist-camera MP4 -> BGR frames -> HSV / connected components
+  -> largest non-edge orange region with >= 1,000 pixels
+  -> active-frame counter -> visual confirmation at >= 3 consecutive hits
+  -> annotated MP4 plus frame-level and event-level CSV
+```
+
+The public repository retains only the portable detector and temporal-filter
+logic. The demonstration's videos, task text, device paths, and robot
+configuration remain private. The annotated video and CSV are visual-review
+artifacts: they do not command hardware and do not turn a visual candidate into
+a target-identity, contact, retraction, or task-success label.
+
 ## Strict capability boundary
 
 `press_confirmed_visual` means only that a visually illuminated orange button
