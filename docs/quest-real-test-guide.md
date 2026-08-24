@@ -2,45 +2,64 @@
 
 ## Purpose and public boundary
 
-This high-level safety and evaluation guide is derived from the private
-real-test procedure. It is not a robot launch guide: commands, network details,
-device identifiers, calibration values, controller gains, workspace limits, and
-recovery operations are intentionally omitted. It must not be used to operate a
-physical robot without a site-specific safety review.
+This guide abstracts the private, working-machine procedure into a
+reviewable safety contract. It intentionally omits commands, host/device
+identifiers, gains, workspace limits, calibration values, and recovery
+operations. It must not be used as a standalone robot launch guide.
 
-## Operating modes
+## Roles and modes
 
-| Mode | Learning/control behavior | Hardware boundary |
+| Role or mode | Responsibility | Hardware boundary |
 | --- | --- | --- |
-| Safe dry path | Reads Quest input, performs mapping and IK, and publishes a candidate joint command | Does not own CAN or enable the arm. |
-| Guarded real evaluation | A separately authorized actuator process receives a fresh candidate command | One guarded process is the sole owner of the hardware channel. |
-| Recording | Observes named command and measured-state topics for dataset construction | Does not run IK, start cameras, or write hardware commands. |
+| Quest/IK client | Maps current controller input into candidate joint targets | Does not own CAN by default |
+| Guarded actuator | Checks authorization, freshness, feedback, limits, and faults before actuation | Exactly one process owns the hardware channel |
+| Recorder | Observes command and measured-state streams at a fixed declared rate | Does not execute IK or write hardware |
+| Operator | Clears the workspace, authorizes the trial, and can abort | Remains present for every guarded trial |
 
-## Before a guarded trial
+## Go/no-go before a guarded trial
 
-- An operator explicitly authorizes the trial and can use an emergency stop.
-- The workspace is clear, the arm is stable, and the intended task, policy version,
-  initial condition, and abort condition are recorded privately.
-- Exactly one actuation owner is running; recording and policy inference do not
-  obtain a second hardware channel.
-- Command freshness, measured-state validity, limits, and tracking status are
-  valid before motion begins.
-- Start with low-risk, small-amplitude motion; do not use a learned policy as a
-  substitute for the safety supervisor.
+- The workspace is clear, the arm is mechanically stable, and a stop procedure
+  is known to the operator.
+- The intended task, initial condition, policy/teleoperation version, and
+  abort condition are recorded privately.
+- Exactly one actuator is present; no recorder, demo, policy, or example node
+  holds a second hardware channel.
+- Controller tracking, command freshness, measured-state validity, and limit
+  checks are current before motion begins.
+- Begin with a low-risk, small-amplitude observation; do not use a learned
+  action or a visual confirmation as a substitute for a safety gate.
 
-## Interaction and abort rules
+## Interaction and abort contract
 
-The teleoperation interaction uses an explicit hold-to-enable gate. Releasing
-the gate holds the last safe target rather than creating a new target from
-stale or missing tracking data. Loss of tracking, stale commands, invalid
-state, an actuation fault, or an operator abort ends new command generation.
+A deliberate hold-to-enable interaction starts new targets. Releasing it holds
+the last safe target rather than creating a new target from missing tracking.
+Tracking loss, stale input, invalid feedback, transport fault, limit violation,
+or operator abort ends new target generation.
 
-After an abort, preserve the relevant logs and inspect the failure at the VR,
-ROS 2, IK, supervisor, and actuator boundaries. Do not repeat a trial until
-the failure mode and responsible operator have been reviewed.
+After an abort, preserve the relevant timestamps and logs. Review the failure
+at the Quest input, ROS 2 transport, IK, supervisor, and actuator boundary
+before another trial. Do not solve a fault by running a second daemon or by
+bypassing freshness and limit checks.
+
+## Recording and visual evidence
+
+Recording is a read-only observer of command and measured-state streams. The
+OpenCV visual-confirmation tool is also read-only: it may create annotated
+video and CSV review artifacts, but it does not identify a target, prove
+contact/retraction, or determine task success. See
+[the visual-confirmation demo](quest-vr-opencv-demo.md).
+
+## NERO separation
+
+The NERO dual-arm work is a separate, pre-power roadmap. Reusable principles
+are single actuator ownership, explicit namespaces, hold-to-enable,
+freshness/timeout checks, and trial logs. Piper-specific process topology,
+CAN configuration, gains, workspace limits, and real-arm evidence must not be
+reused as NERO operating settings. See
+[the NERO roadmap](nero-dual-arm-roadmap.md).
 
 ## What this guide establishes
 
-It establishes the intended control ownership and safety-gate design. It does
-not establish task success, controller robustness, calibration quality, or
-permission for unattended operation.
+It establishes a safety and evidence protocol for supervised evaluation. It
+does not establish calibration quality, controller robustness, task success,
+or permission for unattended operation.
