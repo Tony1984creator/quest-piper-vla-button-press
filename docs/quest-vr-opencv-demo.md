@@ -34,6 +34,28 @@ The frame CSV records candidate state, streak length, bounding box, orange-pixel
 count, and confidence. The event CSV records the first frame and confirmation
 frame for each newly confirmed run. Keep the outputs outside the source dataset.
 
+## Batch handoff: MP4 directory to review queue
+
+The delivered batch entry point accepts a directory of wrist-camera MP4 files
+and writes two compact review artifacts. It is also read-only: it does not
+modify source videos, start ROS 2, open CAN, or command hardware.
+
+```bash
+python opencv_preannotation/run_full_preannotation.py \
+  --input-directory /path/to/wrist_video_directory \
+  --output-directory outputs/run_001 \
+  --min-orange-pixels 1000
+```
+
+- `press_confirmed_visual_segments.jsonl`: one record per temporally stable
+  visual segment, including frame range, representative bounding box/confidence,
+  source chunk, and an empty `human_label` field for subsequent review.
+- `preannotation_summary.csv`: one row per input MP4 with its frame count and
+  candidate-segment count.
+
+`press_confirmed_visual` means only that a sufficiently large orange region was
+visually active for at least three consecutive frames. It is not a target-floor,
+contact, retraction, or task-success label.
 ## Test
 
 ```bash
@@ -41,5 +63,6 @@ python -m unittest discover -s tests -v
 ```
 
 The renderer test creates a synthetic video, checks that confirmation begins
-only on the third consecutive active frame, and verifies one event record. It
-does not use robot hardware or private data.
+only on the third consecutive active frame, and verifies one event record. The
+batch-entry test creates a synthetic MP4 and verifies one JSONL segment plus one
+CSV summary row. Neither test uses robot hardware or private data.
