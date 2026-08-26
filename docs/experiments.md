@@ -63,3 +63,12 @@ Every run should record:
 ## Current honest status
 
 The present result supports: a real teleoperation/data path, a valid VLA-JEPA 2.1 training interface, a 100-step real-data pilot with the intended gradient contract, a non-actuating offline action probe, and a visually audited pre-annotation workflow. It does not yet support: a successful ACT baseline comparison, a causal VLA-JEPA benefit claim, or a completed real-robot button-press success rate.
+
+
+## Runtime measurement boundary
+
+Runtime evidence is a separate experiment from learning quality. The repository now includes a dependency-free [offline latency protocol](offline-inference-benchmark.md) that measures p50/p95 wall-clock latency, optional pre/model/post/safety stages, and action-chunk metadata for an already-safe callable. The tool records `hardware_commands_sent: false` and has unit tests for this invariant.
+
+A retained historical client audit recorded five end-to-end remote policy requests: 5.95, 6.08, 8.43, 9.86, and 12.86 seconds (p50 8.43 s; p95 12.26 s). This includes image handling, remote transport, server inference, and client work; it is neither model-forward latency nor a task-success result. The historical client had a robot-integration path, so the public record makes no per-request actuation assertion. See [remote inference latency audit](remote-inference-latency-audit.md).
+
+No real-model per-stage latency is currently retained in this public record. A report may be added only after a reviewed adapter runs without ROS, CAN, SDK, daemon, or device initialization, with a fixed input contract and sanitized output.
