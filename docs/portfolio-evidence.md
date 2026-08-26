@@ -23,3 +23,17 @@
 ## A concise interview narrative
 
 "I worked across the robot-learning stack rather than only training a model: I connected VR teleoperation to a real arm through ROS 2, IK, and a safety-bounded command path; structured the resulting LeRobot data with explicit unit contracts; verified a V-JEPA 2.1 auxiliary-world-model integration on real tensors; and built a read-only OpenCV workflow to create auditable visual stage candidates. My next milestone is a controlled ACT baseline and paired ablation followed by safety-gated button-press trials."
+
+
+## Research-email summary
+
+I work on the engineering boundary between robot learning and physical execution. In a Quest-to-Piper button-press project, I integrated a safety-bounded VR/ROS 2/IK/daemon/SDK-CAN chain, turned its demonstrations into a unit-explicit LeRobot contract, and validated a frozen-teacher VLA-JEPA 2.1 auxiliary objective on real tensors. I also built a read-only visual review signal rather than presenting image cues as task success. The next controlled question is whether that auxiliary loss improves a matched ACT baseline, followed by safety-gated closed-loop evaluation.
+
+## Claim, evidence, boundary, next experiment
+
+| Claim | Evidence | Boundary | Next experiment |
+| --- | --- | --- | --- |
+| I can integrate a learning stack with a physical robot safely. | Quest→ROS 2→IK→guarded daemon→SDK/CAN chain exercised on a Piper arm. | Not a released controller or a robustness result. | Execute a fixed, operator-reviewed trial matrix. |
+| I can make robot-learning data contracts auditable. | 40 episodes / 14,653 frames; two RGB views; 7D vectors; one degree-to-radian boundary. | No held-out benchmark result yet. | Freeze an episode split and ACT baseline. |
+| I can distinguish a model-interface result from a performance result. | 386/12 V-JEPA migration; real-data gradient and offline [1,7,7] action probe. | Auxiliary loss reduction is not policy improvement. | Matched multi-seed ACT versus ACT+auxiliary ablation. |
+| I can reason about endpoint feasibility instead of hand-waving latency. | Historical remote request-loop p50/p95 was 8.43/12.26 s over five samples; a tested benchmark harness reports p50/p95 with a no-actuation invariant. | The historical loop combines capture, network, server, and client work; it is not model-only latency. | Benchmark one reviewed offline callable on a fixed 6GB-GPU deployment contract. |
