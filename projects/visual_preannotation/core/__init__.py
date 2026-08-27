@@ -1,0 +1,2 @@
+"""Canonical visual candidate utilities."""
+
