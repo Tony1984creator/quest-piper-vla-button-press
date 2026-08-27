@@ -15,6 +15,8 @@ Reject stale or malformed candidate commands before any private actuation layer.
 ## Evidence
 Quest → ROS 2 → IK → guarded daemon → SDK/CAN → Piper was exercised; the private daemon runs at 50 Hz with timeout/tracking protection.
 
+Read the [integration evidence](evidence.md).
+
 ## Boundary and next test
 This module has no ROS/CAN/SDK imports and cannot operate a robot. Next: private command/feedback timestamp alignment.
 

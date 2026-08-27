@@ -1,4 +1,4 @@
-"""Render read-only visual-confirmation review artifacts from a video."""
++"""Render read-only visual-confirmation review artifacts from a video."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ from pathlib import Path
 
 import cv2
 
-from .global_confirmed_detector import detect_illuminated_button
+from projects.visual_preannotation.core.global_confirmed_detector import detect_illuminated_button
 
 
 def render_visual_confirmation(
@@ -134,3 +134,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+

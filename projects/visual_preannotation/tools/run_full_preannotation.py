@@ -1,4 +1,4 @@
-"""Run read-only, compact OpenCV preannotation over all wrist-video chunks."""
++"""Run read-only, compact OpenCV preannotation over all wrist-video chunks."""
 
 from __future__ import annotations
 
@@ -9,8 +9,8 @@ from pathlib import Path
 
 import cv2
 
-from global_confirmed_detector import detect_illuminated_button
-from preannotation import build_press_confirmation_segments
+from projects.visual_preannotation.core.global_confirmed_detector import detect_illuminated_button
+from projects.visual_preannotation.core.preannotation import build_press_confirmation_segments
 
 
 def process_video(video_path: Path, chunk_id: str, min_orange_pixels: int) -> tuple[int, list[dict[str, object]]]:
@@ -73,3 +73,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+

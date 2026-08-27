@@ -7,12 +7,18 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from opencv_preannotation.visualize_press_confirmation import render_visual_confirmation
+try:
+    import cv2
+    import numpy as np
+    from projects.visual_preannotation.tools.visualize_press_confirmation import (
+        render_visual_confirmation,
+    )
+except ModuleNotFoundError:
+    cv2 = None
+    np = None
 
-import cv2
-import numpy as np
 
-
+@unittest.skipUnless(cv2 is not None and np is not None, "opencv-python and numpy are required")
 class VisualConfirmationRendererTests(unittest.TestCase):
     def test_writes_one_event_when_the_third_consecutive_frame_is_active(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -47,4 +53,5 @@ class VisualConfirmationRendererTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
 

@@ -1,14 +1,10 @@
-import sys
 import unittest
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "opencv_preannotation"))
 
 try:
     import cv2  # noqa: F401
     import numpy as np
 
-    from global_confirmed_detector import detect_illuminated_button
+    from projects.visual_preannotation.core.global_confirmed_detector import detect_illuminated_button
 except ModuleNotFoundError:
     CV2_AVAILABLE = False
 else:
@@ -38,3 +34,4 @@ class GlobalConfirmedDetectorTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

@@ -20,7 +20,7 @@ except ModuleNotFoundError:
 class RunFullPreannotationTests(unittest.TestCase):
     def test_writes_one_visual_segment_and_one_summary_row(self) -> None:
         root = Path(__file__).resolve().parents[1]
-        runner = root / "opencv_preannotation" / "run_full_preannotation.py"
+        runner_module = "projects.visual_preannotation.tools.run_full_preannotation"
         with tempfile.TemporaryDirectory() as temporary_directory:
             temporary_path = Path(temporary_directory)
             input_directory = temporary_path / "input"
@@ -40,7 +40,8 @@ class RunFullPreannotationTests(unittest.TestCase):
             subprocess.run(
                 [
                     sys.executable,
-                    str(runner),
+                    "-m",
+                    runner_module,
                     "--input-directory",
                     str(input_directory),
                     "--output-directory",
@@ -49,7 +50,7 @@ class RunFullPreannotationTests(unittest.TestCase):
                     "1000",
                 ],
                 check=True,
-                cwd=root / "opencv_preannotation",
+                cwd=root,
             )
 
             events = [
@@ -71,3 +72,4 @@ class RunFullPreannotationTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

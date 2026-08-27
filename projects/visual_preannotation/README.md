@@ -15,6 +15,8 @@ Reduce wrist-video review while keeping a bright visual event separate from task
 ## Evidence
 12 wrist videos, 188,418 frames, 421 stable candidates; stratified audit 48 yes / 0 no / 0 uncertain.
 
+Read the [visual-review evidence](evidence.md) and use the read-only [tools](tools/).
+
 ## Boundary and next test
 No floor identity, contact, or success is inferred. Next: join target identity, contact/retraction, and human-reviewed outcomes.
 

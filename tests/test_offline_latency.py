@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from benchmarks.offline_latency import percentile_ms, run_offline_benchmark
+from shared.runtime_benchmark.offline_latency import percentile_ms, run_offline_benchmark
 
 
 class OfflineLatencyTest(unittest.TestCase):
@@ -33,9 +33,9 @@ class OfflineLatencyCliTest(unittest.TestCase):
                 [
                     sys.executable,
                     "-m",
-                    "benchmarks.offline_latency",
+                    "shared.runtime_benchmark.offline_latency",
                     "--callable",
-                    "benchmarks.example_fake_policy:infer",
+                    "shared.runtime_benchmark.example_fake_policy:infer",
                     "--repeats",
                     "2",
                     "--output",

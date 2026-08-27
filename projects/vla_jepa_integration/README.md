@@ -15,6 +15,8 @@ Upgrade the teacher interface without silently changing layout, optimizer owners
 ## Evidence
 386 tensors mapped, 12 reinitialized; real views `[1,8,3,480,640]`; 100-step world loss 1.2344→1.1668.
 
+Read the [migration evidence](evidence.md).
+
 ## Boundary and next test
 Variable action loss means no policy gain is claimed. Next: matched ACT versus auxiliary-loss ablation.
 

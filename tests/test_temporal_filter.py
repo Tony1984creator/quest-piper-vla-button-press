@@ -4,7 +4,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "opencv_preannotation"))
 
-from temporal_filter import confirmed_segments
+from projects.visual_preannotation.core.temporal_filter import confirmed_segments
 
 
 class ConfirmedSegmentsTest(unittest.TestCase):
@@ -24,3 +24,4 @@ class ConfirmedSegmentsTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

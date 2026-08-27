@@ -15,6 +15,8 @@ Prevent unit drift and frame-level leakage from invalidating robot-learning resu
 ## Evidence
 40 episodes, 14,653 frames at 30 FPS, two 640×480 RGB streams, and 7D state/action are recorded.
 
+Read the [dataset evidence](evidence.md).
+
 ## Boundary and next test
 This is a data protocol, not a generalization benchmark. Next: freeze episode-level manifests and publish a sanitized data card.
 

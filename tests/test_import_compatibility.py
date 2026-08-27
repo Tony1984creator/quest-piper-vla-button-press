@@ -1,24 +1,22 @@
-import sys
+import importlib.util
 import unittest
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "opencv_preannotation"))
-
-from benchmarks import offline_latency as legacy_latency
-from opencv_preannotation import preannotation as legacy_preannotation
-from projects.visual_preannotation.core import preannotation as canonical_preannotation
-from shared.runtime_benchmark import offline_latency as canonical_latency
+from projects.visual_preannotation.core import preannotation
+from shared.runtime_benchmark import offline_latency
 
 
 class ImportCompatibilityTest(unittest.TestCase):
-    def test_legacy_and_canonical_preannotation_imports_reference_same_function(self):
+    @unittest.skipUnless(importlib.util.find_spec("cv2"), "OpenCV is required; install requirements.txt")
+    def test_canonical_visual_tool_exposes_the_event_builder(self):
+        from projects.visual_preannotation.tools import run_full_preannotation
+
         self.assertIs(
-            legacy_preannotation.build_press_confirmation_segments,
-            canonical_preannotation.build_press_confirmation_segments,
+            run_full_preannotation.build_press_confirmation_segments,
+            preannotation.build_press_confirmation_segments,
         )
 
-    def test_legacy_and_canonical_latency_imports_reference_same_runner(self):
-        self.assertIs(legacy_latency.run_offline_benchmark, canonical_latency.run_offline_benchmark)
+    def test_canonical_runtime_module_exposes_the_runner(self):
+        self.assertTrue(callable(offline_latency.run_offline_benchmark))
 
 
 if __name__ == "__main__":

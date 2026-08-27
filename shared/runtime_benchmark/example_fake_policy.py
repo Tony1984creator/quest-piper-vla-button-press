@@ -1,4 +1,4 @@
-"""A dependency-free example callable used to verify the benchmark contract."""
+"""A dependency-free callable for verifying the benchmark contract."""
 
 
 def infer() -> dict[str, float]:

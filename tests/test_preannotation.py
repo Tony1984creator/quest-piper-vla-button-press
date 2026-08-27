@@ -4,7 +4,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "opencv_preannotation"))
 
-from preannotation import build_press_confirmation_segments
+from projects.visual_preannotation.core.preannotation import build_press_confirmation_segments
 
 
 class PreannotationTest(unittest.TestCase):
@@ -24,3 +24,4 @@ class PreannotationTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

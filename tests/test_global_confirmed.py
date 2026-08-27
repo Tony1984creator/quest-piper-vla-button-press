@@ -5,7 +5,7 @@ import unittest
 try:
     import cv2
     import numpy as np
-    from opencv_preannotation.global_confirmed_detector import detect_illuminated_button
+    from projects.visual_preannotation.core.global_confirmed_detector import detect_illuminated_button
 except ModuleNotFoundError:
     cv2 = None
     np = None
@@ -47,3 +47,4 @@ class DetectIlluminatedButtonTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
