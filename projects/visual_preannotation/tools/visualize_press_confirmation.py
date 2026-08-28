@@ -1,4 +1,4 @@
-+"""Render read-only visual-confirmation review artifacts from a video."""
+"""Render read-only visual-confirmation review artifacts from a video."""
 
 from __future__ import annotations
 
