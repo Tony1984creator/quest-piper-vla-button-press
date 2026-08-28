@@ -1,14 +1,14 @@
 # Portfolio evidence index
 
-This repository separates **systems integration**, **offline validation**, and **closed-loop task success**. Each project page states its own boundary so that a reader can distinguish a tested interface from an unverified task claim.
+This portfolio is organized for a research reviewer who needs to distinguish practical ownership from an overstated robotics claim.
 
-| Capability | Public evidence | Interview framing |
-| --- | --- | --- |
-| Robot systems | Quest → ROS 2 → IK → guarded private transport path exercised | Designed a freshness/finite-value safety boundary around a real teleoperation chain. |
-| Robot data | 40 episodes / 14,653 frames / two RGB streams / 7D fields | Made units and episode-level split rules explicit before policy comparison. |
-| Representation learning | 386 mapped / 12 reinitialized / real-data 100-step probe | Treated a V-JEPA upgrade as a compatibility and ablation problem. |
-| Deployment reasoning | action-chunk contract and historical whole-request timing | Separated endpoint-loop measurement from model-forward latency. |
-| Computer vision | 421 review candidates with a 48-sample visual audit | Used visual events to reduce review effort without relabelling them as success. |
+| Capability | What was solved | Evidence level | Concise interview framing |
+| --- | --- | --- | --- |
+| Robot systems | Isolated a private command owner and a reject-first safety boundary across VR, ROS 2, IK, and robot transport. | Systems integration | I treated teleoperation as a time-sensitive systems problem, not just a pose-mapping demo. |
+| Robot data | Made units, complete-episode splitting, stream alignment, and frame indexing explicit. | Offline probe | I made the collected data auditable before comparing policies. |
+| VLA / JEPA | Converted a teacher upgrade into strict loading, tensor, gradient, and pilot-loss checks. | Offline probe | I separated compatibility evidence from a model-performance claim. |
+| Deployment reasoning | Audited action dimensions/chunks and isolated fixed-protocol loss from endpoint timing. | Offline probe | I state what a metric measures before using it to make a systems decision. |
+| Computer vision | Built a conservative video-review cue and discarded a brittle identity shortcut. | Offline probe | I used vision to triage labels, while retaining human outcome verification. |
 
-For current experiment gates and next milestones, see the [active roadmap](roadmap/README.md).
+The result is an evidence chain: **collect safely → validate data → compare models fairly → constrain output → verify outcomes separately**. Current acceptance gates are in the [roadmap](roadmap/README.md).
 

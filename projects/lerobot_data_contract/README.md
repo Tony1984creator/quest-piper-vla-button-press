@@ -1,22 +1,24 @@
 # 02 · LeRobot data contract
 
 ## Problem solved
-Prevent unit drift and frame-level leakage from invalidating robot-learning results.
 
-## Key idea
-- storage uses degrees;
-- model/kinematics use radians at one explicit boundary;
-- split complete episodes, never adjacent frames.
+Make collected demonstrations trustworthy inputs to a model comparison: one unit boundary, complete-episode splits, and independently checkable frame metadata.
+
+## Design decisions
+
+- Store joint state/action in degrees; convert to radians exactly once at the model or kinematics boundary.
+- Split complete episodes rather than adjacent frames, preventing temporal leakage between training and validation.
+- Validate global indices, per-episode frame continuity, and nominal frame timing before a loader consumes the data.
 
 ## Core code
-- [unit token](core/data_contract.py): single-use degree→radian conversion.
-- [tests](../../tests/test_data_contract.py): conversion and double-conversion regressions.
 
-## Evidence
-40 episodes, 14,653 frames at 30 FPS, two 640×480 RGB streams, and 7D state/action are recorded.
+- [single-use conversion token](core/data_contract.py): blocks accidental repeated degree-to-radian conversion;
+- [episode-integrity validator](core/episode_integrity.py): checks frame and timestamp metadata without opening video or accessing hardware;
+- [regression tests](../../tests/test_data_contract.py) and [integrity tests](../../tests/test_episode_integrity.py).
 
-Read the [dataset evidence](evidence.md).
+## Evidence and boundary
 
-## Boundary and next test
-This is a data protocol, not a generalization benchmark. Next: freeze episode-level manifests and publish a sanitized data card.
+The private recording set contains 40 episodes and 14,653 frames at 30 FPS, two 640×480 RGB streams, and aligned 7D state/action fields. This establishes a documented data contract, not a released dataset or a generalization result. Details are kept in [dataset evidence](evidence.md).
+
+**Next acceptance gate:** freeze episode-level manifests, retain the QC report, and compare policies only on the same held-out episodes.
 

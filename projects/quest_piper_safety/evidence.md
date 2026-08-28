@@ -2,20 +2,20 @@
 
 ## Engineering problem
 
-Translate Quest controller intent into a private robot-control path without allowing stale tracking, malformed values, or competing processes to reach the actuator layer.
+Translate VR controller intent into a robot-control path while preventing stale tracking, malformed values, and multiple competing processes from reaching the actuator layer.
 
 ## Verified integration
 
-Quest controller pose and button interpretation → ROS 2 → Pinocchio/CasADi IK → guarded command daemon → Piper SDK/CAN → single Piper arm. The private daemon runs at 50 Hz and rejects commands on tracking loss or timeout.
+Quest controller interpretation → ROS 2 interface → Pinocchio/CasADi IK → guarded command daemon → private Piper SDK/CAN transport → one robot arm. The command owner was operated at 50 Hz and rejected new targets on tracking loss or timeout.
 
 ## Public safety contract
 
 - one daemon owns private transport;
-- candidate commands must be fresh, finite, and exactly 7D;
-- safety gate rejects rather than extrapolates;
-- public code contains no ROS, CAN, SDK, device, calibration, or actuation configuration.
+- a candidate must be fresh, finite, and exactly 7D;
+- the gate rejects rather than predicts or extrapolates;
+- no public file contains configuration, calibration, or command code for a physical device.
 
 ## Scope
 
-This proves an exercised systems-integration path and a testable public safety boundary. It does not claim public hardware reproduction or guarded closed-loop button-task success.
+This supports a systems-integration claim and demonstrates the safety boundary used around it. It does not claim public hardware reproducibility or guarded closed-loop task success.
 
