@@ -1,4 +1,4 @@
-+"""Run read-only, compact OpenCV preannotation over all wrist-video chunks."""
+"""Run read-only, compact OpenCV preannotation over all wrist-video chunks."""
 
 from __future__ import annotations
 
