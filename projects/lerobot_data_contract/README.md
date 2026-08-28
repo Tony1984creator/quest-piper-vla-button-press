@@ -1,4 +1,4 @@
-# 02 · LeRobot data contract
+# 02 · LeRobot data contract — Quest VR dataset
 
 ## Problem solved
 
@@ -18,7 +18,7 @@ Make collected demonstrations trustworthy inputs to a model comparison: one unit
 
 ## Evidence and boundary
 
-The private recording set contains 40 episodes and 14,653 frames at 30 FPS, two 640×480 RGB streams, and aligned 7D state/action fields. This establishes a documented data contract, not a released dataset or a generalization result. Details are kept in [dataset evidence](evidence.md).
+The **Quest VR dataset** contains 40 episodes and 14,653 frames at 30 FPS, two 640×480 RGB streams, and aligned 7D state/action fields. It is separate from the larger Elevator VLA dataset used in the VLA-JEPA and visual-review projects. This establishes a documented data contract, not a released dataset or a generalization result. Details are kept in [dataset evidence](evidence.md).
 
 **Next acceptance gate:** freeze episode-level manifests, retain the QC report, and compare policies only on the same held-out episodes.
 

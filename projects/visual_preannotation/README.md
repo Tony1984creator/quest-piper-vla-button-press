@@ -1,5 +1,11 @@
 # 05 · Visual pre-annotation
 
+## Workflow
+
+![Conservative visual-review workflow](../../docs/assets/opencv-review-workflow.svg)
+
+The output is a review cue; it never establishes a task outcome.
+
 ## Problem solved
 
 Reduce wrist-video review effort while preserving the distinction between a visible screen event and an actual task outcome.
@@ -19,7 +25,7 @@ Reduce wrist-video review effort while preserving the distinction between a visi
 
 ## Evidence and boundary
 
-The pipeline emitted 421 review candidates from 12 wrist videos / 188,418 frames. A stratified audit found all 48 sampled candidates visually valid. A single-template digit matcher was evaluated and discarded because occlusion and viewpoint changes made it unreliable. See [visual-review evidence](evidence.md).
+The pipeline runs on wrist video from the Elevator VLA dataset (not the Quest VR dataset). It emitted 421 review candidates from 12 wrist videos / 188,418 frames. A stratified audit found all 48 sampled candidates visually valid. A single-template digit matcher was evaluated and discarded because occlusion and viewpoint changes made it unreliable. See [visual-review evidence](evidence.md).
 
 `press_confirmed_visual` remains a review cue only; it does not assert target identity, contact, retraction, robot command, or success.
 

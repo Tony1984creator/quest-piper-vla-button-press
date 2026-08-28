@@ -4,6 +4,10 @@
 
 The teacher-interface upgrade mapped **386** encoder parameters and deliberately reinitialized **12** unmatched parameters. Strict-load checks completed for Qwen (626/626), the action head (248/248), and the predictor (156/156). The teacher encoder remained frozen.
 
+## Dataset boundary
+
+The pilot uses the private **Elevator VLA dataset** (952 episodes, 188,418 frames, 12 task groups), not the 40-episode Quest VR dataset. The larger aggregate is reported only to identify the experiment asset; samples, task text, and metadata are not public.
+
 ## Real-data pilot
 
 - two-view visual input: `[1,8,3,480,640]` per view;

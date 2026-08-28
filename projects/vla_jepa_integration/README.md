@@ -1,4 +1,4 @@
-# 03 · VLA-JEPA 2.1 integration
+# 03 · VLA-JEPA 2.1 integration — Elevator VLA dataset
 
 ## Problem solved
 
@@ -17,9 +17,13 @@ Turn a V-JEPA 2.0→2.1 upgrade into an explicit compatibility experiment: verif
 - [migration contract](core/migration_contract.py): validates the fixed upgrade invariants;
 - [regression tests](../../tests/test_vla_jepa_contracts.py) and [migration tests](../../tests/test_migration_contract.py).
 
+## Real-data scope
+
+The real-data pilot uses the separate **Elevator VLA dataset**: 952 episodes, 188,418 frames, and 12 task groups. Two-view visual batches provide `up` and `wrist` RGB clips; this asset is not the 40-episode Quest VR dataset described by the LeRobot project.
+
 ## Evidence and boundary
 
-The migration mapped 386 teacher tensors and intentionally reinitialized 12 unmatched tensors. A real-data compatibility pilot completed 100 finite training steps with audited gradients and offline action shape `[1,7,7]`. It is not a trained policy result. See [migration evidence](evidence.md).
+The migration mapped 386 teacher tensors and intentionally reinitialized 12 unmatched tensors. A real-data compatibility pilot completed 100 finite training steps with audited gradients and offline action shape `[1,7,7]`. The action-head state interface is reconciled from 7D input to its existing 8D encoder by explicit zero padding, preserving the pretrained encoder shape. It is not a trained policy result. See [migration evidence](evidence.md).
 
 **Next acceptance gate:** compare ACT and the auxiliary predictive objective under the same episode split, evaluation procedure, and training budget.
 

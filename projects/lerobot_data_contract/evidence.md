@@ -1,8 +1,8 @@
-# Dataset and unit-contract evidence
+# Quest VR dataset and unit-contract evidence
 
 ## Recorded-data snapshot
 
-The private LeRobot recording set contains **40 episodes** and **14,653 frames** at **30 FPS**. Every frame carries two 640×480 RGB streams and 7D joint state/action fields in a consistent joint order.
+The private **Quest VR dataset** contains **40 episodes** and **14,653 frames** at **30 FPS**. Every frame carries two 640×480 RGB streams and 7D joint state/action fields in a consistent joint order. It is not the Elevator VLA dataset used by the VLA-JEPA pilot and visual-review aggregate.
 
 ## QC checks completed
 

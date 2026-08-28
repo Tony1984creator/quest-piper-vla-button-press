@@ -17,5 +17,5 @@ Quest controller interpretation → ROS 2 interface → Pinocchio/CasADi IK → 
 
 ## Scope
 
-This supports a systems-integration claim and demonstrates the safety boundary used around it. It does not claim public hardware reproducibility or guarded closed-loop task success.
+This supports a systems-integration claim and demonstrates the safety boundary used around it. It does not claim public hardware reproducibility, a whole-body TeleOpIt implementation, or guarded closed-loop task success.
 

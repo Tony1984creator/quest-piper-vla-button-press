@@ -4,9 +4,9 @@ Each stage has a concrete acceptance gate; no stage is complete because a model 
 
 ## 1. Data and label closure
 
-Freeze complete-episode train/validation/test manifests; preserve degree storage and convert once at the model boundary; finish `success`, `failure_reason`, and `task_stage` review.
+Freeze complete-episode train/validation/test manifests for each dataset independently; preserve degree storage and convert once at the model boundary; finish `success`, `failure_reason`, and `task_stage` review.
 
-**Acceptance:** reproducible manifest, QC report, no frame-level leakage, and a label-review summary with excluded/ambiguous cases.
+**Acceptance:** reproducible manifest, QC report, no frame-level leakage, no cross-dataset aggregate mixing, and a label-review summary with excluded/ambiguous cases.
 
 ## 2. ACT baseline
 

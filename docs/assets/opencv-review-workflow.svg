@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="520" viewBox="0 0 1500 520" role="img" aria-labelledby="title desc">
+  <title id="title">Conservative wrist-video review workflow</title>
+  <desc id="desc">Frames are converted from BGR to HSV, filtered by a non-edge connected component and orange-pixel threshold, then confirmed only after three consecutive active frames. The output is a review cue, not a task-success label.</desc>
+  <defs>
+    <style>
+      .t{font:600 25px Arial,sans-serif;fill:#16233a}.s{font:18px Arial,sans-serif;fill:#31425b}.box{stroke-width:2;rx:18;ry:18}.arrow{stroke:#66758c;stroke-width:3;fill:none;marker-end:url(#m)}
+    </style>
+    <marker id="m" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#66758c"/></marker>
+  </defs>
+  <rect width="1500" height="520" fill="#fbfcfe"/>
+  <text x="750" y="55" text-anchor="middle" class="t">Conservative visual-review workflow</text>
+  <text x="750" y="83" text-anchor="middle" class="s">A visible illuminated region becomes a human-review cue — never a success label.</text>
+  <g>
+    <rect x="45" y="170" width="180" height="105" class="box" fill="#e5f0ff" stroke="#6d9fe2"/><text x="135" y="215" text-anchor="middle" class="t">Wrist video</text><text x="135" y="245" text-anchor="middle" class="s">MP4 frames</text>
+    <rect x="295" y="170" width="190" height="105" class="box" fill="#fff2dc" stroke="#eea63e"/><text x="390" y="215" text-anchor="middle" class="t">HSV conversion</text><text x="390" y="245" text-anchor="middle" class="s">orange range</text>
+    <rect x="555" y="150" width="235" height="145" class="box" fill="#fff2dc" stroke="#eea63e"/><text x="672" y="200" text-anchor="middle" class="t">Largest component</text><text x="672" y="232" text-anchor="middle" class="s">exclude image edges</text><text x="672" y="258" text-anchor="middle" class="s">orange pixels ≥ 1,000</text>
+    <rect x="860" y="170" width="220" height="105" class="box" fill="#e6f7ea" stroke="#55a76a"/><text x="970" y="215" text-anchor="middle" class="t">Temporal filter</text><text x="970" y="245" text-anchor="middle" class="s">3 active frames</text>
+    <rect x="1150" y="150" width="285" height="145" class="box" fill="#dff3e4" stroke="#3f9660"/><text x="1292" y="195" text-anchor="middle" class="t">Review artifacts</text><text x="1292" y="227" text-anchor="middle" class="s">stable visual event</text><text x="1292" y="253" text-anchor="middle" class="s">JSONL + annotated video</text>
+    <path d="M225 222 H295 M485 222 H555 M790 222 H860 M1080 222 H1150" class="arrow"/>
+  </g>
+  <rect x="300" y="370" width="900" height="82" class="box" fill="#f0f3f8" stroke="#a9b7ca"/><text x="750" y="405" text-anchor="middle" class="t">Semantic boundary</text><text x="750" y="433" text-anchor="middle" class="s">Does not identify a target, prove physical contact or retraction, or establish a closed-loop outcome.</text>
+</svg>
+

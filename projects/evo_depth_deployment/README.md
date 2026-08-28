@@ -18,7 +18,7 @@ Audit policy output and measurement scope before interpreting an endpoint experi
 
 ## Evidence and boundary
 
-A 300-step action-head-only pilot was evaluated under a fixed, same-187-batch real-data protocol; mean masked-flow loss changed from 0.84145 to 0.24486. This is offline optimization evidence, not a policy success or hardware result. Details are in [deployment evidence](evidence.md).
+A 300-step action-head-only pilot was evaluated under a fixed, same-187-batch real-data protocol; mean masked-flow loss changed from 0.84145 to 0.24486. The output contract was separately audited as a 25-step, 7-active-dimension window. This is offline optimization evidence, not a policy success or hardware result. Details are in [deployment evidence](evidence.md).
 
 **Next acceptance gate:** run an offline adapter benchmark with separately reported preprocessing, inference, and postprocessing time.
 

@@ -18,7 +18,7 @@ Separate human tracking, kinematics, and robot transport so incomplete or stale 
 
 ## Evidence and boundary
 
-The private interface chain from Quest input through ROS 2, IK, a guarded command owner, and robot transport was exercised. The public code has no ROS, CAN, SDK, calibration, or device dependencies and cannot operate a robot. See [integration evidence](evidence.md).
+The private interface chain from Quest input through ROS 2, IK, a guarded command owner, and robot transport was exercised. The design adapts the useful TeleOpIt idea—teleoperation as a recordable learning-data interface—while remaining a single-arm, safety-bounded system rather than a full-body or bimanual reproduction. The public code has no ROS, CAN, SDK, calibration, or device dependencies and cannot operate a robot. See [integration evidence](evidence.md).
 
 **Next acceptance gate:** preserve timestamped command/feedback evidence behind the same private gate before reporting any closed-loop outcome.
 
