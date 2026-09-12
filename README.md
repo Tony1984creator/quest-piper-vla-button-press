@@ -37,7 +37,7 @@ Only the reusable, hardware-independent contracts and aggregate evidence are pub
 | VLA-JEPA 2.1 | 386 teacher tensors mapped, 12 reinitialized; strict loading and a 100-step real-data training pilot completed. | Offline probe | Demonstrates a controlled representation-model migration rather than an unverified swap. |
 | Evo-Depth | 300-step action-head-only controlled pilot; same fixed 187-batch evaluation changed masked-flow loss 0.841452 → 0.244856. | Offline probe | Couples optimization evidence to a fixed evaluation protocol. |
 | Visual review | HSV + component + temporal workflow emitted 421 candidates; 48 stratified samples were visually positive. | Offline probe | Reduces review effort without relabelling image evidence as success. |
-| CIAT / SmolVLA | 15 frozen LIBERO-Long anchor states, 129 terminal counterfactual branches, paired zero controls, and leave-one-state-out audit. | Offline probe | Tests correction evidence without confusing an offline terminal metric with online Q-gradient capability. |
+| CIAT / SmolVLA | A private VLA-Corrector experiment harness was extended with 15 frozen LIBERO-Long keyframe states, v3/v4 counterfactual collections, paired controls, and state-held-out absolute-Q/CRA audits. | Offline probe | Tests correction evidence without confusing reproducible offline data engineering with online Q-gradient capability. |
 
 ## Two data assets, two roles
 
@@ -80,4 +80,3 @@ The public modules use the Python standard library. The runtime helper records `
 ## Public boundary
 
 This repository excludes raw demonstrations, task text, checkpoints, internal addresses/paths, device identifiers, calibration values, robot settings, and ROS/CAN/SDK control code. It is a portfolio of engineering decisions and verifiable offline contracts, not a deployable robot controller.
-
