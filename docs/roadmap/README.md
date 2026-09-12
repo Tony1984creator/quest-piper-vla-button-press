@@ -20,6 +20,12 @@ Compare the ACT baseline with the auxiliary predictive objective under identical
 
 **Acceptance:** load/migration record, gradient and loss logs, comparable curves, and an explicit conclusion whether the auxiliary objective helps, hurts, or is inconclusive.
 
+## 3.5. CIAT offline correction audit
+
+Keep the frozen SmolVLA policy, LIBERO-Long task, causal anchor rule, and state-held-out split fixed. Compare the absolute terminal-outcome critic with a paired zero-control-relative advantage variant.
+
+**Acceptance:** paired-control consistency, declared action perturbation coverage, state-held-out ranking metric, absolute-Q versus relative-advantage ablation, and a written conclusion that remains offline unless the deployment gate is independently met.
+
 ## 4. Guarded closed-loop evaluation
 
 Keep any policy output behind the existing private safety gate and collect command/feedback timestamps with visual and human outcome labels.
