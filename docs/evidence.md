@@ -11,7 +11,6 @@ This portfolio is organized for a research reviewer who needs to distinguish pra
 | Deployment reasoning | Audited action dimensions/chunks and isolated fixed-protocol loss from endpoint timing. | Offline probe | I state what a metric measures before using it to make a systems decision. |
 | Computer vision | Built a conservative video-review cue and discarded a brittle identity shortcut. | Offline probe | I used vision to triage labels, while retaining human outcome verification. |
 | Transformer engineering | Implemented and profiled a 3.37M Transformer at operator/shape level before applying the same discipline to VLA interfaces. | Offline probe | I can explain tensor flow and runtime trade-offs beyond model API use. |
-| CIAT / SmolVLA | Built frozen-policy, causal-anchor, paired-control counterfactual branches plus a 99-pair control-relative-advantage audit on LIBERO-Long. | Offline probe | I separate a reproducible correction experiment from an unproven online Q-gradient claim. |
+| CIAT / SmolVLA | Extended a private experiment harness with causal keyframes, exact-prefix replay, paired controls, 15 frozen states, and v3/v4 state-held-out absolute-Q versus CRA audits. | Offline probe | I turned a Q-gradient idea into an auditable offline experiment, recorded that CRA v1 has not shown stable ranking gain, and kept online guidance out of scope. |
 
 The result is an evidence chain: **collect safely → validate data → compare models fairly → constrain output → verify outcomes separately**. Current acceptance gates are in the [roadmap](roadmap/README.md).
-
