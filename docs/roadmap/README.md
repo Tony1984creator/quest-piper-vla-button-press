@@ -24,7 +24,9 @@ Compare the ACT baseline with the auxiliary predictive objective under identical
 
 Keep the frozen SmolVLA policy, LIBERO-Long task, causal anchor rule, and state-held-out split fixed. Compare the absolute terminal-outcome critic with a paired zero-control-relative advantage variant.
 
-**Acceptance:** paired-control consistency, declared action perturbation coverage, state-held-out ranking metric, absolute-Q versus relative-advantage ablation, and a written conclusion that remains offline unless the deployment gate is independently met.
+**Status:** v3 absolute-Q and CRA v1 paired-target audits are complete (15 states, 99 CRA pairs). CRA's 0.1719 advantage MSE is not a deployment result because only 10 nonzero advantage events support ranking.
+
+**Next acceptance:** pre-register structured perturbation directions that increase event density, then compare absolute-Q and CRA with a state-held-out ranking metric and a written offline-only conclusion unless the deployment gate is independently met.
 
 ## 4. Guarded closed-loop evaluation
 
