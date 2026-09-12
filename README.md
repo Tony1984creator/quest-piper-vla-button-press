@@ -37,6 +37,7 @@ Only the reusable, hardware-independent contracts and aggregate evidence are pub
 | VLA-JEPA 2.1 | 386 teacher tensors mapped, 12 reinitialized; strict loading and a 100-step real-data training pilot completed. | Offline probe | Demonstrates a controlled representation-model migration rather than an unverified swap. |
 | Evo-Depth | 300-step action-head-only controlled pilot; same fixed 187-batch evaluation changed masked-flow loss 0.841452 → 0.244856. | Offline probe | Couples optimization evidence to a fixed evaluation protocol. |
 | Visual review | HSV + component + temporal workflow emitted 421 candidates; 48 stratified samples were visually positive. | Offline probe | Reduces review effort without relabelling image evidence as success. |
+| CIAT / SmolVLA | 15 frozen LIBERO-Long anchor states, 129 terminal counterfactual branches, paired zero controls, and leave-one-state-out audit. | Offline probe | Tests correction evidence without confusing an offline terminal metric with online Q-gradient capability. |
 
 ## Two data assets, two roles
 
@@ -55,6 +56,7 @@ Before the robot-learning integration work, I implemented and profiled a compact
 | [03 · VLA-JEPA integration](projects/vla_jepa_integration/README.md) | How can a teacher upgrade preserve tensor semantics and training ownership? | [Migration contract](projects/vla_jepa_integration/core/migration_contract.py) |
 | [04 · Evo-Depth deployment](projects/evo_depth_deployment/README.md) | What must be constrained and measured before an endpoint experiment is interpreted? | [Action-chunk contract](projects/evo_depth_deployment/core/action_chunk.py) |
 | [05 · Visual pre-annotation](projects/visual_preannotation/README.md) | How can video review be automated conservatively? | [Workflow and review sampler](projects/visual_preannotation/README.md#workflow) |
+| [06 · CIAT / SmolVLA](projects/ciat_smolvla/README.md) | Can paired counterfactual branches evaluate keyframe action correction without online deployment claims? | [Offline CIAT evidence](projects/ciat_smolvla/README.md) |
 
 ## Reading the evidence correctly
 
