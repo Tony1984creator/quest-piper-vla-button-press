@@ -2,9 +2,9 @@
 
 import unittest
 
-from afcr import axis_pair_targets, heldout_axis_sign
-from buced import rank_axes_for_collection
-from mace import first_event_scale
+from projects.ciat_smolvla.core.afcr import axis_pair_targets, heldout_axis_sign
+from projects.ciat_smolvla.core.buced import rank_axes_for_collection
+from projects.ciat_smolvla.core.mace import first_event_scale
 
 
 class OfflineRankerTests(unittest.TestCase):
