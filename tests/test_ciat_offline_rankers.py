@@ -4,6 +4,7 @@ import unittest
 
 from afcr import axis_pair_targets, heldout_axis_sign
 from buced import rank_axes_for_collection
+from mace import first_event_scale
 
 
 class OfflineRankerTests(unittest.TestCase):
@@ -27,6 +28,10 @@ class OfflineRankerTests(unittest.TestCase):
             {"axis": 1, "direction_target": 0.0}, {"axis": 1, "direction_target": 0.0},
         ]
         self.assertEqual(rank_axes_for_collection(pairs, [0, 1])[0]["axis"], 0)
+
+    def test_mace_stops_at_the_first_directional_event(self):
+        self.assertEqual(first_event_scale([(0.05, True, True), (0.15, True, False)]), 0.15)
+        self.assertIsNone(first_event_scale([(0.05, False, False), (0.15, True, True)]))
 
 
 if __name__ == "__main__":
