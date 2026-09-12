@@ -59,7 +59,29 @@ v4 retains the same 15 frozen anchor states and replay contract. It adds a prede
 
 The absolute-Q and CRA MSE values fit different targets and cannot be compared directly. The meaningful comparison is held-out ranking/direction on nonzero events. With only 12 such events, CRA v1 shows no stable ranking advantage. This is a recorded negative result, not an implementation failure: the collection, pairing, audit, and leakage guards all completed, but the evidence does not justify an online Q-gradient claim.
 
-## Archived AFCR v1: axis-factorized counterfactual ranking\n\nAFCR asks a narrower question than absolute Q or CRA. For a fixed keyframe state and primary action axis it compares the two measured probes directly:\n\n`D_i(s) = y(s, +εe_i) - y(s, -εe_i)`\n\nThe intent is to cancel a state’s broad success/failure prior and ask only whether the positive or negative axis direction was better. Its implementation reconstructs each pair from the raw bound branch delta and validates the candidate action, anchor step, branch seed, and initial-state identity before pairing. This is important because the recorded training-row action is a complete policy action rather than the isolated probe delta.\n\n| AFCR v1 measure | Result |\n| --- | --- |\n| Complete same-state ±axis pairs | 105 across 15 frozen states |\n| Direction-changing pairs / ties | 10 / 95 |\n| Abstentions | 49 / 105 |\n| Recommended nonzero events | 4 |\n| Correct recommended directions | 0 / 4 |\n\nAFCR v1 has no stable global axis-direction signal under state-held-out evaluation. Its nonzero event set is not the same as the 12 candidate/control events used by the absolute-Q/CRA audit, so these figures are not a single numerical leaderboard. This is a useful negative result: it rules out threshold tuning or a high-capacity state MLP on this sparse collection as a justified next step.\n\n## Evidence boundary and next gate
+## Archived AFCR v1: axis-factorized counterfactual ranking
+
+AFCR asks a narrower question than absolute Q or CRA. For a fixed keyframe state and primary action axis it compares the two measured probes directly:
+
+`D_i(s) = y(s, +εe_i) - y(s, -εe_i)`
+
+The intent is to cancel a state’s broad success/failure prior and ask only whether the positive or negative axis direction was better. Its implementation reconstructs each pair from the raw bound branch delta and validates the candidate action, anchor step, branch seed, and initial-state identity before pairing. This is important because the recorded training-row action is a complete policy action rather than the isolated probe delta.
+
+| AFCR v1 measure | Result |
+| --- | --- |
+| Complete same-state ±axis pairs | 105 across 15 frozen states |
+| Direction-changing pairs / ties | 10 / 95 |
+| Abstentions | 49 / 105 |
+| Recommended nonzero events | 4 |
+| Correct recommended directions | 0 / 4 |
+
+AFCR v1 has no stable global axis-direction signal under state-held-out evaluation. Its nonzero event set is not the same as the 12 candidate/control events used by the absolute-Q/CRA audit, so these figures are not a single numerical leaderboard. This is a useful negative result: it rules out threshold tuning or a high-capacity state MLP on this sparse collection as a justified next step.
+
+## Public offline core
+
+The public [AFCR pairing/sign baseline](core/afcr.py) and [BUCED acquisition ranker](core/buced.py) are dependency-free reference implementations. They operate only on aggregate rows, contain no private paths or simulator calls, and cannot load weights or command hardware. [Focused tests](../../tests/test_ciat_offline_rankers.py) document signed-pair completeness, state-held-out isolation, and acquisition ordering.
+
+## Evidence boundary and next gate
 
 CIAT is **not** connected to online Q-gradient action updates. It does not claim policy improvement, simulation success improvement, real-time performance, or robot task success.
 
