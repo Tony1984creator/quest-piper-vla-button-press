@@ -77,12 +77,23 @@ The intent is to cancel a state’s broad success/failure prior and ask only whe
 
 AFCR v1 has no stable global axis-direction signal under state-held-out evaluation. Its nonzero event set is not the same as the 12 candidate/control events used by the absolute-Q/CRA audit, so these figures are not a single numerical leaderboard. This is a useful negative result: it rules out threshold tuning or a high-capacity state MLP on this sparse collection as a justified next step.
 
+## Archived BUCED and MACE fresh-state pilots
+
+BUCED and MACE were intentionally evaluated as **data-design hypotheses**, not as action controllers. Both used new frozen keyframe states, exact-prefix replay, and double zero-action controls.
+
+| Pilot | Fresh states | Controls | Intervention | Result |
+| --- | ---: | ---: | --- | --- |
+| BUCED | 5 | 5 / 5 consistent | BUCED-prioritized axis versus a pre-registered balanced axis, each with a signed ±0.05 pair | 0 / 5 direction-changing pairs in either arm; no evidence that axis ranking increased event discovery. |
+| MACE | 5 | 5 / 5 consistent | Signed primary-axis pairs escalate ±0.05 → ±0.15 → ±0.25 only after a tie | 1 / 5 states changed at ±0.05; the other 4 stayed tied through ±0.25. Larger magnitude did not enrich events in this pilot. |
+
+These are informative negative results. The bottleneck is now localized to the causal keyframe/task-stage trigger: neither a global axis ranking nor larger perturbations generated enough non-tied outcomes for a correction learner. They do not measure policy improvement, online action quality, or robot success.
+
 ## Public offline core
 
-The public [AFCR pairing/sign baseline](core/afcr.py) and [BUCED acquisition ranker](core/buced.py) are dependency-free reference implementations. They operate only on aggregate rows, contain no private paths or simulator calls, and cannot load weights or command hardware. [Focused tests](../../tests/test_ciat_offline_rankers.py) document signed-pair completeness, state-held-out isolation, and acquisition ordering.
+The public [AFCR pairing/sign baseline](core/afcr.py), [BUCED acquisition ranker](core/buced.py), and [MACE first-event rule](core/mace.py) are dependency-free reference implementations. They operate only on aggregate rows, contain no private paths or simulator calls, and cannot load weights or command hardware. [Focused tests](../../tests/test_ciat_offline_rankers.py) document signed-pair completeness, state-held-out isolation, acquisition ordering, and first-event stopping.
 
 ## Evidence boundary and next gate
 
 CIAT is **not** connected to online Q-gradient action updates. It does not claim policy improvement, simulation success improvement, real-time performance, or robot task success.
 
-The next algorithm must be stated as a fresh, pre-registered hypothesis and compared with the immutable CIAT v3/v4/AFCR baselines using the same frozen policy/runtime and a state-held-out metric. The preferred next direction is uncertainty-guided counterfactual data design: rank state-axis pairs for *new collection* by evidence uncertainty/disagreement rather than claiming an immediate action correction. It remains a future hypothesis until fresh data and an evaluation are complete.
+The next algorithm must be stated as a fresh, pre-registered keyframe-stage/event-enrichment hypothesis and compared with the immutable CIAT baselines using the same frozen policy/runtime. The immediate direction is to improve the causal keyframe trigger, not to add another critic, global axis ranker, or larger action magnitude. It remains a future hypothesis until fresh data and an evaluation are complete.
