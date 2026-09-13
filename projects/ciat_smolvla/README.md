@@ -88,6 +88,22 @@ BUCED and MACE were intentionally evaluated as **data-design hypotheses**, not a
 
 These are informative negative results. The bottleneck is now localized to the causal keyframe/task-stage trigger: neither a global axis ranking nor larger perturbations generated enough non-tied outcomes for a correction learner. They do not measure policy improvement, online action quality, or robot success.
 
+## Archived CST: causal stage-transition trigger contrast
+
+CST tests whether a more stage-aware **action-history-only** keyframe selector can create more useful counterfactual events. It does not inspect observations, terminal outcomes, or future frames. It chooses a prior gripper sign transition when present and otherwise a local 7D action-change peak, then snaps the selected time to the replay grid.
+
+A fresh five-state contrast (init 25–29) compared the immutable legacy action-history anchor with CST under the same budget. For each state and each trigger arm, two zero-action controls and one signed primary-axis ±0.05 pair were executed.
+
+| Measure | Legacy anchor | CST |
+| --- | ---: | ---: |
+| Fresh states | 5 | 5 |
+| Completed branches | 20 / 20 | 20 / 20 |
+| Consistent paired-control groups | 5 / 5 | 5 / 5 |
+| Direction-changing signed pairs | 2 / 5 | 2 / 5 |
+| Event rate | 40.0% | 40.0% |
+
+CST produced no event-density lift over the legacy anchor. This clean negative result rules out further tuning of an action-history-only trigger on this evidence. It does not show that task-stage information is useless; rather, the next trigger hypothesis would need pre-registered task or visual semantics and fresh matched data.
+
 ## Public offline core
 
 The public [AFCR pairing/sign baseline](core/afcr.py), [BUCED acquisition ranker](core/buced.py), and [MACE first-event rule](core/mace.py) are dependency-free reference implementations. They operate only on aggregate rows, contain no private paths or simulator calls, and cannot load weights or command hardware. [Focused tests](../../tests/test_ciat_offline_rankers.py) document signed-pair completeness, state-held-out isolation, acquisition ordering, and first-event stopping.
@@ -96,4 +112,4 @@ The public [AFCR pairing/sign baseline](core/afcr.py), [BUCED acquisition ranker
 
 CIAT is **not** connected to online Q-gradient action updates. It does not claim policy improvement, simulation success improvement, real-time performance, or robot task success.
 
-The next algorithm must be stated as a fresh, pre-registered keyframe-stage/event-enrichment hypothesis and compared with the immutable CIAT baselines using the same frozen policy/runtime. The immediate direction is to improve the causal keyframe trigger, not to add another critic, global axis ranker, or larger action magnitude. It remains a future hypothesis until fresh data and an evaluation are complete.
+The next algorithm must be stated as a fresh, pre-registered keyframe-stage/event-enrichment hypothesis and compared with the immutable CIAT baselines using the same frozen policy/runtime. The action-history-only trigger contrast is now also archived. A future hypothesis must add pre-registered task or visual stage information; it should not add another critic, global axis ranker, magnitude schedule, or action-only trigger without new evidence.
