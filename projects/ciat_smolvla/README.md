@@ -106,7 +106,7 @@ CST produced no event-density lift over the legacy anchor. This clean negative r
 
 ## Public offline core
 
-The public [AFCR pairing/sign baseline](core/afcr.py), [BUCED acquisition ranker](core/buced.py), and [MACE first-event rule](core/mace.py) are dependency-free reference implementations. They operate only on aggregate rows, contain no private paths or simulator calls, and cannot load weights or command hardware. [Focused tests](../../tests/test_ciat_offline_rankers.py) document signed-pair completeness, state-held-out isolation, acquisition ordering, and first-event stopping.
+The public [AFCR pairing/sign baseline](core/afcr.py), [BUCED acquisition ranker](core/buced.py), [MACE first-event rule](core/mace.py), and [CST action-history trigger](core/cst.py) are dependency-free reference implementations. They operate only on aggregate rows, contain no private paths or simulator calls, and cannot load weights or command hardware. [Focused tests](../../tests/test_ciat_offline_rankers.py) document signed-pair completeness, state-held-out isolation, acquisition ordering, and first-event stopping.
 
 ## Evidence boundary and next gate
 
