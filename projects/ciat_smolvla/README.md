@@ -113,3 +113,49 @@ The public [AFCR pairing/sign baseline](core/afcr.py), [BUCED acquisition ranker
 CIAT is **not** connected to online Q-gradient action updates. It does not claim policy improvement, simulation success improvement, real-time performance, or robot task success.
 
 The next algorithm must be stated as a fresh, pre-registered keyframe-stage/event-enrichment hypothesis and compared with the immutable CIAT baselines using the same frozen policy/runtime. The action-history-only trigger contrast is now also archived. A future hypothesis must add pre-registered task or visual stage information; it should not add another critic, global axis ranker, magnitude schedule, or action-only trigger without new evidence.
+
+
+## Archived SPARC: visual-progress anchor contrast
+
+SPARC tested whether frozen SmolVLA features could supply a visual-progress
+anchor and a low-capacity progress contrast without training another large
+critic. A baseline campaign collected 20 fresh initial states (14/20 terminal
+successes). A fixed random projection plus ridge head was fit only on
+development states; the held-out protocol matched a SPARC visual anchor
+against the archived causal action-history anchor.
+
+| Measure | Development SPARC | Held-out SPARC | Held-out legacy |
+| --- | ---: | ---: | ---: |
+| States | 12 | 8 | 8 |
+| Paired branches | 48 | 32 | 32 |
+| Non-tied progress proxy pairs | 12 / 12 | 8 / 8 | 8 / 8 |
+| Terminal direction-changing pairs | 0 | 1 | 0 |
+| Correct terminal directions | — | 1 / 1 | — |
+
+The collection and feature path are valid, but one held-out terminal event
+cannot support a policy-success or Q-gradient claim. SPARC is archived as a
+working visual-anchor/proxy pipeline with insufficient external outcome
+evidence; more progress-head, threshold, or critic tuning is not justified.
+
+## Archived STAGE-CF: task-stage-conditioned counterfactual trigger
+
+STAGE-CF replaced terminal success as the *trigger label* with deterministic
+simulator-observable Task-5 geometry: end-effector, book, and the caddy back
+compartment. It selected anchors by replaying the frozen action prefix and
+choosing the largest positive physical stage transition. The public
+reference core contains only recorded-position scoring and cannot access a
+simulator, model, or robot.
+
+| Measure | Development STAGE-CF | Held-out STAGE-CF | Held-out legacy |
+| --- | ---: | ---: | ---: |
+| State-validated anchor coverage | 12 / 12 | 8 / 8 | 8 / 8 |
+| Paired branches | 48 | 32 | 32 |
+| Non-tied stage pairs | 12 / 12 | 8 / 8 | 6 / 8 |
+| Stage abstentions | 0 / 12 | 0 / 8 | 2 / 8 |
+| Terminal direction-changing pairs | 1 | 2 | 0 |
+| Correct terminal directions | 0 / 1 | 1 / 2 | — |
+
+STAGE-CF improves stage-label coverage over the legacy trigger, but the
+external terminal evidence remains two pairs and only one correct direction.
+It is therefore an engineering and measurement improvement, not evidence of
+task-success improvement. Further STAGE-CF score tuning is stopped.
