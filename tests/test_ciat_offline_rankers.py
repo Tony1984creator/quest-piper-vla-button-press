@@ -6,6 +6,8 @@ from projects.ciat_smolvla.core.afcr import axis_pair_targets, heldout_axis_sign
 from projects.ciat_smolvla.core.buced import rank_axes_for_collection
 from projects.ciat_smolvla.core.mace import first_event_scale
 from projects.ciat_smolvla.core.cst import select_stage_transition
+from projects.ciat_smolvla.core.sparc import signed_progress_preference
+from projects.ciat_smolvla.core.stage_cf import score_book_transition, signed_stage_preference
 
 
 class OfflineRankerTests(unittest.TestCase):
@@ -35,7 +37,19 @@ class OfflineRankerTests(unittest.TestCase):
         actions += [[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0] for _ in range(40)]
         self.assertEqual(select_stage_transition(actions, min_step=20, tail_guard=10), 30)
 
-    def test_mace_stops_at_the_first_directional_event(self):
+    def test_sparc_reports_a_signed_measured_progress_preference(self):
+        self.assertEqual(signed_progress_preference(-0.1, 0.2), 1)
+        self.assertEqual(signed_progress_preference(0.2, 0.2), 0)
+
+    def test_stage_cf_scores_geometry_without_a_terminal_label(self):
+        result = score_book_transition(
+            {"eef": [0, 0, 0], "book": [0, 0, 0], "back_goal": [1, 0, 0]},
+            {"eef": [0, 0, 0], "book": [0.5, 0, 0], "back_goal": [1, 0, 0]},
+        )
+        self.assertEqual(result["stage"], "transport")
+        self.assertEqual(signed_stage_preference(0.1, 0.2), 1)
+
+    def test_mace_stops_at_the_first_directional_event:
         self.assertEqual(first_event_scale([(0.05, True, True), (0.15, True, False)]), 0.15)
         self.assertIsNone(first_event_scale([(0.05, False, False), (0.15, True, True)]))
 
