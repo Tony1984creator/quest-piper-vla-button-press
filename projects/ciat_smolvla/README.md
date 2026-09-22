@@ -159,3 +159,21 @@ STAGE-CF improves stage-label coverage over the legacy trigger, but the
 external terminal evidence remains two pairs and only one correct direction.
 It is therefore an engineering and measurement improvement, not evidence of
 task-success improvement. Further STAGE-CF score tuning is stopped.
+
+
+## Archived MSTE: multi-scale transition evidence
+
+MSTE tested a different evidence structure rather than another critic: each signed branch records terminal-independent Task-5 geometry at 5, 20, and 60 continuation steps. A branch is called persistent only when 20- and 60-step book-to-back-compartment progress are positive and the later score does not materially regress. The scorer never reads terminal success; terminal direction is audited separately.
+
+| Measure | Development STAGE-CF | Held-out STAGE-CF | Held-out legacy |
+| --- | ---: | ---: | ---: |
+| Signed groups | 12 | 8 | 8 |
+| Persistent non-tied pairs | 8 / 12 | 3 / 8 | 4 / 8 |
+| Reversible pairs | 0 / 12 | 2 / 8 | 1 / 8 |
+| Abstention pairs | 4 / 12 | 5 / 8 | 4 / 8 |
+| Terminal direction-changing pairs | 1 | 2 | 0 |
+| Correct terminal directions | 1 / 1 | 0 / 2 | — |
+
+The development signal did not generalize: held-out MSTE Stage-CF produced fewer persistent non-tied pairs than the immutable legacy arm and neither held-out terminal direction matched. MSTE is therefore archived as a sound multi-horizon measurement experiment with a negative improvement result. It does not justify policy updates, online Q-gradient guidance, or further MSTE threshold/horizon/geometry-score tuning.
+
+The next hypothesis must change the information source or intervention design while preserving frozen-policy replay, matched signed probes, state-held-out evaluation, and strict separation between proxy labels and terminal outcomes.
