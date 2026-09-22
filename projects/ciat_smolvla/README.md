@@ -177,3 +177,38 @@ MSTE tested a different evidence structure rather than another critic: each sign
 The development signal did not generalize: held-out MSTE Stage-CF produced fewer persistent non-tied pairs than the immutable legacy arm and neither held-out terminal direction matched. MSTE is therefore archived as a sound multi-horizon measurement experiment with a negative improvement result. It does not justify policy updates, online Q-gradient guidance, or further MSTE threshold/horizon/geometry-score tuning.
 
 The next hypothesis must change the information source or intervention design while preserving frozen-policy replay, matched signed probes, state-held-out evaluation, and strict separation between proxy labels and terminal outcomes.
+
+## Archived GATE-V and ECDC: valid replay, no terminal lift
+
+GATE-V used causal goal-stall anchor selection plus disagreement across four
+frozen-SmolVLA action samples. ECDC then selected the farthest replayable pair
+of their complete seven-dimensional actions and evaluated it under matched
+controls. It is an offline counterfactual audit, not an online control loop.
+
+| Measure | Result |
+| --- | ---: |
+| ECDC branches completed | 16 / 16 |
+| Consistent duplicate-control groups | 4 / 4 |
+| Candidate-action replay maximum absolute error | 0 |
+| Terminal A/B direction-changing events | 0 / 4 |
+
+This is a useful negative result: replay and action selection were verified,
+but action diversity at these anchors did not yield terminal-outcome evidence.
+ECDC is archived rather than tuned or promoted to held-out evaluation.
+
+## PACE: a zero-rollout eligibility screen
+
+PACE (Progress-Aligned Counterfactual Eligibility) reuses terminal-independent
+5/20/60-step geometry already collected by ECDC. A candidate is eligible only
+when its progress is persistent and, if both candidates persist, their margin
+exceeds a predeclared threshold. It deliberately abstains otherwise.
+
+The pre-registered development prediction was that approximately three of four
+pairs would be eligible; the audit observed exactly 3 / 4. This confirms that
+dense trajectory information can screen candidate pairs without more
+simulation. It does **not** demonstrate terminal task success, an improved
+policy, or online Q-gradient guidance.
+
+- Reference implementations: [ECDC action-pair selection](core/ecdc.py) and
+  [PACE eligibility](core/pace.py).
+- Full evidence boundary and stop rules: [exploration ledger](docs/exploration-ledger.md).
