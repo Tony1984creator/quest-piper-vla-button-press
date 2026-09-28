@@ -1,9 +1,34 @@
 # Dated evidence ledger
 
-**Reporting date:** 2026-09-24  
+**Reporting date:** 2026-09-28  
 **Evidence level:** offline simulation probe
 
-## Latest paired-audit gate
+## Current evidence — 2026-09-28
+
+| Stage | Completed evidence | What it establishes |
+| --- | --- | --- |
+| Training-data confirmation | 84/84 confirmation branches completed; expanded fitting used 144 training and 36 development-validation branches. | The expanded data gate passed; the September 24 waiting state is historical. |
+| Real critic training | Nine fixed-budget diagnostic models were fit for 200 epochs each: linear, width-64 MLP, and action-free baseline, each with three seeds. | Real simulation supervision was used with frozen policy/state features. Training completion alone does not establish useful correction. |
+| Retrained direction audit | Linear heads reached 4/5 non-tied validation directions, compared with 1/5 in the first fit; candidate selection had zero net benefit. | Better direction ranking did not translate into a positive candidate-selection result. Five pairs share controls and are concentrated in two development states. |
+| Q-gradient execution | Real model finite-difference checks, ZeroQ equivalence, and nonzero action updates passed. | The gradient-to-action engineering path executes in simulation. It does not establish task improvement. |
+| Local direction supervision | Six action-conditioned heads fit a local directional constraint; 6/6 corrected the one eligible training pair; 12 finite-difference checks passed. | A local fitting defect was repaired. There is only one eligible pair, so action/state generalization remains unproven. |
+| Frozen-method flow comparison | 12/12 branches completed; all methods and controls succeeded in both groups; zero recoveries and zero degradations. | No failed control was available to test recovery; this is an execution and consistency result. |
+| Failure coverage and replay | A conditional coverage audit observed one recovery and one degradation for the new MLP; four event replays passed. | The events were reproducible within that diagnostic selection protocol. They are not an overall success-rate estimate. |
+| Fixed-noise confirmation | 28/28 branches completed over four fixed groups; each comparison method had zero recoveries, zero degradations, and four ties. | The earlier conditional benefit did not reproduce as a stable benefit under this follow-up. Only one control-failure opportunity was present. |
+
+### What changed in the implementation
+
+The supervision audit bound complete executed action traces to their recorded outcomes and input fingerprints. Close action pairs could still receive an incorrect learned direction after ordinary outcome and ranking losses. The next diagnostic therefore retained terminal-outcome and paired-ranking objectives and added a local constraint on the direction of the action gradient, restricted to eligible non-tied training pairs. The policy and state representation stayed frozen; fixed model seeds and budgets were used.
+
+The local constraint repaired its observed training direction, but matched rollout comparisons have not established reliable task benefit. The next research question is whether **expected intervention benefit and risk can be predicted from information available before intervention**, using state-separated evaluation and repeated matched continuations.
+
+### Pending work and source freshness
+
+A bounded expected-benefit collection is recorded as started in the September 28 local progress report. It is not reported here as complete and no result is inferred from its planned budget. Benefit-aware trigger training and deployment remain unverified.
+
+This update is based on locally retained dated result reports and aggregate summaries. Both workstations were unreachable during this check; their latest live execution state was not independently revalidated.
+
+## Historical paired-audit gate — 2026-09-24
 
 | Measurement | Aggregate result | Decision use |
 | --- | ---: | --- |
@@ -34,4 +59,4 @@ One terminal-geometry accounting issue was found in an environment wrapper: a te
 
 ## Read this result correctly
 
-The project has demonstrated an offline auditing workflow and several negative findings. It has **not** demonstrated online Q-gradient inference, policy improvement, real-time operation, or robot-task success. A bounded confirmation collection is **waiting for resources**; it will be reported only after completion and the same state-held-out gate.
+The project has demonstrated an offline auditing workflow and several negative findings. It has **not** demonstrated online Q-gradient inference, policy improvement, real-time operation, or robot-task success. The original confirmation collection was historically waiting for resources; recovery completed later and is reported above. Real critic fitting and simulated Q-gradient execution are complete diagnostic stages; stable policy benefit and robot-task success remain unverified.

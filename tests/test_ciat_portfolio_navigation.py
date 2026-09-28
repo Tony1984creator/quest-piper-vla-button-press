@@ -13,8 +13,9 @@ class CiatPortfolioNavigationTest(unittest.TestCase):
 
     def test_evidence_page_keeps_the_current_training_boundary_explicit(self):
         text = (PROJECT / "evidence.md").read_text(encoding="utf-8")
-        self.assertIn("waiting for resources", text)
-        self.assertIn("no real critic training was started", text.casefold())
+        self.assertIn("Real critic training", text)
+        self.assertIn("28/28", text)
+        self.assertIn("stable policy benefit and robot-task success remain unverified", text)
 
     def test_evidence_page_expands_the_public_experiment_names(self):
         text = (PROJECT / "evidence.md").read_text(encoding="utf-8")
