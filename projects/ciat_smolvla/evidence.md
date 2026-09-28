@@ -26,7 +26,7 @@ The local constraint repaired its observed training direction, but matched rollo
 
 A bounded expected-benefit collection is recorded as started in the September 28 local progress report. It is not reported here as complete and no result is inferred from its planned budget. Benefit-aware trigger training and deployment remain unverified.
 
-This update is based on locally retained dated result reports and aggregate summaries. Both workstations were unreachable during this check; their latest live execution state was not independently revalidated.
+The research workstation was directly rechecked on September 28 at approximately 11:25 CST. Completed campaign status files confirm the training, replay, and flow milestones above. The expected-benefit campaign was running and advanced from 110 to 111 completed branches out of a fixed 216-branch budget during the check; its worker was alive and new branch artifacts were being written. These are partial collection counts, not benefit results. The second hardware workstation remained unreachable; no new robot result was inferred.
 
 ## Historical paired-audit gate — 2026-09-24
 

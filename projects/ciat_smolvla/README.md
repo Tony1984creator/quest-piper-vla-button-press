@@ -24,7 +24,7 @@ No raw trajectories, task descriptions, model files, environment configuration, 
 | Training and gradient path | Nine diagnostic models; retrained linear direction audit 4/5; six local-direction heads and real gradient execution checks. | The training-to-action path works in simulation; useful correction remains an experimental question. |
 | Matched flow | 12/12 flow branches complete; zero recoveries and zero degradations, with successful controls in both groups. | The execution check lacked a failed-control recovery opportunity. |
 | Benefit confirmation | 28/28 fixed follow-up branches; zero recoveries, zero degradations across four groups. | Local fitting improvements have not established stable task benefit. |
-| Next collection | Expected-benefit collection recorded as started in the local September 28 report. | Completion and benefit-aware trigger training remain pending; live server status could not be rechecked. |
+| Next collection | Expected-benefit collection directly verified running on September 28; 111/216 branches at the check. | Partial collection only; final benefit audit and benefit-aware trigger training remain pending. |
 
 The full aggregate record is the [dated evidence ledger](evidence.md).
 
