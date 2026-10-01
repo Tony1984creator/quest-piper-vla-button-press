@@ -3,6 +3,8 @@
 **Reporting date:** 2026-10-02  
 **Evidence level:** offline simulation probe
 
+For the route → implementation → result → decision sequence, see [research rounds](docs/research-rounds.md). The table below groups completed measurements by study and should not be read as one combined benchmark.
+
 ## Current completed evidence — 2026-10-02
 
 | Study | Verified observation | Decision |

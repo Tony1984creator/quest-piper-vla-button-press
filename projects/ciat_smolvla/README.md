@@ -24,9 +24,11 @@ No raw trajectories, task descriptions, model files, environment configuration, 
 | Training and gradient path | Nine diagnostic models; retrained linear direction audit 4/5; six local-direction heads and real gradient execution checks. | The training-to-action path works in simulation; useful correction remains an experimental question. |
 | Matched flow | 12/12 flow branches complete; zero recoveries and zero degradations, with successful controls in both groups. | The execution check lacked a failed-control recovery opportunity. |
 | Benefit confirmation | 28/28 fixed follow-up branches; zero recoveries, zero degradations across four groups. | Local fitting improvements have not established stable task benefit. |
-| Expected-benefit audit | 216/216 branches, 96 matched pairs: 3 recoveries, 2 degradations, 91 ties. | Real Q-gradient intervention generated local rescue and harm; no stable benefit or trigger-training gate. |\n| Candidate and timing tests | Candidate-mode campaign 96/96; temporal confirmation 68/68 with 0 recoveries and 3 degradations. | Coverage found more recoverable actions, but the learned selector did not beat a simple timing rule; longer execution did not generalize to new noise. |
+| Expected-benefit audit | 216/216 branches, 96 matched pairs: 3 recoveries, 2 degradations, 91 ties. | Real Q-gradient intervention generated local rescue and harm; no stable benefit or trigger-training gate. |
+| Candidate and timing tests | Candidate-mode campaign 96/96; temporal confirmation 68/68 with 0 recoveries and 3 degradations. | Coverage found more recoverable actions, but the learned selector did not beat a simple timing rule; longer execution did not generalize to new noise. |
+| Value-data and cross-task foundation | 100 historical trajectories audited; two-task natural pilot and four-way first-fragment pilot completed. | Data semantics and frozen-policy portability advanced; these pilots supplied no independent correction-benefit label. |
 
-The full aggregate record is the [dated evidence ledger](evidence.md).
+Read the [research rounds](docs/research-rounds.md) for each route decision, implementation, result, and next gate. The [dated evidence ledger](evidence.md) retains the numerical audit history.
 
 ## Experiment map
 
