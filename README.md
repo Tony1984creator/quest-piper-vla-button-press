@@ -37,7 +37,7 @@ Only the reusable, hardware-independent contracts and aggregate evidence are pub
 | VLA-JEPA 2.1 | 386 teacher tensors mapped, 12 reinitialized; strict loading and a 100-step real-data training pilot completed. | Offline probe | Demonstrates a controlled representation-model migration rather than an unverified swap. |
 | Evo-Depth | 300-step action-head-only controlled pilot; same fixed 187-batch evaluation changed masked-flow loss 0.841452 → 0.244856. | Offline probe | Couples optimization evidence to a fixed evaluation protocol. |
 | Visual review | HSV + component + temporal workflow emitted 421 candidates; 48 stratified samples were visually positive. | Offline probe | Reduces review effort without relabelling image evidence as success. |
-| VLA-Corrector / CIAT | Built paired replay audits, completed real critic diagnostic training and simulated Q-gradient execution, repaired a local supervision direction, and audited benefit with fixed follow-up controls. | Offline probe | Training and execution are verified; a 28-branch confirmation found no stable new benefit, so trigger training and deployment remain pending. |
+| VLA-Corrector / CIAT | Completed real critic fitting, simulated Q-gradient execution, 216-branch benefit audit, 120-branch recoverability comparison, candidate-mode collection, and new-noise timing confirmation. | Offline probe | Verified local recoveries and harms; learned selection has not surpassed a simple timing rule, and the timing gain did not reproduce. |
 
 ## Two data assets, two roles
 

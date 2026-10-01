@@ -1,9 +1,23 @@
 # Dated evidence ledger
 
-**Reporting date:** 2026-09-28  
+**Reporting date:** 2026-10-02  
 **Evidence level:** offline simulation probe
 
-## Current evidence — 2026-09-28
+## Current completed evidence — 2026-10-02
+
+| Study | Verified observation | Decision |
+| --- | --- | --- |
+| Expected-benefit audit | 216/216 branches completed after bounded recovery; 96 matched pairs: 3 recoveries, 2 degradations, 91 ties. Development: 2/1; validation: 1/0; audit: 0/1. | A local rescue exists, but the net +1 across historical states does not establish a stable policy benefit or justify trigger training. |
+| Critic self-score check | 23/24 anchors had a positive model-Q change, while anchor-mean outcomes included two positive and two negative cases. | Predicted Q increase is not a valid stand-in for measured intervention benefit. |
+| Recoverability comparison | 120/120 branches and 96 three-way pairs audited; 7 pairs were rescued only by a fixed candidate, 2 only by Q guidance, and 1 by both. Q and the candidate each caused 2 degradations. | Alternative actions can recover some failed controls, but the candidate uses a different action displacement; this does not isolate a critic-training cause or prove a deployable policy. |
+| Candidate-mode coverage | A separate 96/96 branch collection completed; the fixed candidate produced 6 recoveries, 3 degradations, 87 ties. | Additional action-mode coverage exposed recoveries and harms. The learned candidate-benefit selector did not beat a simple fixed-time rule on historical validation/audit states. |
+| Temporal execution audit | The initial 52/52-branch comparison saw 2 recoveries and no degradations for longer first-plan execution, both at the same state and continuation noise. | A plausible local timing effect, not two independent confirmations. |
+| New-noise temporal confirmation | 68/68 branches completed with 32 paired comparisons: zero recoveries, 3 degradations, 29 ties; two degradations in development and one in validation. | The earlier temporal rescue did not reproduce. Unconditional longer execution and a learned timing trigger are not supported. |
+| Chunk-supervision inventory | 330 query-aligned windows; all 4 success rewards were in short-tail windows. | The inventory preserves duration and mask semantics. It is not TD/IQL training or proof that a new value target improves outcomes. |
+
+These are offline simulation results on historical states. Branches sharing an initial state or control are not independent task trials. Model training and inference/execution checks are complete diagnostic stages; benefit-aware trigger training, independent new-state/task evaluation, and robot deployment remain unverified.
+
+## Earlier evidence — 2026-09-28
 
 | Stage | Completed evidence | What it establishes |
 | --- | --- | --- |
@@ -24,9 +38,9 @@ The local constraint repaired its observed training direction, but matched rollo
 
 ### Pending work and source freshness
 
-A bounded expected-benefit collection is recorded as started in the September 28 local progress report. It is not reported here as complete and no result is inferred from its planned budget. Benefit-aware trigger training and deployment remain unverified.
+The expected-benefit collection, candidate-mode campaign, and temporal confirmation are complete as reported above. Benefit-aware trigger training and deployment remain unverified.
 
-The research workstation was directly rechecked on September 28 at approximately 11:25 CST. Completed campaign status files confirm the training, replay, and flow milestones above. The expected-benefit campaign was running and advanced from 110 to 111 completed branches out of a fixed 216-branch budget during the check; its worker was alive and new branch artifacts were being written. These are partial collection counts, not benefit results. The second hardware workstation remained unreachable; no new robot result was inferred.
+The research workstation was directly rechecked on October 2 using campaign status files and dated result reports. The second workstation was unreachable; no new robot result was inferred.
 
 ## Historical paired-audit gate — 2026-09-24
 
