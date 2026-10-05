@@ -1,11 +1,27 @@
 # Dated evidence ledger
 
-**Reporting date:** 2026-10-02  
+**Reporting date:** 2026-10-06  
 **Evidence level:** offline simulation probe
 
 For the route → implementation → result → decision sequence, see [research rounds](docs/research-rounds.md). The table below groups completed measurements by study and should not be read as one combined benchmark.
 
-## Current completed evidence — 2026-10-02
+## Current completed evidence — 2026-10-06
+
+| Study | Verified observation | Decision |
+| --- | --- | --- |
+| Task0 scope replication | Twelve configurations across three exposed states and two predeclared schedules. First-fragment: 0 recoveries/0 degradations; persistent: 2/0 across six comparisons per mode. | Both recoveries belong to one failed state. The first ten paired actions match exactly; persistent resampling is a local scope signal, not a new trained policy or Q result. |
+| Task2 scope transfer | Twelve branches across two states, two schedules, and three modes. First-fragment: 0 recoveries/0 degradations; persistent: 0/1. | No cross-task correction benefit. Successful controls ended in 225 and 234 steps, excluding a deterministic full-trajectory claim. |
+| Simulator restoration repair | Terminal reset changed model arrays outside the flattened physical state. Restoring these arrays repaired the factual suffix check; only the blocked state was resumed. | Distinguishes infrastructure failure from policy failure. Per-state comparisons are source-bound; the merged two-state matrix contains two implementation versions. |
+| Actual behavior-prior training | Two 38,854-parameter flow models, each 1,000 optimizer updates; 1,457 successful training windows from the 100-episode audited corpus. CPU single-thread run: 16.78 seconds including audit and evaluation. | Frozen original policy; state-grouped splits and training-only normalization. This is feature/action imitation, not full video/action-expert finetuning or RL. |
+| Imitation and sampling checks | Conditional versus unconditional validation loss: 0.9420 versus 1.0081; audit: 0.9322 versus 1.0671. Reload probe matched; 16 finite normalized 10×7 candidates. | Better imitation diagnostics are not terminal benefit; numerical sampling alone did not execute environment actions. |
+| Formal learned-source matrix | Completed 48 branches: eight exposed training-excluded states × two seeds × three modes. Conditional: 2 recoveries/4 degradations/10 ties; unconditional: 0/12/4. Original, conditional, unconditional successes: 12/16, 10/16, 0/16. | Conditional proposals rescued two distinct states at one seed each, but damaged two states at both seeds. Net outcome remains worse than original; no Q, trigger, generalization, or robot claim. |
+| Matrix provenance check | Summary hash, all 48 trace hashes, six-branch uniqueness per state, source/training identity bindings, and recomputed pair totals checked against completed records. | Earlier six-branch source-incomplete development case is excluded, not silently pooled with the formal matrix. Runtime queue separately audited trace lengths and shared continuation noise. |
+
+The detailed route, training split, loss semantics, action conversion, and continuation-clock boundaries are recorded once in [rounds 5–6](docs/research-rounds.md#round-5-scope-replication-and-simulator-restoration). The small prior references flow behavior modeling but does not reproduce a full flow-Q-learning algorithm.
+
+The research workstation was directly checked during the October 5 heartbeat, completed on October 6 local time. The second workstation again timed out; no new physical robot or dataset result was inferred. Only read-only checks were run; no experiment was started, resumed, or modified.
+
+## Previous completed evidence — 2026-10-02
 
 | Study | Verified observation | Decision |
 | --- | --- | --- |
@@ -40,7 +56,7 @@ The local constraint repaired its observed training direction, but matched rollo
 
 ### Pending work and source freshness
 
-The expected-benefit collection, candidate-mode campaign, and temporal confirmation are complete as reported above. Benefit-aware trigger training and deployment remain unverified.
+The expected-benefit collection, candidate-mode campaign, and temporal confirmation are complete as reported above. The newer scope and behavior-prior studies are separate rounds documented at the top of this page. Benefit-aware trigger training and deployment remain unverified.
 
 The research workstation was directly rechecked on October 2 using campaign status files and dated result reports. The second workstation was unreachable; no new robot result was inferred.
 

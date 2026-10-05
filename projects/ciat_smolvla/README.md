@@ -16,7 +16,7 @@ This project is a **measurement and evidence-design study**, not a robot-control
 
 No raw trajectories, task descriptions, model files, environment configuration, execution paths, or simulator/control code are included. Public numbers are aggregated so the portfolio communicates experimental reasoning without exposing the underlying asset.
 
-## Current snapshot — 2026-10-02
+## Current snapshot — 2026-10-06
 
 | Item | Verified state | Interpretation |
 | --- | --- | --- |
@@ -27,6 +27,9 @@ No raw trajectories, task descriptions, model files, environment configuration, 
 | Expected-benefit audit | 216/216 branches, 96 matched pairs: 3 recoveries, 2 degradations, 91 ties. | Real Q-gradient intervention generated local rescue and harm; no stable benefit or trigger-training gate. |
 | Candidate and timing tests | Candidate-mode campaign 96/96; temporal confirmation 68/68 with 0 recoveries and 3 degradations. | Coverage found more recoverable actions, but the learned selector did not beat a simple timing rule; longer execution did not generalize to new noise. |
 | Value-data and cross-task foundation | 100 historical trajectories audited; two-task natural pilot and four-way first-fragment pilot completed. | Data semantics and frozen-policy portability advanced; these pilots supplied no independent correction-benefit label. |
+| Persistent proposal scope | Task0 replication: persistent proposals recovered one failed state under two schedules. Separate Task2 comparison: 0 recoveries and 1 degradation. | A local execution-scope effect, not reliable cross-task correction; Q was disabled. |
+| New candidate training | Two 38,854-parameter flow generators trained for 1,000 updates each on 1,457 successful training windows; reload and 16 numerical candidate smokes passed. | Real small-model training and sampling, not full action-expert finetuning; imitation loss is not corrective value. |
+| Learned-source simulation | Formal 48/48 branches complete over eight exposed training-excluded states. Conditional prior: 2 recoveries, 4 degradations, 10 ties; unconditional: 0/12/4. | State conditioning improved this comparison against the unconditional prior, but net gain over the original policy is negative. No Q or learned trigger was used. |
 
 Read the [research rounds](docs/research-rounds.md) for each route decision, implementation, result, and next gate. The [dated evidence ledger](evidence.md) retains the numerical audit history.
 
@@ -50,4 +53,4 @@ The existing [ECDC pair selector](core/ecdc.py) and [PACE eligibility gate](core
 
 ## Next evidence gate
 
-Evaluate the frozen corrector with matched continuations and state-separated coverage to test whether expected intervention benefit can be predicted before training a benefit-aware trigger. Any future policy or robot conclusion requires a separate guarded closed-loop evaluation.
+Establish reliable corrective candidates and protect already-successful policy behavior before fitting a benefit-aware selector or trigger. Hold candidate source and intervention scope fixed; require repeatable net recovery across state-separated coverage and report harms separately. The latest prior-training matrix does not pass this gate. Any future robot conclusion requires a separate guarded physical evaluation.
