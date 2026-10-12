@@ -20,13 +20,15 @@ Compare the ACT baseline with the auxiliary predictive objective under identical
 
 **Acceptance:** load/migration record, gradient and loss logs, comparable curves, and an explicit conclusion whether the auxiliary objective helps, hurts, or is inconclusive.
 
-## 3.5. VLA-Corrector: corrective-candidate evidence
+## 3.5. VLA-Corrector: repeatable corrective evidence
 
-Keep the original policy frozen, bind replay/model/training identities, compare candidates against contemporaneous same-prefix controls, and group evaluation by initial state. Earlier axis/stage/Q hypotheses are retained in the [research rounds](../../projects/ciat_smolvla/docs/research-rounds.md), not pooled into one benchmark.
+Keep the original policy frozen; bind demonstration/task identity, executed action scope, causal history, and paired controls. The [research rounds](../../projects/ciat_smolvla/docs/research-rounds.md) retain separate Q, learned-proposal, visual-dynamics, event, execution-scope, and calibration studies rather than pooling their outcomes.
 
-**Status — 2026-10-06:** critic training and simulated Q-gradient execution are complete diagnostic stages. The newer persistent-proposal study found a one-state Task0 rescue but no Task2 recovery and one degradation. Two small behavior-prior flow generators have now been trained; the completed 48-branch matrix records conditional 2 recoveries/4 degradations/10 ties, versus unconditional 0/12/4. These new studies disable Q and learned triggering. They do not establish reliable correction or real robot benefit.
+**Archived status — checked 2026-10-12:** real full-token predictive training and its fixed budget recheck completed. The 90-branch causal-event cohort found single-gradient versus replanning 1 recovery/1 degradation and segment 0/0. The execution-boundary development net +2 did not reproduce: follow-up 0 recoveries/5 degradations. Four bounded action-projection calibrations completed, but reliable local response improvement was absent. Both workstations were unreachable during this check; new claims use local archived accepted reports, not freshly read remote raw data or jobs.
 
-**Next acceptance:** fix candidate source and intervention scope before comparing selectors. Demonstrate repeatable net recovery across state-separated coverage, with separate harm counts, original-policy protection, action-conversion checks, matched continuation clocks, and declared inference costs. Only after candidate usefulness is established should Q selection/guidance and benefit-aware triggering be evaluated. Training loss, finite candidate samples, and an exposed-state rescue cannot substitute for this gate.
+**Next acceptance:** the latest archived route declares a strict stepwise-feedback reference against the fixed ten-step baseline, but only its launch is available. Recover live access, verify original-baseline parity and the complete fixed comparison, and retain harms, query counts, source identity, and continuation-noise scope. Progress toward feedback-budget mechanisms requires positive net recovery plus repeated recovery in at least two distinct states; otherwise close the current reliable-baseline search without adding more seeds or thresholds. Predictor seeds are not independent rollout replicas. Do not treat sampling host timers as synchronized GPU latency.
+
+**Not yet admitted:** new task-value Q, learned benefit-trigger training, independent final evaluation, or physical robot correction. Predictive losses, local calibration metrics, and integration checks cannot substitute for terminal paired benefit.
 
 ## 4. Guarded closed-loop evaluation
 

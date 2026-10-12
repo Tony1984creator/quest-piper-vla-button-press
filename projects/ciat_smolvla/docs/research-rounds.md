@@ -1,6 +1,6 @@
 # VLA-Corrector research rounds
 
-**Checked:** 2026-10-06. This page follows the decision order in the private project's research route, experiment registry, result reports, and completed campaign records. Each round changes a different question. Counts from different protocols must not be added into one success rate.
+**Checked:** 2026-10-12. This page follows the decision order in the private project's research route, experiment registry, result reports, and completed campaign records. Each round changes a different question. Counts from different protocols must not be added into one success rate. For rounds 7–10, the current check uses local archived accepted reports; live workstations were unreachable.
 
 | Round | Question | Implementation and fixed comparison | Observed result | Decision |
 | --- | --- | --- | --- | --- |
@@ -12,6 +12,10 @@
 | 4 · Value-data semantics and cross-task foundation | Can a new collection preserve the fields needed for chunk value learning, and can the same frozen policy run another task? | Query-aligned inventory; hash-bound factual corpus; two-task natural-policy development pilot; first-fragment semantic collection and four-way paired pilot. | 100 historical episodes from 50 distinct initial states yielded 3,139 time-correlated windows; 65 of 74 positive windows were short tails. Natural policy: 2/5 and 3/5 successes in two tasks. A five-trajectory semantic rerun matched source trajectory hashes; 182/184 executed chunks met the local field contract, with 2 unknown budget boundaries. Four paired groups were all-success or all-failure, giving no corrective gain label. | Natural cross-task execution and first-fragment semantics are verified. Full counterfactual chunk transitions, equal inference budget, independent correction benefit, and trigger-training support are still missing. |
 | 5 · Persistent proposal scope | Does a first-fragment substitution differ from continued policy resampling? | Frozen policy, Q disabled; same-prefix first-fragment versus persistent proposals with predeclared new schedules. Stage entry uses offline simulator truth. | Task0: 12 configurations; persistent proposals rescued one failed state under two schedules, whereas first-fragment proposals rescued none. Task2: 12 branches; first-fragment 0 recoveries/0 degradations, persistent 0 recoveries/1 degradation. | A local scope effect exists, but persistent resampling is not a reliable corrector across tasks. Repair replay infrastructure before attributing an execution failure to the algorithm. |
 | 6 · Learned behavior-supported proposals | Can actual feature/action training create better corrective candidates without changing Q or intervention duration? | Two small flow generators, with/without state conditioning; fixed successful training windows; one ten-step proposal followed by the same frozen policy and continuation-noise clock. | Training and numerical sampling completed. Formal 48-branch matrix: conditional generator 2 recoveries/4 degradations/10 ties; unconditional 0/12/4. Each generator has 16 paired comparisons across eight exposed initial states. | Conditioning improves this comparison against the unconditional prior, not against the original policy. Conditional recovery occurs in two distinct states but only one of two schedules in each; net benefit remains negative. No Q or learned trigger was evaluated. |
+| 7 · Visual-dynamics supervision | Does executed action scope carry predictive information once full visual tokens and demonstration identity are restored? | 450 demonstration caches; single-action, ten-action segment, and no-action predictors; two seeds; fixed pilot and one declared budget recheck. | Six models completed at 1,000 updates, then six at 10,000. Segment beats no-action on validation and Long audit; action permutation worsens predictions, while out-of-distribution increment conflicts across seeds. | Actual predictive training is complete. Visual-dynamics information is not a task-value Q or a corrective success claim. |
+| 8 · Causal event correction | Is apparent recovery caused by event-triggered replanning or by a latent-recovery gradient? | Native-flow and Zero checks; full natural/shadow equivalence; causal history-based reference events; three-task, nine-state, two-predictor-seed, five-branch cohort. | 90 completed branches: replanning versus natural 3 recoveries/2 degradations; single gradient versus replanning 1/1; segment gradient versus replanning 0/0. | Replanning explains the repeated natural recovery. No repeated gradient increment across predictor seeds; reference anomaly events are not learned benefit triggers. |
+| 9 · Prediction-based execution boundary | Can the current predicted action chunk choose a useful observation-update boundary without an oracle stage? | Fixed ten-step, full fifty-step, and predicted-gripper-boundary modes; 36-episode development study followed by frozen 24-episode metadata-new follow-up. | Development boundary: 5 recoveries/3 degradations; follow-up: 0/5. Full fifty-step: development 3/3, follow-up 1/3. | Execution scope changes outcomes, but the development net +2 did not reproduce. Stop like-for-like duration/threshold scans; no Q or trigger attribution. |
+| 10 · Local action-response calibration | Why does reasonable overall visual prediction fail to support reliable corrective gradients? | First-event target/effect diagnostics; 2,376 deduplicated deployment windows; original frozen backbone with a copied 18,176-parameter action projection; factual-only versus factual-plus-secant losses, two seeds. | Overall predictor beats zero delta in 45/60 rows per scope, but same-scope response direction matches only 7/15 and 5/15 pairs. Four 1,000-update calibrations complete; confirmation response gains are unreliable. | Separate overall prediction from action-difference sensitivity. Small loss improvements do not justify a calibrated-gradient rollout, new task Q, or learned trigger. |
 
 ## How the rounds connect
 
@@ -53,6 +57,80 @@ These are standardized velocity-field imitation losses, not terminal value or su
 The two conditional recoveries come from two distinct failed states, with one successful schedule and one failure in each. Its four degradations come from two successful states under both schedules. Thus lower imitation loss and better results than the unconditional prior **do not establish positive net benefit over the original policy**. Historical labels are not the controls: one historically failed trajectory's new original continuation succeeded. The fixed new continuation clock is not an exact replay of the historical natural suffix. No Bellman/Q training, flow-Q guidance, learned trigger, independent final test, or physical robot result is claimed.
 
 **Next gate.** Audit corrective action support and protection of successful policy behavior before adding more critic capacity or a trigger. A new fixed comparison must demonstrate repeatable net recovery across state-separated coverage while retaining harm counts. Successful factual imitation is not itself corrective expertise; missing original video assets are not replaced by claiming the feature/action corpus is the full demonstration dataset.
+
+## Rounds 7–10: October 6–11 continuation
+
+**Source freshness.** These completed stages are supported by local archived dated reports and acceptance JSON copied from the research project. During the October 12 check, both workstations timed out. Report hashes and archive-to-acceptance bindings were checked locally; the raw remote trajectories, current jobs, and model files could not be independently re-read this time. Completion below refers to those archived accepted runs, not a new live-server verification. The last local workflow mentions a strict-feedback reference launch, but no completed result is available here; it remains unreported as an outcome.
+
+### Round 7: restore full-token supervision before interpreting gradients
+
+The restored demonstration cache contains 450 episodes / 110,372 frames, split as 300 training, 39 validation, 40 Long-audit, and 71 other-task audit episodes. A later asset check clarified that only **379 of the 450 are Long demonstrations**; all 379 overlap the saved original-policy training configuration. Corrector holdout is therefore not proof of original-policy-unseen data. The larger source dataset contains 1,693 episodes across 40 task groups, but that inventory is not a claim that all were cached or trained in this study. Task routing must match dataset language/identity, not assume simulator task integers are dataset indices.
+
+The implementation replaced the old compact feature-only shortcut with full visual-token/history and actual normalized executed-action contracts. Three predictor scopes—single 7D action, ten-step 70D segment, and no action—each used two fixed seeds, matched samples and validation-only selection. The six 1,000-update pilot models completed; a single predeclared 10,000-update recheck also completed with 40 validation checkpoints per model and selection at update 9,500. The first 1,000-update prefix matched the original records. This is visual-dynamics supervision, not Bellman/terminal-value training.
+
+| Pilot episode-macro MSE difference | Seed A | Seed B |
+| --- | ---: | ---: |
+| Validation: segment minus single | −0.005336 | −0.003821 |
+| Validation: segment minus no action | −0.020012 | −0.018925 |
+| Long audit: segment minus no action | −0.013581 | −0.013602 |
+| Long audit: permuted-action penalty | +0.037789 | +0.038034 |
+| Other-task audit: segment minus no action | +0.018868 | −0.009729 |
+
+The numerical differences above belong to the **1,000-update pilot**, not the 10,000-update recheck. Negative differences indicate prediction improvement; permutation penalties indicate action information. The longer-budget audit retained the validation segment preference but not consistent other-task benefit. No further capacity/budget search was justified by these results.
+
+### Round 8: causal events, replanning controls, and real simulated guidance
+
+Native sampling hooks verified zero-scale equivalence, nonzero denoising gradients, correct action/time scope, and unchanged original policy/predictor parameters. Full natural-versus-shadow traces then checked observation, actual command, noise, reward, and boundary identity; independent scoring recomputed the causal-history monitor outputs. Monitoring without intervention was tested separately from correction.
+
+A fixed event cohort covers three tasks, nine exposed development states and two **predictor-training** seeds, not eighteen independent states or independent policy-continuation replicas. Five branches per combination are natural execution, event-truncated replanning, zero guidance, single-action dynamics guidance, and segment guidance. The archived acceptance covers all eighteen combinations / ninety branches.
+
+| Comparison | Recoveries | Degradations | Net count |
+| --- | ---: | ---: | ---: |
+| Replanning versus natural | 3 | 2 | +1 |
+| Single-action gradient versus natural | 2 | 1 | +1 |
+| Segment gradient versus natural | 3 | 2 | +1 |
+| Single-action gradient versus replanning | 1 | 1 | 0 |
+| Segment gradient versus replanning | 0 | 0 | 0 |
+
+The natural recovery that repeats across predictor seeds is already achieved by replanning. No gradient increment repeats across those seeds. Three combinations had no reference event and remain separately natural-equivalent, not evidence that a corrective candidate could not exist. Executed guidance logs support actual nonzero gradient calls, so the null incremental result is not explained by an unused hook. Resource interruptions were preserved and resumed with separate operational-source bindings rather than counted as algorithm failures.
+
+These are online-in-the-simulator causal events, **not robot deployment or a learned benefit trigger**. The objective is latent visual recovery, not task-value Q. A separate task's strict visual identity check had rendering drift despite physical-state agreement; that blocked capture is not a correction failure and was not silently admitted.
+
+### Round 9: execution scope has local positive cases and failed confirmation
+
+This round replaces the earlier oracle-stage entry with a rule using the **current predicted gripper command**. It records the full fifty-step prediction, postprocessed environment commands, selected/actual duration, next observation, and termination separately. The environment uses incremental control, so position-style adjacent-command differences are not assumed to be motion velocity. Future executed actions and simulator stage truth are not used for boundary selection.
+
+| Study and mode | Successful case-seed branches | Recoveries vs fixed ten-step | Degradations vs fixed ten-step |
+| --- | ---: | ---: | ---: |
+| Six-state development: fixed ten-step | 5/12 | — | — |
+| Six-state development: full fifty-step | 5/12 | 3 | 3 |
+| Six-state development: predicted-gripper boundary | 7/12 | 5 | 3 |
+| Four-state follow-up: fixed ten-step | 5/8 | — | — |
+| Four-state follow-up: full fifty-step | 3/8 | 1 | 3 |
+| Four-state follow-up: predicted-gripper boundary | 0/8 | 0 | 5 |
+
+The development boundary rule has repeated recoveries in two states but also repeated damage. Its net +2 did not survive the frozen follow-up; the boundary rule's net is −5 there. Follow-up states are new to the inspected metadata, not a formal independent final holdout or proof that the original policy never saw them. Query-ordinal noise is bound consistently, but changing query frequency does not give identical noise at every environment step. A 520-step/52-query fixed-mode fidelity gate was archived as exact; it is an engineering gate, not positive efficacy.
+
+### Round 10: diagnose action sensitivity rather than optimize aggregate loss
+
+Offline first-event diagnostics reuse eighteen parent cases; three have no event. Fifteen events × four real branches × two predictors produce 120 metric rows / 90 comparisons. Recovery targets align positively with observed future change, so a universal target-sign reversal is not supported. Future observations enter **offline diagnosis only**, not intervention-time decisions.
+
+Both predictor scopes beat zero-delta prediction in 45/60 rows. Yet the same-scope single and segment comparisons agree with actual local recovery direction in only 7/15 and 5/15 pairs, with near-zero action-effect-difference cosine. This identifies a difference between overall prediction information and sensitivity to a small action change, without proving a unique failure cause.
+
+Deployment-trajectory inventory covers sixty accepted trajectories / ten exposed states. From 2,514 complete windows, deduplication yields 2,376 windows and twenty distinct shared-prefix candidate/control pairs, with no identical-input target conflicts. States are split 5 training / 3 validation / 2 development confirmation. Only a copied action projection has 18,176 trainable parameters; the original backbone and policy stay frozen. Factual-only and factual-plus-secant calibration each run under two seeds for 1,000 updates. Validation selects checkpoints; confirmation is report-only.
+
+| Calibration | Validation action-difference MSE: original → selected | Confirmation: original → selected |
+| --- | ---: | ---: |
+| Seed A, factual | 1.479203 → 1.479133 | 2.150805 → 2.150527 |
+| Seed A, factual + secant | 1.479203 → 1.478794 | 2.150805 → 2.150885 |
+| Seed B, factual | 1.487977 → 1.487046 | 2.153715 → 2.156589 |
+| Seed B, factual + secant | 1.487977 → 1.487166 | 2.153715 → 2.154898 |
+
+The archived CPU verification recomputes forty held-out pair metrics within tolerance and verifies the frozen backbone; the provenance report checks 122 input/source bindings and four selected weights. Confirmation action-effect cosine did not improve on average, and recovery-direction counts remained 3/4. No calibrated-gradient task rollout is reported. Peak memory for **this cached small calibration training only** was 122.898 MiB allocated / 148 MiB reserved; it is not full VLA inference memory or end-to-end latency. Host sampling timers without explicit CUDA synchronization are not deployment latency measurements.
+
+### Current gate and outcomes worth retaining
+
+The useful deliverables are real predictive training, causal monitor/execution identity, explicit replanning-versus-gradient ablations, positive-and-negative execution-scope confirmation, and a locally audited low-capacity calibration. None establishes reliable net corrective benefit. The current gate remains a repeatable corrective baseline; scope diagnostics are partial, while new task-value Q and learned benefit-trigger training remain unapproved by the evidence gates. A strict stepwise-feedback reference is the next declared structural comparison; its last archived launch is not a completed result. Do not append more seeds, thresholds, or capacity searches just to recover a positive number.
 
 ## Public evidence boundary
 

@@ -1,11 +1,29 @@
 # Dated evidence ledger
 
-**Reporting date:** 2026-10-06  
+**Reporting date:** 2026-10-12  
 **Evidence level:** offline simulation probe
 
 For the route → implementation → result → decision sequence, see [research rounds](docs/research-rounds.md). The table below groups completed measurements by study and should not be read as one combined benchmark.
 
-## Current completed evidence — 2026-10-06
+## Current completed evidence — 2026-10-12
+
+**Freshness:** both SSH targets timed out on this check. The new entries below are based on local archived completed reports from October 6–11, not a new live-server read. Report SHA256 values were recomputed locally and matched the structural/follow-up acceptance bindings, event conclusion, and calibration verification records. The remote raw trajectories and weights were not accessible; their original full audits are described as archived acceptance, not re-performed today.
+
+| Study | Archived completed measurement | Evidence decision |
+| --- | --- | --- |
+| Full-token supervision | 450 cached demonstrations / 110,372 frames; single-action, ten-action-segment, no-action scopes × two seeds. Six 1,000-update pilots followed by one declared six-model 10,000-update recheck, selected at update 9,500. | Segment prediction adds action information on validation/Long audit; other-task increments conflict. Not task Q or corrective success. |
+| Dataset identity correction | Cache = 379 Long plus 71 other-task episodes, not 450 Long demonstrations. The 379 Long episodes overlap saved original-policy training configuration. | Corrector held-out split does not establish original-policy-unseen evaluation; dataset indices must be matched by identity rather than simulator integer. |
+| Native flow and causal-history checks | Real sampler hook, zero-scale equivalence, nonzero denoising gradient, unchanged original weights, natural/shadow identity and independently recomputed history scores are recorded in completed probes. | Establishes simulated wiring and causal monitoring; not physical robot inference, terminal gain, or learned triggering. |
+| Fixed event cohort | Eighteen accepted combinations / ninety branches across three tasks and nine exposed states. Replanning vs natural: 3 recoveries/2 degradations; single gradient vs replanning: 1/1; segment: 0/0. | Repeated natural recovery is already achieved by replanning. No repeated incremental gradient rescue; two predictor seeds are not independent rollout replicas. |
+| Prediction-based boundary development | Thirty-six accepted episodes across six states: fixed ten-step/full fifty-step/gripper boundary successes 5/12, 5/12, 7/12. Boundary vs fixed: 5 recoveries/3 degradations. | Local net +2 with both repeated rescue and repeated harm; not a task-Q or oracle-stage result. |
+| Frozen boundary follow-up | Twenty-four accepted episodes across four metadata-new states: successes 5/8, 3/8, 0/8. Full fifty-step vs fixed: 1 recovery/3 degradations; boundary: 0/5. | Positive development signal failed confirmation. Metadata-new is not a formal final holdout or policy-unseen proof. |
+| Target/action-effect diagnosis | Eighteen parents, three without an event; 120 rows / ninety comparisons. Each predictor beats zero delta in 45/60 rows; same-scope local response direction agrees in 7/15 and 5/15 pairs. | Overall predictive information and action-difference sensitivity are distinct. Universal target-sign reversal is not supported; unique root cause remains unproven. |
+| Bounded calibration training | Sixty deployment trajectories / ten states; 2,514 windows deduplicated to 2,376, with twenty distinct shared-prefix pairs. Four 1,000-update fits; only copied action projection has 18,176 trainable parameters. | Small prediction-loss changes do not provide reliable local response confirmation. Original models stay frozen; calibrated-gradient task rollout not reported. |
+| Calibration provenance | Archived verification: 122 input/source bindings and four selected weights; forty held-out pair metrics independently CPU-recomputed within tolerance, backbone unchanged. Local report/hash linkage rechecked today. | This check does not reload remote weights or repeat raw-trajectory audits. Calibration peak 122.898 MiB allocated / 148 MiB reserved is not full-VLA memory or deployment latency. |
+
+The [new research rounds](docs/research-rounds.md#rounds-710-october-611-continuation) keep predictive training, causal events, execution scope, and response calibration as distinct routes. A strict-feedback reference was only launched in the latest local workflow; absent a completed acceptance record, no result or current-running claim is published. Task-value Q, learned benefit-trigger training, independent final validation, and robot correction remain unverified.
+
+## Previously checked evidence — 2026-10-06
 
 | Study | Verified observation | Decision |
 | --- | --- | --- |

@@ -16,22 +16,20 @@ This project is a **measurement and evidence-design study**, not a robot-control
 
 No raw trajectories, task descriptions, model files, environment configuration, execution paths, or simulator/control code are included. Public numbers are aggregated so the portfolio communicates experimental reasoning without exposing the underlying asset.
 
-## Current snapshot — 2026-10-06
+## Current snapshot — 2026-10-12
+
+The newest completed evidence was checked against **local archived reports dated October 6–11** and their acceptance/hash bindings. Both workstations are currently unreachable; this is not a fresh verification of remote raw trajectories, model files, or running jobs.
 
 | Item | Verified state | Interpretation |
 | --- | --- | --- |
-| Expanded supervision | 84/84 confirmation branches complete; 144 training / 36 development-validation branches. | The data gate passed and real critic diagnostic fitting was completed. |
-| Training and gradient path | Nine diagnostic models; retrained linear direction audit 4/5; six local-direction heads and real gradient execution checks. | The training-to-action path works in simulation; useful correction remains an experimental question. |
-| Matched flow | 12/12 flow branches complete; zero recoveries and zero degradations, with successful controls in both groups. | The execution check lacked a failed-control recovery opportunity. |
-| Benefit confirmation | 28/28 fixed follow-up branches; zero recoveries, zero degradations across four groups. | Local fitting improvements have not established stable task benefit. |
-| Expected-benefit audit | 216/216 branches, 96 matched pairs: 3 recoveries, 2 degradations, 91 ties. | Real Q-gradient intervention generated local rescue and harm; no stable benefit or trigger-training gate. |
-| Candidate and timing tests | Candidate-mode campaign 96/96; temporal confirmation 68/68 with 0 recoveries and 3 degradations. | Coverage found more recoverable actions, but the learned selector did not beat a simple timing rule; longer execution did not generalize to new noise. |
-| Value-data and cross-task foundation | 100 historical trajectories audited; two-task natural pilot and four-way first-fragment pilot completed. | Data semantics and frozen-policy portability advanced; these pilots supplied no independent correction-benefit label. |
-| Persistent proposal scope | Task0 replication: persistent proposals recovered one failed state under two schedules. Separate Task2 comparison: 0 recoveries and 1 degradation. | A local execution-scope effect, not reliable cross-task correction; Q was disabled. |
-| New candidate training | Two 38,854-parameter flow generators trained for 1,000 updates each on 1,457 successful training windows; reload and 16 numerical candidate smokes passed. | Real small-model training and sampling, not full action-expert finetuning; imitation loss is not corrective value. |
-| Learned-source simulation | Formal 48/48 branches complete over eight exposed training-excluded states. Conditional prior: 2 recoveries, 4 degradations, 10 ties; unconditional: 0/12/4. | State conditioning improved this comparison against the unconditional prior, but net gain over the original policy is negative. No Q or learned trigger was used. |
+| Earlier Q/candidate studies | Real diagnostic critic training and simulated gradient execution; expected-benefit audit 3 recoveries/2 degradations/91 ties; timing confirmation 0/3/29. | Engineering path and local events, not stable task improvement. Historical protocols remain separate. |
+| Learned behavior proposals | Two 38,854-parameter flow priors; complete 48-branch comparison: conditional 2 recoveries/4 degradations/10 ties. | Real training and simulated execution, but worse net outcomes than original policy. |
+| Full-token dynamics training | 450 demonstration caches / 110,372 frames; six predictor fits at 1,000 updates plus one six-fit 10,000-update recheck. Segment inputs add predictive information; other-task increments conflict across seeds. | A distinct visual-dynamics study, not task Q. Only 379 cached episodes are Long, and they overlap original-policy training configuration. |
+| Causal event cohort | Three tasks, nine exposed states, 90 accepted branches. Replanning versus natural: 3 recoveries/2 degradations; single gradient versus replanning: 1/1; segment: 0/0. | Replanning explains repeated natural recovery; no repeated gradient increment. Reference events are not learned benefit triggers. |
+| Execution-boundary confirmation | Development boundary rule: 5 recoveries/3 degradations; frozen follow-up: 0/5. Sixty total accepted episodes across the two distinct studies. | Local positive scope results did not reproduce. No oracle stage, Q, or learned trigger was used. |
+| Action-response calibration | 2,376 deduplicated windows, twenty shared-prefix pairs; four 1,000-update fits of a copied 18,176-parameter action projection; forty held-out pair metrics CPU-recomputed in the archived verification. | Overall prediction improves slightly, but local response confirmation is unreliable. No calibrated-gradient rollout or deployment latency claim. |
 
-Read the [research rounds](docs/research-rounds.md) for each route decision, implementation, result, and next gate. The [dated evidence ledger](evidence.md) retains the numerical audit history.
+Read the [research rounds](docs/research-rounds.md) for route → implementation → result → next gate, and the [dated evidence ledger](evidence.md) for measured counts and source freshness. Earlier experiments are preserved, not pooled into one benchmark. No physical robot correction result is reported here.
 
 ## Experiment map
 
@@ -53,4 +51,4 @@ The existing [ECDC pair selector](core/ecdc.py) and [PACE eligibility gate](core
 
 ## Next evidence gate
 
-Establish reliable corrective candidates and protect already-successful policy behavior before fitting a benefit-aware selector or trigger. Hold candidate source and intervention scope fixed; require repeatable net recovery across state-separated coverage and report harms separately. The latest prior-training matrix does not pass this gate. Any future robot conclusion requires a separate guarded physical evaluation.
+Establish repeatable corrective benefit and protect successful original behavior before fitting task-value Q or a benefit-aware trigger. The latest archived route declares a strict stepwise-feedback reference against the fixed ten-step baseline; its launch has no completed result in the available archive. First recover live access and audit the complete paired outcome, including harms and query cost. Do not substitute predictive loss, source identity, or a small-model memory measurement for this gate. Any robot conclusion requires a separate guarded physical evaluation.
