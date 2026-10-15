@@ -1,11 +1,28 @@
 # Dated evidence ledger
 
-**Reporting date:** 2026-10-12  
+**Reporting date:** 2026-10-15  
 **Evidence level:** offline simulation probe
 
 For the route → implementation → result → decision sequence, see [research rounds](docs/research-rounds.md). The table below groups completed measurements by study and should not be read as one combined benchmark.
 
-## Current completed evidence — 2026-10-12
+## Current completed evidence — 2026-10-15
+
+**Most useful new finding:** failure-specific recovery support can restore whole-task completion, but the useful recovery differs by state. This is a privileged offline-teacher feasibility result, not a learned-Q, trigger, or physical deployment result.
+
+| Study | Measured result | Decision |
+| --- | --- | --- |
+| Strict feedback, now complete | H1 vs H10: 2 recoveries/1 degradation over twelve continuations from six states. Calls 500 → 4,732; recovery repeats in one state only. | Close this finite configuration: positive local signal, insufficient cross-state admission evidence. Call counts are not GPU latency. |
+| Public-policy references | Natural Long 1/6 and Spatial 2/4 on different cohorts. Sixteen same-prefix Spatial branches: alternatives each 0 recoveries/0 degradations. | Reference suitability and opportunity checks, not policy improvement; stop the continuation grid and investigate missing grasp support. |
+| Path recovery + original public actor | Old two-state cohort: first continuation 1 rescue/0 harms; fixed second continuation 1/1. Same failed state rescued twice; old successful state harmed once. | Repeated conditional whole-task recovery, not two independent failed states or unconditional benefit. Straight teacher also caused one harm in the first comparison. |
+| Additional recovery cohort | Two predeclared states / eight accepted branches. New failed state: straight recovery succeeds in 139 total steps, native/repeat/path fail. Successful state: native 71, straight 135, path 192 steps. | Straight 1 rescue/0 harms; path 0/0. New support contrast, with extra cost and only one continuation. Do not pool old and new protocols. |
+| Observable-student feasibility | Eight teacher traces / four initial-state groups, six lifting traces; stride-three sampling gives 237 total / 170 lifting rows. Fixed grouped proprioceptive CPU fits transfer poorly on key failed-state groups. | No released student. Current visual cache collected 237 rows but is not independently accepted; no visual-student training or rollout efficacy claim. |
+| Fresh read-only verification | Live report-to-acceptance bindings for three recovery studies; all 24 actor trace hashes, child report/restoration/zero-pair/anchor bindings, and recomputed rescue/harm counts checked. Strict-feedback report binding also checked. | Binary/source integrity and numerical pair totals verified, not a new full tensor-level replay or simulation rerun. |
+
+The research workstation was directly reachable on October 15; mc509 still timed out. Teachers use simulator geometry offline and consume the same 280-step episode budget. Lift/primitive competence, terminal task success, imitation error, and intervention cost remain separate. No raw demonstrations, weights, device settings, or control code were published.
+
+See [rounds 11–13](docs/research-rounds.md#rounds-1113-feedback--reference-policy--recovery-support) for concise route decisions, paired outcomes and student-readiness boundaries.
+
+## Previously checked evidence — 2026-10-12
 
 **Freshness:** both SSH targets timed out on this check. The new entries below are based on local archived completed reports from October 6–11, not a new live-server read. Report SHA256 values were recomputed locally and matched the structural/follow-up acceptance bindings, event conclusion, and calibration verification records. The remote raw trajectories and weights were not accessible; their original full audits are described as archived acceptance, not re-performed today.
 

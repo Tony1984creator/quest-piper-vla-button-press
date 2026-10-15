@@ -1,6 +1,6 @@
 # VLA-Corrector research rounds
 
-**Checked:** 2026-10-12. This page follows the decision order in the private project's research route, experiment registry, result reports, and completed campaign records. Each round changes a different question. Counts from different protocols must not be added into one success rate. For rounds 7–10, the current check uses local archived accepted reports; live workstations were unreachable.
+**Checked:** 2026-10-15. Each round changes a different question; counts from different protocols must not be pooled. Rounds 11–13 add live-checked feedback closure and state-dependent recovery support; rounds 7–10 retain their dated archive-only verification boundary.
 
 | Round | Question | Implementation and fixed comparison | Observed result | Decision |
 | --- | --- | --- | --- | --- |
@@ -16,6 +16,9 @@
 | 8 · Causal event correction | Is apparent recovery caused by event-triggered replanning or by a latent-recovery gradient? | Native-flow and Zero checks; full natural/shadow equivalence; causal history-based reference events; three-task, nine-state, two-predictor-seed, five-branch cohort. | 90 completed branches: replanning versus natural 3 recoveries/2 degradations; single gradient versus replanning 1/1; segment gradient versus replanning 0/0. | Replanning explains the repeated natural recovery. No repeated gradient increment across predictor seeds; reference anomaly events are not learned benefit triggers. |
 | 9 · Prediction-based execution boundary | Can the current predicted action chunk choose a useful observation-update boundary without an oracle stage? | Fixed ten-step, full fifty-step, and predicted-gripper-boundary modes; 36-episode development study followed by frozen 24-episode metadata-new follow-up. | Development boundary: 5 recoveries/3 degradations; follow-up: 0/5. Full fifty-step: development 3/3, follow-up 1/3. | Execution scope changes outcomes, but the development net +2 did not reproduce. Stop like-for-like duration/threshold scans; no Q or trigger attribution. |
 | 10 · Local action-response calibration | Why does reasonable overall visual prediction fail to support reliable corrective gradients? | First-event target/effect diagnostics; 2,376 deduplicated deployment windows; original frozen backbone with a copied 18,176-parameter action projection; factual-only versus factual-plus-secant losses, two seeds. | Overall predictor beats zero delta in 45/60 rows per scope, but same-scope response direction matches only 7/15 and 5/15 pairs. Four 1,000-update calibrations complete; confirmation response gains are unreliable. | Separate overall prediction from action-difference sensitivity. Small loss improvements do not justify a calibrated-gradient rollout, new task Q, or learned trigger. |
+| 11 · Strict-feedback closure | Is stepwise observation/replanning enough? | Twelve H1 episodes plus one H10 parity gate; reuse twelve sealed H10 controls. | H1 6/12 vs H10 5/12; 2 recoveries/1 degradation, repeated recovery in only one state; 9.46× policy calls. | Positive local signal, insufficient cross-state support. Close this configuration, not a universal impossibility claim. |
+| 12 · Separate public-policy reference | Does a distinct frozen public actor offer a useful task condition? | Finite Long and Spatial natural references; then sixteen same-live-prefix native/repeat/single/sustained branches. | Long 1/6, Spatial 2/4 on different cohorts; opportunity matrix 0 recoveries/0 degradations. | Retain credible Spatial failures/successes; inspect missing grasp support instead of repeating noise/duration scans. |
+| 13 · Failure-specific recovery support | Can a measured recovery maneuver repair an actual visited failure before handing control back? | Privileged straight/path teachers, full budget accounting, two fixed continuations on old states, then two predeclared additional states. | Path repeats whole-task rescue in one failed state but harms an old successful state under one continuation. New cohort: straight rescues another state; path fails there. | Recovery is condition-dependent. Privileged-teacher feasibility motivates observable students, not claims of Q, trigger, or robot deployment. |
 
 ## How the rounds connect
 
@@ -131,6 +134,42 @@ The archived CPU verification recomputes forty held-out pair metrics within tole
 ### Current gate and outcomes worth retaining
 
 The useful deliverables are real predictive training, causal monitor/execution identity, explicit replanning-versus-gradient ablations, positive-and-negative execution-scope confirmation, and a locally audited low-capacity calibration. None establishes reliable net corrective benefit. The current gate remains a repeatable corrective baseline; scope diagnostics are partial, while new task-value Q and learned benefit-trigger training remain unapproved by the evidence gates. A strict stepwise-feedback reference is the next declared structural comparison; its last archived launch is not a completed result. Do not append more seeds, thresholds, or capacity searches just to recover a positive number.
+
+## Rounds 11–13: feedback → reference policy → recovery support
+
+**Checked live on October 15.** The research workstation is reachable again. The three recovery reports match completed CPU acceptance records; this check independently verified all 24 actor trace hashes plus child reports, restoration/zero-pair records, anchor bindings and paired rescue/harm totals. It did not rerun simulation or reload raw trajectory tensors. The second workstation remains unreachable.
+
+### 11. Close the strict-feedback configuration
+
+The previously pending one-step reference completed: H1 succeeds in 6/12 continuations versus H10 5/12, with **2 recoveries and 1 degradation**. Both recoveries share one of six exposed states. Recorded policy calls increase from 500 to 4,732 (9.46×); these are call counts, not synchronized GPU latency. Positive net and repeated rescue in at least two distinct states were required, so the finite configuration is closed without more horizon/seed scans. Observation updates and query budget changed together; no Q attribution is possible.
+
+### 12. Establish a separate frozen public-policy reference
+
+The public actor's natural results are Long 1/6 and Spatial 2/4, from different task cohorts; they are not intervention comparisons or evidence of general improvement. Spatial physical resets can preserve initial state yet yield different rendered observations and later commands. The same-prefix opportunity study therefore captures actual live anchors and includes repeat controls rather than claiming byte-identical rendered rollouts. Sixteen branches completed; single-query and sustained alternatives each gave zero rescue and zero harm, with only one failed control condition.
+
+Failure replay points to empty-grasp continuation at inspected frames. This motivates grasp-support recovery, not a universal failure taxonomy. Old and public visual weights share 197/198 checked tensor values, but a connector projection differs; old projected caches and old predictors are not certified compatible. The new recovery track uses the current public actor's inputs and normalization explicitly.
+
+### 13. Demonstrate conditional recovery, keep privilege and harm visible
+
+A straight recovery stalls at contact in one visited failure despite accurate orientation tracking. A fixed raise–align–descend teacher repairs the missing grasp prerequisite. Primitive lift was first reported separately; only the later teacher-to-actor continuation establishes full task completion. All prefix, teacher and actor steps count toward the same 280-step episode budget.
+
+| Study | Failed-state result | Successful-control result | Boundary |
+| --- | --- | --- | --- |
+| Old two-state cohort, continuation A | Native/repeat fail; path teacher + unchanged actor succeeds in 196 total steps. Straight fails. | Native succeeds in 77 steps; path succeeds in 273; straight fails. | Path 1 rescue/0 harms; extra cost remains material. |
+| Same anchors/teachers, continuation B | The same failed state is rescued again by path; native/repeat fail. | Path now fails while native/repeat succeed; straight preserves success. | Path 1 rescue/1 harm. Repeating a continuation is not a new state. |
+| Predeclared additional two-state cohort | New failed state: native/repeat fail; straight teacher + actor succeeds in 139 steps; path fails. | Other state: native/repeat 71 steps, straight 135, path 192; all succeed. | Straight 1 rescue/0 harms; path 0/0. One continuation, not final generalization. |
+
+The additional cohort first rebuilt shared live anchors. Its earlier fresh-reset repeat had disagreed with the natural result; that reset-level success is not used as a correction control. At the new shared anchor both controls fail, allowing the straight-teacher rescue to be attributed within the declared comparison.
+
+**What was solved:** a specific visited failure can be recovered by changing support, rather than increasing critic capacity or repeating nominal imitation. **What remains:** no single maneuver works universally; useful support depends on state, successful behavior can be harmed, and costs increase. These teachers consume simulator object geometry offline and have different durations, so this is neither a pure time-matched path ablation nor an observable deployed policy.
+
+### Observable-student readiness, not completed student efficacy
+
+There are eight distinct teacher traces across four exposed initial states, six of which lift the target. Repeated actor continuations do not duplicate teacher examples. Sampling every third pre-action frame gives 237 rows overall / 170 lifting-demonstration rows; these are not independent states. Failed teacher traces remain in the inventory and task-return evidence.
+
+A fixed CPU mean/ridge/nearest-neighbor pilot groups by initial state before fitting statistics and uses observable proprioception plus a known requested recovery mode. Transfer is mixed and weak on key failed-state groups; normalized-command imitation error is not physical-position or task-success error. This is a feasibility fit, not a released student.
+
+The current frozen-public-vision cache has collected 237 rows with zero simulator actions and zero actor queries, but its status is **not independently audited**. No visual-student training completion, student handoff success, new task-Q benefit, learned trigger, or physical robot result is reported. Next: accept that cache, run a fixed grouped visual/proprioceptive comparison on the same observations, and only then consider a budget-matched student continuation test.
 
 ## Public evidence boundary
 

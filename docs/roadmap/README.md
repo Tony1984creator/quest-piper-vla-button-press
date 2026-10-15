@@ -20,15 +20,13 @@ Compare the ACT baseline with the auxiliary predictive objective under identical
 
 **Acceptance:** load/migration record, gradient and loss logs, comparable curves, and an explicit conclusion whether the auxiliary objective helps, hurts, or is inconclusive.
 
-## 3.5. VLA-Corrector: repeatable corrective evidence
+## 3.5. VLA-Corrector: conditional recovery support
 
-Keep the original policy frozen; bind demonstration/task identity, executed action scope, causal history, and paired controls. The [research rounds](../../projects/ciat_smolvla/docs/research-rounds.md) retain separate Q, learned-proposal, visual-dynamics, event, execution-scope, and calibration studies rather than pooling their outcomes.
+**Verified through 2026-10-15:** strict feedback completed with 2 recoveries/1 degradation but only one repeated-rescue state, closing that finite configuration. A separate public actor supplies Spatial reference conditions. Failure-specific path recovery then rescues one failed state under two continuations, but harms a successful state once; an additional two-state comparison finds a different, straight recovery is needed. These are privileged offline-teacher simulation results, not task-Q or learned-trigger gains.
 
-**Archived status — checked 2026-10-12:** real full-token predictive training and its fixed budget recheck completed. The 90-branch causal-event cohort found single-gradient versus replanning 1 recovery/1 degradation and segment 0/0. The execution-boundary development net +2 did not reproduce: follow-up 0 recoveries/5 degradations. Four bounded action-projection calibrations completed, but reliable local response improvement was absent. Both workstations were unreachable during this check; new claims use local archived accepted reports, not freshly read remote raw data or jobs.
+**Next acceptance:** independently accept the current-public-vision cache; keep the same eight actual teacher traces and group by initial state before fitting statistics. Compare fixed visual/proprioceptive students without simulator object truth or future outcomes as online inputs. Current proprioceptive fits are insufficient, and collected visual-cache rows are not accepted student training. Only then test a fixed student-to-actor handoff with same-anchor controls, all intervention steps charged, and explicit rescue/harm/cost reporting.
 
-**Next acceptance:** the latest archived route declares a strict stepwise-feedback reference against the fixed ten-step baseline, but only its launch is available. Recover live access, verify original-baseline parity and the complete fixed comparison, and retain harms, query counts, source identity, and continuation-noise scope. Progress toward feedback-budget mechanisms requires positive net recovery plus repeated recovery in at least two distinct states; otherwise close the current reliable-baseline search without adding more seeds or thresholds. Predictor seeds are not independent rollout replicas. Do not treat sampling host timers as synchronized GPU latency.
-
-**Not yet admitted:** new task-value Q, learned benefit-trigger training, independent final evaluation, or physical robot correction. Predictive losses, local calibration metrics, and integration checks cannot substitute for terminal paired benefit.
+**Not yet established:** reliable observable correction, new task-value Q, learned benefit-trigger training, independent final validation, or physical robot performance. Keep training/sampling/integrity checks separate from terminal success. The [research rounds](../../projects/ciat_smolvla/docs/research-rounds.md) preserve earlier negative results and the new conditional successes without merging protocols.
 
 ## 4. Guarded closed-loop evaluation
 
