@@ -20,13 +20,15 @@ Compare the ACT baseline with the auxiliary predictive objective under identical
 
 **Acceptance:** load/migration record, gradient and loss logs, comparable curves, and an explicit conclusion whether the auxiliary objective helps, hurts, or is inconclusive.
 
-## 3.5. VLA-Corrector: conditional recovery support
+## 3.5. VLA-Corrector: engineering completion versus corrective benefit
 
-**Verified through 2026-10-15:** strict feedback completed with 2 recoveries/1 degradation but only one repeated-rescue state, closing that finite configuration. A separate public actor supplies Spatial reference conditions. Failure-specific path recovery then rescues one failed state under two continuations, but harms a successful state once; an additional two-state comparison finds a different, straight recovery is needed. These are privileged offline-teacher simulation results, not task-Q or learned-trigger gains.
+**Completed stages — archived evidence checked 2026-10-19:** observation-only recovery pilot, real one-step and ten-step task-value training, thirty-branch candidate selection, native-flow gradient integration, and twelve gradient-controller rollouts. A student rescues one failed state but no fixed variant has positive unconditional net gain. Q and uniform selection each give 2 recoveries/1 degradation; gradients versus Q selection give 0/2 despite all primary-query final-Q scores rising.
 
-**Next acceptance:** independently accept the current-public-vision cache; keep the same eight actual teacher traces and group by initial state before fitting statistics. Compare fixed visual/proprioceptive students without simulator object truth or future outcomes as online inputs. Current proprioceptive fits are insufficient, and collected visual-cache rows are not accepted student training. Only then test a fixed student-to-actor handoff with same-anchor controls, all intervention steps charged, and explicit rescue/harm/cost reporting.
+**Next acceptance:** full-token/pooled/no-action × two-seed training and CPU restoration are now complete on the same 2,353 blocks. Interpret the modest offline differences with their model-specific targets; do not claim task benefit or a resolved failure cause. Any next continuation test must freeze the variant, same-budget controls, harm reporting and stopping criteria in advance. No new token-variant rollout result is reported.
 
-**Not yet established:** reliable observable correction, new task-value Q, learned benefit-trigger training, independent final validation, or physical robot performance. Keep training/sampling/integrity checks separate from terminal success. The [research rounds](../../projects/ciat_smolvla/docs/research-rounds.md) preserve earlier negative results and the new conditional successes without merging protocols.
+**Trigger gate:** current outcomes are three initial-state full-controller comparisons, not hundreds of independent keyframe intervention labels. They have no positive gradient increments. Do not relabel Q ascent or old student successes as benefit labels for this controller. Learned benefit triggering and independent whole-method validation remain unfinished.
+
+**Freshness:** research-workstation SSH is restored and live report/acceptance bindings were checked. Remote raw-tensor audits were not rerun; mc509 still times out. Physical robot outcomes remain separately unverified. The [research rounds](../../projects/ciat_smolvla/docs/research-rounds.md) retain previous protocols without pooling results.
 
 ## 4. Guarded closed-loop evaluation
 

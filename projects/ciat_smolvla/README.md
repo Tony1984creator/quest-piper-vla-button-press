@@ -16,21 +16,21 @@ This project is a **measurement and evidence-design study**, not a robot-control
 
 No raw trajectories, task descriptions, model files, environment configuration, execution paths, or simulator/control code are included. Public numbers are aggregated so the portfolio communicates experimental reasoning without exposing the underlying asset.
 
-## Current snapshot — 2026-10-15
+## Current snapshot — 2026-10-19
 
-**New result:** a failure-specific recovery teacher followed by the unchanged public actor rescued a failed development state under two fixed continuations. A second failed state required a different recovery pattern. This establishes **conditional recovery support in simulation**, not a deployable corrector or learned-Q gain.
+**New capability:** an observation-only learned recovery produced whole-task success on one failed simulation state without object geometry as an online input. Separately, real task-value training, candidate selection and native-flow gradient rollouts are now complete engineering stages. **Reliable net correction is still not established.**
 
-| Question | Completed evidence | What it means |
+| Stage | Completed result | Interpretation |
 | --- | --- | --- |
-| Does faster feedback suffice? | Strict one-step feedback: 2 recoveries/1 degradation vs ten-step execution, across six states and twelve continuations; policy calls 500 → 4,732. | One state repeats recovery; cross-state admission criterion not met. Calls, not synchronized latency. |
-| Is the public actor a reliable reference? | Natural Long 1/6 and Spatial 2/4 successes on different cohorts; a 16-branch same-prefix Spatial alternative test gave 0 recoveries/0 degradations. | Usable Spatial success/failure cases, not a stronger-policy claim. Neither old normalization nor projected caches transfer automatically. |
-| Does recovery-specific support help? | Path teacher rescues one failed Spatial state under both fixed continuations; one successful state is harmed under the second. A new two-state/eight-branch comparison finds one straight-teacher rescue and no success-rate harm. | Concrete whole-task recoveries, but state-dependent choices and extra steps matter. All teacher actions consume the episode budget. |
-| Can an observable student replace privileged teachers? | Eight actual teacher traces across four states; six lift the target. A grouped proprioception-only CPU pilot transfers poorly on key failures. | No deployable student yet. Visual cache collected 237 rows but awaits independent acceptance; no student rollout or task Q is claimed. |
-| Earlier training and ablations | Real critic, behavior-prior and full-token dynamics training; event/replanning, execution-scope and bounded calibration studies are retained separately. | Predictive or fitting gains did not establish reliable net correction. See the dated history rather than pool protocols. |
+| Observable recovery student | Fixed 24-branch pilot over four exposed states. Three student/mode combinations rescue the same failed state, but also damage successful controls; none has positive unconditional net gain. | Advances beyond privileged-teacher-only feasibility. Entry anchor/mode remain prescribed, not autonomous triggering or generalization. |
+| Real task-value training | Four one-step value models, then four ten-step segment/no-action models; each 2,000 updates. Segment data: 2,353 deduplicated blocks, grouped train/validation. | Actual task-return-oriented value fitting, distinct from visual-dynamics loss and old critic studies. Q is not calibrated success probability. |
+| Candidate selection | Thirty accepted simulation branches. Continuous Q selection and same-budget uniform selection each produce 2 recoveries/1 degradation on three exposed states. | Candidate support can help, but Q superiority is absent. Intervention duration and subsequent controller must match value labels. |
+| Native-flow task-Q gradient | Twelve accepted rollouts: selection-only/ZeroQ preserve two successes; gradients and repeats all fail. Gradient vs selection: 0 recoveries/2 degradations. | Engineering integration works; local value ascent is not task benefit. Final Q rose at all 156 primary gradient queries. |
+| Spatial-token value contrast | Full-token/pooled/no-action × two seeds: all six 468,805-parameter models completed 2,000 updates and CPU restore acceptance on the same 2,353 blocks. Full-token validation Bellman diagnostics are slightly lower than pooled for both seeds. | New offline representation evidence, not task benefit: model-dependent targets and untested rollout transfer prevent a policy-improvement claim. |
 
-The research workstation was directly reconnected. Recovery report/acceptance bindings, all 24 continuation trace hashes across three recovery studies, restored/zero/input snapshot bindings, and paired totals were checked read-only. The second workstation timed out; no new physical robot result is inferred.
+**Freshness:** research-workstation SSH is restored. This read-only check matched live report hashes to complete acceptance records for the student pilot, thirty-branch selection, twelve-gradient rollouts, and six-model token contrast. It did not rerun their tensor-level audits or simulations. mc509 still times out; no new physical robot result is inferred.
 
-Read the [research rounds](docs/research-rounds.md) for the route and [dated evidence ledger](evidence.md) for the compact result tables. Detailed older experiments remain available without crowding the current summary.
+Read the [research rounds](docs/research-rounds.md) and [dated evidence ledger](evidence.md) for separate protocols and acceptance boundaries. All new outcomes are simulation, not physical robot results.
 
 ## Experiment map
 
@@ -52,4 +52,4 @@ The existing [ECDC pair selector](core/ecdc.py) and [PACE eligibility gate](core
 
 ## Next evidence gate
 
-Validate observable recovery support before task-value Q or benefit-trigger learning. First independently accept the frozen-current-vision cache, then compare fixed visual/proprioceptive students with leave-one-initial-state-out grouping and no privileged online inputs. Only a separately audited student handoff can establish observable-policy corrective benefit in simulation. Preserve successful-control harm, all teacher costs, and the original positive and negative cases.
+Keep engineering completion separate from measured utility. The fixed full-token/pooled/no-action training and CPU acceptance are complete; next assess whether its small offline diagnostic differences justify a separately frozen same-budget continuation test. Offline improvement alone cannot clear the correction-benefit gate. A fixed corrector needs real same-state intervention-versus-control outcomes before benefit-trigger learning; 544 diverged rollout queries are not 544 counterfactual labels. Observable recovery transfer and physical robot evaluation remain separately unverified.

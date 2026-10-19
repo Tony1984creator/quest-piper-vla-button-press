@@ -1,11 +1,28 @@
 # Dated evidence ledger
 
-**Reporting date:** 2026-10-15  
+**Reporting date:** 2026-10-19  
 **Evidence level:** offline simulation probe
 
 For the route → implementation → result → decision sequence, see [research rounds](docs/research-rounds.md). The table below groups completed measurements by study and should not be read as one combined benchmark.
 
-## Current completed evidence — 2026-10-15
+## Current completed evidence — 2026-10-19
+
+**New positive result:** a learned current-observation-only recovery reaches whole-task success on one failed simulation state. **New limiting result:** real task-Q gradients increase their own score but worsen the tested selected controller's outcomes. These are separate protocols, not contradictory measurements of one method.
+
+| Stage | Completed evidence | Boundary |
+| --- | --- | --- |
+| Observable student | Archived fixed 24-branch pilot: proprio straight 1 rescue/2 harms; visual straight 1/2; proprio path 1/1; visual path 0/2. All rescues share one of four exposed states. | No object truth as online input; entry/mode still prescribed. Neither positive unconditional net gain nor autonomous triggering. |
+| One-step task-value training | 14,339 deduplicated transitions from ninety old branches; four action/no-action × seed models, each 2,000 updates. | Real partial-observation IQL-style development fitting, not calibrated success probability or policy benefit. |
+| Ten-step task-value training | 2,353 deduplicated blocks, grouped 1,183 train / 1,170 validation; four segment/no-action models, each 2,000 updates. | Action, duration and subsequent-policy semantics matter. Fitting and nonzero gradients alone do not establish usable action ranking. |
+| Candidate-selection simulation | Thirty accepted branches; Q and same-budget uniform each 2 recoveries/1 degradation on three exposed states. | Candidate opportunity exists; Q superiority does not. Native fork labels cannot be silently used for sustained-Q control. |
+| Real task-Q flow and outcomes | Probe completes native ZeroQ/coordinate/tail protection checks. Twelve full rollouts then give gradient vs selection 0 recoveries/2 degradations, with exact repeats. | All 156 primary gradient queries raise final self-Q. This is negative utility despite working engineering, not a trigger-learning success. |
+| Current label boundary | Twelve rollouts contain 544 queries / 5,416 environment steps but only three initial-state full-controller comparisons, without positive gradient increments. | Not 544 independent keyframe counterfactual benefit labels; no effective learned trigger claimed. |
+
+**Verification on the restored-access check:** live report SHA256 values match completed acceptance records for the student pilot, thirty-branch selection, twelve-rollout gradient campaign and six-model token contrast. Summaries preserve negative benefit/trigger gate flags. This is a fresh report-integrity check, not a repeated raw-tensor replay, checkpoint reload or new simulation. Research-workstation SSH works; mc509 still times out.
+
+The archived student result describes its original independent raw-command audit; that audit was not rerun here. The spatial-token value comparison is now complete: six 468,805-parameter models, each 2,000 updates on the same 2,353 blocks, with exact CPU restoration recorded for all six. Full-token validation group-mean Bellman diagnostics are 0.018193/0.018048 versus pooled 0.019574/0.018726 for the two seeds. These model-specific-target errors are offline diagnostics, not a common-target policy-value or task-success comparison. No new rollout or trigger result is available. See [research rounds](docs/research-rounds.md) for protocol separation.
+
+## Previously checked evidence — 2026-10-15
 
 **Most useful new finding:** failure-specific recovery support can restore whole-task completion, but the useful recovery differs by state. This is a privileged offline-teacher feasibility result, not a learned-Q, trigger, or physical deployment result.
 

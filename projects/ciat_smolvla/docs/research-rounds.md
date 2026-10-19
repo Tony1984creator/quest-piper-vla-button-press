@@ -1,6 +1,6 @@
 # VLA-Corrector research rounds
 
-**Checked:** 2026-10-15. Each round changes a different question; counts from different protocols must not be pooled. Rounds 11–13 add live-checked feedback closure and state-dependent recovery support; rounds 7–10 retain their dated archive-only verification boundary.
+**Checked:** 2026-10-19. Each round changes a different question; counts must not be pooled. Research-workstation access is restored. Live report/acceptance hashes for the student pilot, candidate selection, task-Q gradient rollouts and token-value contrast were matched read-only. mc509 remains unreachable; current checks do not repeat raw-tensor audits or simulations.
 
 | Round | Question | Implementation and fixed comparison | Observed result | Decision |
 | --- | --- | --- | --- | --- |
@@ -19,6 +19,10 @@
 | 11 · Strict-feedback closure | Is stepwise observation/replanning enough? | Twelve H1 episodes plus one H10 parity gate; reuse twelve sealed H10 controls. | H1 6/12 vs H10 5/12; 2 recoveries/1 degradation, repeated recovery in only one state; 9.46× policy calls. | Positive local signal, insufficient cross-state support. Close this configuration, not a universal impossibility claim. |
 | 12 · Separate public-policy reference | Does a distinct frozen public actor offer a useful task condition? | Finite Long and Spatial natural references; then sixteen same-live-prefix native/repeat/single/sustained branches. | Long 1/6, Spatial 2/4 on different cohorts; opportunity matrix 0 recoveries/0 degradations. | Retain credible Spatial failures/successes; inspect missing grasp support instead of repeating noise/duration scans. |
 | 13 · Failure-specific recovery support | Can a measured recovery maneuver repair an actual visited failure before handing control back? | Privileged straight/path teachers, full budget accounting, two fixed continuations on old states, then two predeclared additional states. | Path repeats whole-task rescue in one failed state but harms an old successful state under one continuation. New cohort: straight rescues another state; path fails there. | Recovery is condition-dependent. Privileged-teacher feasibility motivates observable students, not claims of Q, trigger, or robot deployment. |
+| 14 · Observable recovery student | Can current observations replace teacher geometry? | Fixed grouped offline fits, then 24 native/repeat/proprio/visual student branches over four exposed states. | One failed state is rescued by three student/mode combinations; successful states are harmed and no fixed variant has positive net gain. | A real observation-only recovery opportunity, not autonomous entry, independent generalization or Q efficacy. |
+| 15 · Task-return value and selection | Can actual task transitions support one-step and ten-step values, then useful candidate ranking? | Grouped deduplicated task-transition training, segment/no-action controls, and 30 accepted native/uniform/Q and fork/repeat branches. | Q and uniform each yield 2 recoveries/1 degradation on three exposed states. | Real training and selection executed; no Q superiority. Native fork outcomes and sustained-Q values use different subsequent controllers. |
+| 16 · Task-Q gradient rollout | Does real value ascent improve the same-budget selected controller? | Native sampler coordinate/ZeroQ checks followed by twelve selection/ZeroQ/gradient/repeat rollouts. | Gradient vs selection: 0 recoveries/2 degradations; all 156 primary gradient queries increase final self-Q. | Freeze this negative combination. Representation reliability is the next fixed hypothesis; no effective trigger can be claimed from these labels. |
+| 17 · Spatial-token value contrast | Does retaining spatial visual information change the offline value diagnostics? | Same data/rewards/splits; full/pooled/no-action × two seeds, six equal-size models, each 2,000 updates; CPU restore acceptance. | Full-token group-mean validation Bellman diagnostics are slightly lower than pooled in both seeds; no-action gradients are zero. | Completed offline structural comparison, not a new rollout or evidence of task benefit. |
 
 ## How the rounds connect
 
@@ -170,6 +174,76 @@ There are eight distinct teacher traces across four exposed initial states, six 
 A fixed CPU mean/ridge/nearest-neighbor pilot groups by initial state before fitting statistics and uses observable proprioception plus a known requested recovery mode. Transfer is mixed and weak on key failed-state groups; normalized-command imitation error is not physical-position or task-success error. This is a feasibility fit, not a released student.
 
 The current frozen-public-vision cache has collected 237 rows with zero simulator actions and zero actor queries, but its status is **not independently audited**. No visual-student training completion, student handoff success, new task-Q benefit, learned trigger, or physical robot result is reported. Next: accept that cache, run a fixed grouped visual/proprioceptive comparison on the same observations, and only then consider a budget-matched student continuation test.
+
+## Rounds 14–16: observable recovery → task value → real gradient outcomes
+
+**Evidence scope:** the restored-access October 19 check matched live campaign report hashes and completed acceptance records for the student, selection, gradient and token-value stages. It did not repeat their archived tensor-level CPU audits, model loading or simulation. Counts below remain exposed-state development evidence.
+
+### 14. Observation-only recovery is now tested, not merely planned
+
+The frozen-public-vision cache and grouped offline fits finished after the previous check. Current visual/proprioceptive inputs carry some imitation information, but improvements are not universal. The follow-on fixed pilot completed **24 branches across four exposed initial states**, including native/repeat controls and proprioceptive versus visual-plus-proprioceptive students in two requested recovery modes.
+
+| Fixed student | Recoveries | Degradations |
+| --- | ---: | ---: |
+| Proprioception, straight recovery | 1 | 2 |
+| Vision + proprioception, straight recovery | 1 | 2 |
+| Proprioception, path recovery | 1 | 1 |
+| Vision + proprioception, path recovery | 0 | 2 |
+
+The three rescues all concern **one failed initial state**, not three independent recoverable states. The archived audit reconstructs 1,648 student commands and 2,900 actor commands from actual recorded inputs. No simulator object geometry enters the student's online input. Nevertheless the entry anchor and requested mode remain prescribed; there is no autonomous benefit trigger or independent final test. One preserved success takes 79 → 272 total steps under a student recovery. Failed teachers, harmed successes and unsuccessful student modes remain reported.
+
+This is a substantive advance over privileged-teacher-only opportunity: a learned current-observation recovery reaches whole-task success. It is not reliable unconditional correction. Its 83/123-step feedback-recovery labels cannot be relabeled as the value of the first action chunk.
+
+### 15. Actual task-value fitting and same-budget candidate selection
+
+A one-environment-step IQL-style reference uses ninety historical branches / 35,186 executed steps, deduplicated into 14,339 transitions. Six training states contribute 9,559 transitions; three validation states contribute 4,780. Action-conditioned/no-action × two seeds gives four models, each 2,000 updates. Finite action gradients and changing Bellman diagnostics demonstrate fitting, not calibrated success probabilities or useful correction. Some Q predictions fall outside [0,1].
+
+The subsequent ten-step reference uses sixty proposal trajectories and **2,353 deduplicated blocks**, split into 1,183 training and 1,170 validation blocks across five/five exposed state groups. Single-query short tails are not spliced across replanning boundaries; actual executed duration controls targets. Segment/no-action × two seeds again receives 2,000 updates each. Archived independent CPU restores check diagnostics and train-only normalization; this run has not reloaded those weights.
+
+Thirty complete simulation branches then separate sustained candidate selection, native continuation forks and repeats:
+
+| Exposed development state | Native fixed ten-step | Same-budget uniform | Sustained Q selection |
+| --- | --- | --- | --- |
+| A | Success, 428 steps | Failure, 520 | Failure, 520 |
+| B | Failure, 520 | Success, 183 | Success, 187 |
+| C | Failure, 520 | Success, 252 | Success, 441 |
+
+Q and uniform both give **2 recoveries/1 degradation**; Q is not demonstrated superior or faster. At one fixed Q-prefix fork, the selected candidate fails under native continuation but succeeds under sustained Q. That is a continuation-specific ranking disagreement, not a proven error against an identical value target. Future supervision must bind actual duration and the subsequent controller.
+
+### 16. Native-flow gradients execute, but incremental outcome is negative
+
+The real sampler probe verifies disabled/ZeroQ equality, thirty finite nonzero denoising gradients, explicit normalized/environment coordinates, unchanged original parameters and protection of the unused action tail. It has no environment outcome by itself.
+
+The subsequent fixed twelve-rollout campaign uses three exposed states and four controllers: Q selection without gradient, its ZeroQ equivalent, real gradient, and gradient repeat. Each query has four original candidates plus two real sampler calls, with ten-step execution and a 520-step episode limit.
+
+| Controller | Successes across three states | Gradient increment versus selection |
+| --- | ---: | --- |
+| Q selection, no gradient | 2 | Reference |
+| Same selector, ZeroQ | 2 | Exact equivalent |
+| Real task-Q gradient | 0 | 0 recoveries / 2 degradations |
+| Gradient repeat | 0 | No repeat conflicts; not three new states |
+
+The archived full audit covers twelve traces, 544 queries and 5,416 executed steps. **156/156 primary gradient queries increase final model-Q**, yet task outcomes worsen. Therefore missing wiring or lack of self-score ascent is not a sufficient explanation. The unique cause—representation, support, target or sustained intervention—remains unproven. Host elapsed run time is not an inference-latency benchmark.
+
+These are full-controller comparisons on three initial states, not 544 same-state keyframe counterfactual labels. Neither comparison supplies positive gradient-increment examples for an effective benefit trigger. Keep the earlier Q-versus-uniform and observable-student results intact; do not borrow their positives for this different controller.
+
+### Current next gate
+
+The fixed full-token/pooled/no-action value-representation comparison on the **same 2,353 blocks**, two seeds and unchanged rewards/splits has now completed training and CPU acceptance (round 17 below). Retaining spatial information remains a hypothesis about value reliability, not an established explanation of rollout failure. No more radius/seed/trigger-threshold scans are justified by the current negative combination. Task-Q training and gradient engineering are now real completed stages, while reliable corrective utility, learned benefit triggering, independent final validation and physical robot performance remain open.
+
+## Round 17: token-information ablation completed
+
+Live report and CPU acceptance now supersede the earlier launch-only workflow note. Full-token, pooled-token and no-action variants each use two fixed seeds and 468,805 parameters; full/pooled match architecture and initialization. All six train for 2,000 updates on the same 2,353 blocks, with no new environment collection. Completed acceptance records exact independent CPU restoration for all six. This check verifies the report binding, not a new model reload.
+
+| Validation diagnostic, group mean | Seed A | Seed B |
+| --- | ---: | ---: |
+| Full-token Bellman MSE | 0.018193 | 0.018048 |
+| Pooled-token Bellman MSE | 0.019574 | 0.018726 |
+| No-action Bellman MSE | 0.019885 | 0.022393 |
+
+Action-conditioned gradients are finite/nonzero; no-action gradients are zero. The full-token diagnostic is modestly lower than pooled for both seeds, but each model uses its own value-backed targets. This is not a common-target accuracy contest or evidence of safer action ascent. Training elapsed time and small-model memory are not actor inference latency.
+
+No token-variant environment rollout, increased success rate, effective benefit trigger or independent final test is reported. Before changing a deployed controller, retain the earlier 0-recovery/2-degradation gradient result and require a separately frozen same-budget paired test. Engineering completion and utility remain separate gates.
 
 ## Public evidence boundary
 
