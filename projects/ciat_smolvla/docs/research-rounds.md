@@ -1,6 +1,6 @@
 # VLA-Corrector research rounds
 
-**Checked:** 2026-10-19. Each round changes a different question; counts must not be pooled. Research-workstation access is restored. Live report/acceptance hashes for the student pilot, candidate selection, task-Q gradient rollouts and token-value contrast were matched read-only. mc509 remains unreachable; current checks do not repeat raw-tensor audits or simulations.
+**Checked:** 2026-10-26. Distinct rounds/protocols must not be pooled. The latest route separately reproduces official QGF and public-data VLA-Corrector, retaining all custom SmolVLA evidence below. Live acceptance and numerical-summary checks are described in the dated ledger; no experiments were started by this monitor.
 
 | Round | Question | Implementation and fixed comparison | Observed result | Decision |
 | --- | --- | --- | --- | --- |
@@ -23,6 +23,9 @@
 | 15 · Task-return value and selection | Can actual task transitions support one-step and ten-step values, then useful candidate ranking? | Grouped deduplicated task-transition training, segment/no-action controls, and 30 accepted native/uniform/Q and fork/repeat branches. | Q and uniform each yield 2 recoveries/1 degradation on three exposed states. | Real training and selection executed; no Q superiority. Native fork outcomes and sustained-Q values use different subsequent controllers. |
 | 16 · Task-Q gradient rollout | Does real value ascent improve the same-budget selected controller? | Native sampler coordinate/ZeroQ checks followed by twelve selection/ZeroQ/gradient/repeat rollouts. | Gradient vs selection: 0 recoveries/2 degradations; all 156 primary gradient queries increase final self-Q. | Freeze this negative combination. Representation reliability is the next fixed hypothesis; no effective trigger can be claimed from these labels. |
 | 17 · Spatial-token value contrast | Does retaining spatial visual information change the offline value diagnostics? | Same data/rewards/splits; full/pooled/no-action × two seeds, six equal-size models, each 2,000 updates; CPU restore acceptance. | Full-token group-mean validation Bellman diagnostics are slightly lower than pooled in both seeds; no-action gradients are zero. | Completed offline structural comparison, not a new rollout or evidence of task benefit. |
+| 18 · Close custom selection hypotheses | Do better offline representation, return matching or observed state improve real candidate choices? | Fifteen frozen token-selection rollouts; matched-return and observed/masked-state training; fixed first-event replanning and gradient controls. | Token variants underperform old Q/uniform; new return and state ensembles select 0/3 heldout successes vs c0 1/3. Simple first-event replan gives 1 rescue/0 harms over nine states; matched gradient adds 0/1. | Keep the causal baseline and failure diagnosis; no threshold/capacity scan or effective-trigger claim. |
+| 19 · Official QGF reference | Can the source-pinned BC-flow/IQL guidance method show learning in a supported setting? | Full 100M cube-triple corpus, native 500k updates, three official task/seed configurations, all checkpoints/weights retained. | Preset final guidance 30/30, 27/30, 29/30 vs no guidance 0/30, 2/30, 0/30. | Clear positive reference in this setting, not strict paired-init inference, full paper replication, or VLA integration. |
+| 20 · Native Corrector method reproduction | Can public-data training, exact predictor/actor contracts and original OGG execute credibly? | Full public 1,693-episode corpus; native 30-epoch MLP, complete validation controls, full-reference inference diagnosis and six native control rollouts. | Actual actions outperform misaligned actions across all 169 validation episodes. Six rollouts preserve three successful controls; no stable OGG increment. | Method self-training and engineering passed; official task benefit and integrated architecture remain unverified. |
 
 ## How the rounds connect
 
@@ -244,6 +247,54 @@ Live report and CPU acceptance now supersede the earlier launch-only workflow no
 Action-conditioned gradients are finite/nonzero; no-action gradients are zero. The full-token diagnostic is modestly lower than pooled for both seeds, but each model uses its own value-backed targets. This is not a common-target accuracy contest or evidence of safer action ascent. Training elapsed time and small-model memory are not actor inference latency.
 
 No token-variant environment rollout, increased success rate, effective benefit trigger or independent final test is reported. Before changing a deployed controller, retain the earlier 0-recovery/2-degradation gradient result and require a separately frozen same-budget paired test. Engineering completion and utility remain separate gates.
+
+## Round 18: close custom hypotheses without losing the useful baseline
+
+The fifteen completed full-token/pooled selection rollouts do not convert round 17's offline diagnostic improvement into better terminal outcomes. Both new variants yield one recovery/one harm versus native and zero added recoveries/one harm versus old Q or uniform. The small step saving in one success cannot offset a lost successful case.
+
+A stronger, separate first-event reference over nine exposed states raises successes from **4/9 to 5/9: one recovery, zero harms**. The sole rescue repeats exactly, but remains one state. On three fixed event cases, deterministic native-flow task-Q guidance adds **zero recoveries and one harm** versus equal-compute ZeroQ/replanning; this is not the earlier continuously enabled twelve-rollout protocol. Self-score ascent and gradient wiring are not missing.
+
+Return matching reuses 38 complete branches / 1,444 blocks across ten exposed initial groups. Six fixed MC/paired/no-action fits complete. New MC and paired ensembles select **0/3 successful heldout candidates**, versus candidate-zero 1/3 and measured finite-pool oracle 2/3. Four observed-state/masked-state fits also select 0/3. The added robot state affects predictions but does not repair selection. These Task0-only, already-exposed heldout pools are diagnostic, not independent testing; the finite oracle is not deployable performance or an all-action upper bound. Stop these ablations rather than keep renaming small changes.
+
+## Stage 3: separate official baselines before integration
+
+The new source-pinned references are [VLA-Corrector](https://github.com/ZJU-OmniAI/vla-corrector) and [Berkeley QGF](https://github.com/zhouzypaul/qgf). Their original objectives differ: visual-residual OGG is not task-return Q. Old SmolVLA losses, labels, normalization and failure rates cannot stand in for either official method. Source pinning and isolated runtime/dependency receipts preserve provenance; no upstream control implementation or private artifacts are copied into this portfolio.
+
+### Round 19: QGF has a positive supported-setting result
+
+Three runs use the full 100M public corpus in one cube-triple layout, two task goals and three task/seed configurations. Each completes 500,000 native offline updates with BC flow and IQL Q/V/TD, horizon five and batch 1,024. The preset final guidance weight is 0.06, not an after-the-fact best weight.
+
+| Official configuration | Guided final successes | Unguided final successes |
+| --- | ---: | ---: |
+| Task 1 / seed 1 | 30/30 | 0/30 |
+| Task 1 / seed 2 | 27/30 | 2/30 |
+| Task 2 / seed 1 | 29/30 | 0/30 |
+
+Five checkpoints and nine official guidance weights plus the zero-guidance control retain 1,500 evaluation records per run, 4,500 overall. These are not 4,500 independent initial states. Evaluation conditions are not strict same-initial-state pairs; this follows the public script's thirty episodes per condition rather than claiming the paper's exact episode-count protocol. All final checkpoints and non-winning settings remain retained. This is positive evidence for the reference method under these configurations, not full-paper coverage, an original algorithm contribution, SmolVLA performance or integrated keyframe + Q results.
+
+### Round 20: public-data Corrector training and native inference
+
+The full public LeRobot asset has **1,693 episodes, 273,465 frames and forty task groups**. Its fixed episode split is 1,355 training / 169 validation / 169 test, separate from all private portfolio datasets and the earlier 450-episode cache. The native h1/k10 MLP uses cosine loss, batch 512, learning rate 3e-4 and thirty epochs with patience five; all thirty finish and validation selects epoch thirty. The predictor has 42,510,336 parameters. This is **official-code method self-training on public data**, not author-identical training data/weights or exact paper-number reproduction. Predictor episode holdout is not proof of base-policy-unseen data or simulation-state generalization.
+
+The full validation diagnostic covers 26,104 pairs in 169 episodes. Actual-action cosine loss is **0.322989**, versus **0.444053** for misaligned actions, 1.0 for zero residual and 0.961198 for the training-mean baseline. Actual actions improve both cosine and MSE in all 169 episodes. The October 26 read-only check independently sums episode pair counts and recomputes the weighted cosine summaries from the acceptance record. It does not re-encode images or reload the predictor; predictive information still is not task success.
+
+**Concrete inference defect solved.** Strictly matching 813 weight keys did not guarantee equivalent execution: the installed text embedding already applied scaling, while the PI0.5 prefix applied it again. A source-traced instance-level correction preserves original weights and fixes the duplicate scaling. On the fixed real input/noise reference, early stages match exactly and final action max error is 3.13e-7. This is fixed-input numerical parity, not a blanket compatibility guarantee or a causal explanation of older SmolVLA failures.
+
+Policy preprocessing and monitor preprocessing stay explicit and distinct. Online monitor quantized tokens/scales match the training cache; raw-action training and normalized-action sampling share a differentiable inverse transform. The training-side and native online predictors match, ZeroOGG is exact, and actual original OGG gradients execute. Those are engineering gates, not learned task-value gains.
+
+| Known development task | Natural steps | Truncation steps / calls | Truncation + OGG steps / calls |
+| --- | ---: | ---: | ---: |
+| 0 | 244 | 255 / 29 | 250 / 28 |
+| 2 | 221 | 213 / 23 | 223 / 24 |
+| 5 | 271 | 257 / 28 | 259 / 28 |
+
+All six intervention rollouts succeed, but all three natural controls already succeed: **zero recoveries/zero harms**, with no failed-control recovery opportunity. OGG requests total nine and execute ninety gradient steps; it is slightly faster than truncation once and slower twice, not a stable efficiency improvement. Task 2 reset observations differ despite matching initial physical states, so strict image-level pairing is not claimed.
+
+### Current gate and source freshness
+
+The research workstation was checked live on October 26. Two QGF acceptance sets, the complete Corrector learning diagnostic and six-rollout raw-audit record were read; their acceptance-file hashes and numerical summaries were checked. Five custom-study report/acceptance hash links were also checked. This monitor did not independently repeat all 4,500 raw evaluations, checkpoint loading or six-rollout tensor audits.
+
+A fixed 120-task/init-identity natural PI0.5 cohort is running: ten tasks × twelve native initial states, with 117 new cases and three reused controls. Running coverage is not completed evidence, and the 240 matching truncation/OGG conditions have not started. Reused cases lack the full new raw-observation capture, so they cannot all be counted as new training transitions. No integrated VLA task-Q/benefit-trigger result or new physical robot outcome is reported. mc509 remains unreachable. Next acceptance is complete identity/coverage/raw-data auditing followed by the declared controlled correction conditions, not another local parameter search.
 
 ## Public evidence boundary
 

@@ -20,15 +20,15 @@ Compare the ACT baseline with the auxiliary predictive objective under identical
 
 **Acceptance:** load/migration record, gradient and loss logs, comparable curves, and an explicit conclusion whether the auxiliary objective helps, hurts, or is inconclusive.
 
-## 3.5. VLA-Corrector: engineering completion versus corrective benefit
+## 3.5. Official baselines before shared-VLA integration
 
-**Completed stages — archived evidence checked 2026-10-19:** observation-only recovery pilot, real one-step and ten-step task-value training, thirty-branch candidate selection, native-flow gradient integration, and twelve gradient-controller rollouts. A student rescues one failed state but no fixed variant has positive unconditional net gain. Q and uniform selection each give 2 recoveries/1 degradation; gradients versus Q selection give 0/2 despite all primary-query final-Q scores rising.
+**Completed evidence — checked 2026-10-26:** three supported official QGF task/seed configurations complete full-budget learning with strong preset-guidance results. Public-data Corrector method training, full validation action-use diagnostics, runtime scaling repair, predictor/actor contracts and six native control rollouts also complete. QGF is not yet a VLA result; successful Corrector controls started from already-successful natural cases and supply no rescue evidence.
 
-**Next acceptance:** full-token/pooled/no-action × two-seed training and CPU restoration are now complete on the same 2,353 blocks. Interpret the modest offline differences with their model-specific targets; do not claim task benefit or a resolved failure cause. Any next continuation test must freeze the variant, same-budget controls, harm reporting and stopping criteria in advance. No new token-variant rollout result is reported.
+**Next acceptance:** finish the frozen 120-identity natural PI0.5 cohort (117 new, three reused), audit task/init routing, real boundaries, raw-observation coverage, source/model identity and actual outcomes, then compare native truncation and truncation+OGG using the same declared identities/noise. Running natural coverage is not a completed corrective benchmark. Three reused cases without new full raw observations cannot be called 120 newly captured training trajectories.
 
-**Trigger gate:** current outcomes are three initial-state full-controller comparisons, not hundreds of independent keyframe intervention labels. They have no positive gradient increments. Do not relabel Q ascent or old student successes as benefit labels for this controller. Learned benefit triggering and independent whole-method validation remain unfinished.
+**Integration gate:** separately establish applicable Corrector and task-Q guidance evidence before combining them in one VLA. Distinguish the original visual-residual detector/OGG from task-return Q and from any future learned benefit trigger. Keep original weights, independent evaluation criteria, harms and call costs protected.
 
-**Freshness:** research-workstation SSH is restored and live report/acceptance bindings were checked. Remote raw-tensor audits were not rerun; mc509 still times out. Physical robot outcomes remain separately unverified. The [research rounds](../../projects/ciat_smolvla/docs/research-rounds.md) retain previous protocols without pooling results.
+**Historical closure:** simple first-event replanning has a local rescue; custom gradients, representation/return/state ablations did not establish incremental utility. Preserve those results rather than repeat threshold, radius, seed or capacity searches. [Research rounds](../../projects/ciat_smolvla/docs/research-rounds.md) retain the detailed evidence. No new physical robot result is reported.
 
 ## 4. Guarded closed-loop evaluation
 

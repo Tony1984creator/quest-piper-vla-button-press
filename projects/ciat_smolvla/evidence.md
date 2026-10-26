@@ -1,11 +1,28 @@
 # Dated evidence ledger
 
-**Reporting date:** 2026-10-19  
+**Reporting date:** 2026-10-26  
 **Evidence level:** offline simulation probe
 
 For the route → implementation → result → decision sequence, see [research rounds](docs/research-rounds.md). The table below groups completed measurements by study and should not be read as one combined benchmark.
 
-## Current completed evidence — 2026-10-19
+## Current completed evidence — 2026-10-26
+
+**New positive reference:** official QGF guidance has strong final-checkpoint results in three supported task/seed configurations. **Separate VLA progress:** public-data Corrector training, action-use diagnostics and six native OGG controls complete, but corrective task benefit is not established. No integrated framework success is claimed.
+
+| Track | Completed result | What it establishes |
+| --- | --- | --- |
+| Official QGF | Three 500,000-update configurations on the full 100M corpus. Preset 0.06 guidance: 30/30, 27/30, 29/30; zero guidance: 0/30, 2/30, 0/30. | Positive supported-setting guidance effect, not strict same-init pairing, full paper coverage, VLA integration or our own method. |
+| Corrector method self-training | Full public corpus: 1,693 episodes / 273,465 frames / forty tasks; split 1,355/169/169. Native 42,510,336-parameter MLP completes thirty epochs; best validation loss 0.322989. | Actual public-data method reproduction; author-identical data, checkpoint and paper numbers are not claimed. |
+| Complete action-use diagnostic | 169 validation episodes / 26,104 pairs. Actual vs misaligned-action cosine loss 0.322989 vs 0.444053; actual MSE and cosine both better in every episode. | Predictive action information, not task-value Q or terminal success. Counts and weighted cosine summaries independently recomputed from the live acceptance record today. |
+| Inference compatibility repair | Duplicate text-embedding scaling identified despite exact weight loading; fixed real-input full-reference final-action error 3.13e-7 after instance-level repair. | Solves a concrete runtime semantic mismatch without changing original weights. Fixed-input parity is not a general compatibility or task-performance guarantee. |
+| Native LVM/OGG controls | Six accepted intervention rollouts over three already-successful natural controls. All succeed; zero recoveries/zero harms. OGG improves steps once and worsens them twice vs truncation. | Actual detection/gradient execution and success preservation in this small cohort, not recovery gain or stable speedup. One task has nonidentical reset images. |
+| Custom-study closure | Nine-state first-event replan: 1 recovery/0 harms. Matched first-event Q gradient: 0 extra recoveries/1 harm. Return-matched and observed-state ensembles each select 0/3 heldout successes vs c0 1/3. | Keep the simple baseline and negative mechanism findings; do not merge with official QGF or new Corrector statistics. |
+
+**Fresh verification:** research-workstation SSH is working. Two official QGF acceptance sets, the full Corrector validation acceptance and six-rollout raw-audit record were read and SHA256 recorded; summary counts agree with the dated reports. Five custom campaign report hashes also match complete acceptance records. This is not a fresh re-evaluation of every raw QGF episode, model weight or Corrector trajectory tensor. mc509 still times out.
+
+**Not completed:** the new 120-identity natural PI0.5 batch is running, not a final benchmark; the 240 paired correction conditions have not started. Shared-VLA task-Q integration, learned benefit triggering, independent overall-method validation and new physical robot outcomes remain unverified. See [the official-baseline stage](docs/research-rounds.md) for distinct training/inference/outcome boundaries.
+
+## Previously checked evidence — 2026-10-19
 
 **New positive result:** a learned current-observation-only recovery reaches whole-task success on one failed simulation state. **New limiting result:** real task-Q gradients increase their own score but worsen the tested selected controller's outcomes. These are separate protocols, not contradictory measurements of one method.
 

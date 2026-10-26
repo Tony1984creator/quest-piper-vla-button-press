@@ -37,11 +37,13 @@ Only the reusable, hardware-independent contracts and aggregate evidence are pub
 | VLA-JEPA 2.1 | 386 teacher tensors mapped, 12 reinitialized; strict loading and a 100-step real-data training pilot completed. | Offline probe | Demonstrates a controlled representation-model migration rather than an unverified swap. |
 | Evo-Depth | 300-step action-head-only controlled pilot; same fixed 187-batch evaluation changed masked-flow loss 0.841452 → 0.244856. | Offline probe | Couples optimization evidence to a fixed evaluation protocol. |
 | Visual review | HSV + component + temporal workflow emitted 421 candidates; 48 stratified samples were visually positive. | Offline probe | Reduces review effort without relabelling image evidence as success. |
-| VLA-Corrector / CIAT | Built audited counterfactuals, observation-only recovery, real task-value training, candidate selection and native-flow gradient comparisons. A learned recovery rescues one failed simulation state; the tested Q-gradient controller causes two degradations despite score ascent. | Offline simulation probe | Separates useful recovery support, Q ranking and gradient increments; keeps harms, costs and evidence gates explicit. [Research rounds](projects/ciat_smolvla/docs/research-rounds.md) |
+| VLA-Corrector / CIAT | Audited custom correction hypotheses, then separately reproduced official QGF and public-data Corrector training/inference. Three QGF configurations reach 30/30, 27/30, 29/30 guided successes vs 0/30, 2/30, 0/30 unguided. | Separate simulation protocols | A positive supported-setting reference, not VLA integration. Corrector action-use learning and six native controls pass, while its task benefit remains unverified. [Research rounds](projects/ciat_smolvla/docs/research-rounds.md) |
 
 ## Two data assets, two roles
 
 The dataset distinction is deliberate. The **Quest VR dataset** is the 40-episode / 14,653-frame LeRobot contract collected around the Quest-to-Piper workflow. The **Elevator VLA dataset** is the separate 952-episode / 188,418-frame asset used by VLA-JEPA, Evo-Depth, and wrist-video analysis. They are not interchangeable, and public reporting does not merge their statistics.
+
+The separate official-baseline track uses public LIBERO data (1,693 episodes / forty task groups) and OGBench cube-triple data. Those assets and their simulation results are not merged with either private dataset above.
 
 ## Engineering foundation
 

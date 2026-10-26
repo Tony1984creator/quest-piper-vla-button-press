@@ -16,21 +16,21 @@ This project is a **measurement and evidence-design study**, not a robot-control
 
 No raw trajectories, task descriptions, model files, environment configuration, execution paths, or simulator/control code are included. Public numbers are aggregated so the portfolio communicates experimental reasoning without exposing the underlying asset.
 
-## Current snapshot — 2026-10-19
+## Current snapshot — 2026-10-26
 
-**New capability:** an observation-only learned recovery produced whole-task success on one failed simulation state without object geometry as an online input. Separately, real task-value training, candidate selection and native-flow gradient rollouts are now complete engineering stages. **Reliable net correction is still not established.**
+The project has moved from custom SmolVLA diagnostics to **separate, source-pinned official-baseline reproductions**. The new positive result is QGF guidance in its supported cube-triple setting; the VLA-Corrector line has completed public-data training and native inference/control checks, but has not established reliable task improvement. These are not yet an integrated VLA + task-Q + learned-trigger system.
 
-| Stage | Completed result | Interpretation |
+| Track | Completed evidence | Boundary |
 | --- | --- | --- |
-| Observable recovery student | Fixed 24-branch pilot over four exposed states. Three student/mode combinations rescue the same failed state, but also damage successful controls; none has positive unconditional net gain. | Advances beyond privileged-teacher-only feasibility. Entry anchor/mode remain prescribed, not autonomous triggering or generalization. |
-| Real task-value training | Four one-step value models, then four ten-step segment/no-action models; each 2,000 updates. Segment data: 2,353 deduplicated blocks, grouped train/validation. | Actual task-return-oriented value fitting, distinct from visual-dynamics loss and old critic studies. Q is not calibrated success probability. |
-| Candidate selection | Thirty accepted simulation branches. Continuous Q selection and same-budget uniform selection each produce 2 recoveries/1 degradation on three exposed states. | Candidate support can help, but Q superiority is absent. Intervention duration and subsequent controller must match value labels. |
-| Native-flow task-Q gradient | Twelve accepted rollouts: selection-only/ZeroQ preserve two successes; gradients and repeats all fail. Gradient vs selection: 0 recoveries/2 degradations. | Engineering integration works; local value ascent is not task benefit. Final Q rose at all 156 primary gradient queries. |
-| Spatial-token value contrast | Full-token/pooled/no-action × two seeds: all six 468,805-parameter models completed 2,000 updates and CPU restore acceptance on the same 2,353 blocks. Full-token validation Bellman diagnostics are slightly lower than pooled for both seeds. | New offline representation evidence, not task benefit: model-dependent targets and untested rollout transfer prevent a policy-improvement claim. |
+| Official QGF configurations | Three 500,000-update runs on the full 100M public corpus. Final preset guidance succeeds 30/30, 27/30, 29/30 versus unguided 0/30, 2/30, 0/30. | Two task goals in one cube-triple layout, three task/seed configurations; not full-paper coverage, strict same-init pairing, or VLA integration. |
+| Public-data VLA-Corrector training | 1,693 episodes / 273,465 frames / 40 task groups; 1,355/169/169 episode split. A 42.51M-parameter native MLP completes 30 epochs; selected validation cosine loss 0.322989. | Official-code method self-training on public data, not reproduction of the author's unknown exact training assets or paper numbers. |
+| Does the predictor use actions? | Complete 169-episode / 26,104-pair validation diagnostic: actual-action cosine loss 0.322989 vs misaligned-action 0.444053; both cosine and MSE improve in every episode. | Demonstrates predictive action information, not corrective task value or success gain. |
+| Native PI0.5 inference and OGG | Diagnosed duplicate language scaling; fixed-sample full-reference action error falls to 3.13e-7. Six truncation/OGG rollouts all succeed on three already-successful natural controls. | Compatibility and real gradient execution are verified. OGG is faster than truncation in one case and slower in two; no recovery opportunity or stable increment demonstrated. |
+| Earlier custom task-Q work | First-event replanning gives 1 recovery/0 harms over nine exposed states. Matched first-event Q gradient adds 0 recoveries/1 harm; return/state ablations fail heldout selection. | Retain the useful simple baseline and negative ablations; do not pool them with official QGF or newly trained Corrector results. |
 
-**Freshness:** research-workstation SSH is restored. This read-only check matched live report hashes to complete acceptance records for the student pilot, thirty-branch selection, twelve-gradient rollouts, and six-model token contrast. It did not rerun their tensor-level audits or simulations. mc509 still times out; no new physical robot result is inferred.
+The October 26 check re-read live acceptance records for the official runs, recomputed validation episode counts/weighted diagnostics, and checked five earlier campaign report/acceptance hashes. It did not repeat full raw-tensor audits or retrain models. mc509 remains unreachable; no new physical robot outcome is inferred.
 
-Read the [research rounds](docs/research-rounds.md) and [dated evidence ledger](evidence.md) for separate protocols and acceptance boundaries. All new outcomes are simulation, not physical robot results.
+Read the [research rounds](docs/research-rounds.md) for the separated routes and [dated evidence ledger](evidence.md) for results. No raw data, private control code or model weights are published.
 
 ## Experiment map
 
@@ -52,4 +52,4 @@ The existing [ECDC pair selector](core/ecdc.py) and [PACE eligibility gate](core
 
 ## Next evidence gate
 
-Keep engineering completion separate from measured utility. The fixed full-token/pooled/no-action training and CPU acceptance are complete; next assess whether its small offline diagnostic differences justify a separately frozen same-budget continuation test. Offline improvement alone cannot clear the correction-benefit gate. A fixed corrector needs real same-state intervention-versus-control outcomes before benefit-trigger learning; 544 diverged rollout queries are not 544 counterfactual labels. Observable recovery transfer and physical robot evaluation remain separately unverified.
+Complete the frozen multi-task PI0.5 natural cohort and audit its real task/init identities before comparing native truncation and OGG on matching identities/noise. The 120-identity natural batch is in progress, not a completed correction benchmark; the 240 correction conditions have not started. Only after the two official lines have separately established their applicable evidence should shared-VLA task-Q/trigger integration be evaluated. Episode counts, independent initial states and repeat evaluations remain separate.
