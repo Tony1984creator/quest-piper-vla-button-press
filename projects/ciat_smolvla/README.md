@@ -16,21 +16,21 @@ This project is a **measurement and evidence-design study**, not a robot-control
 
 No raw trajectories, task descriptions, model files, environment configuration, execution paths, or simulator/control code are included. Public numbers are aggregated so the portfolio communicates experimental reasoning without exposing the underlying asset.
 
-## Current snapshot — 2026-10-26
+## Current snapshot — 2026-11-02
 
-The project has moved from custom SmolVLA diagnostics to **separate, source-pinned official-baseline reproductions**. The new positive result is QGF guidance in its supported cube-triple setting; the VLA-Corrector line has completed public-data training and native inference/control checks, but has not established reliable task improvement. These are not yet an integrated VLA + task-Q + learned-trigger system.
+**New VLA result:** a released author SmolVLA visual critic adapted to QGF guidance improves descriptive success from 17/120 to 23/120 in a fixed development comparison. A later five-condition study completes the visual-monitor + task-Q control loop, but does not establish stable trigger benefit. A controlled image-input replay now explains one pre-intervention action divergence, tightening what can be attributed to guidance.
 
-| Track | Completed evidence | Boundary |
+| Track | Completed result | Interpretation |
 | --- | --- | --- |
-| Official QGF configurations | Three 500,000-update runs on the full 100M public corpus. Final preset guidance succeeds 30/30, 27/30, 29/30 versus unguided 0/30, 2/30, 0/30. | Two task goals in one cube-triple layout, three task/seed configurations; not full-paper coverage, strict same-init pairing, or VLA integration. |
-| Public-data VLA-Corrector training | 1,693 episodes / 273,465 frames / 40 task groups; 1,355/169/169 episode split. A 42.51M-parameter native MLP completes 30 epochs; selected validation cosine loss 0.322989. | Official-code method self-training on public data, not reproduction of the author's unknown exact training assets or paper numbers. |
-| Does the predictor use actions? | Complete 169-episode / 26,104-pair validation diagnostic: actual-action cosine loss 0.322989 vs misaligned-action 0.444053; both cosine and MSE improve in every episode. | Demonstrates predictive action information, not corrective task value or success gain. |
-| Native PI0.5 inference and OGG | Diagnosed duplicate language scaling; fixed-sample full-reference action error falls to 3.13e-7. Six truncation/OGG rollouts all succeed on three already-successful natural controls. | Compatibility and real gradient execution are verified. OGG is faster than truncation in one case and slower in two; no recovery opportunity or stable increment demonstrated. |
-| Earlier custom task-Q work | First-event replanning gives 1 recovery/0 harms over nine exposed states. Matched first-event Q gradient adds 0 recoveries/1 harm; return/state ablations fail heldout selection. | Retain the useful simple baseline and negative ablations; do not pool them with official QGF or newly trained Corrector results. |
+| PI0.5 custom-Q closure | Full 1,760-rollout coverage/data study and later controls retained. Separate scene-repaired 100-identity confirmation: natural 96, same-rule ZeroQ 98, Q seeds 98/97 successes. | Custom-Q integration ran, but no consistent increment over its stronger control. Do not merge these cohorts with SmolVLA. |
+| Author VGAS + QGF | Matched 240 trajectories / 120 exposed task-init identities: ZeroQ 17 successes, QGF 23; 11 recoveries/5 harms, +5.0 pp; development 95% interval [−0.83,+10.83] pp. | Positive development signal, not stable/independent confirmation. This uses author TD+EGR visual-Q weights with a QGF inference adaptation, not Berkeley visual-IQL training. |
+| Five-condition visual control | Separate 600-trajectory study: natural/replan/OGG/continuous-Q/visual-Q successes 18/17/18/23/19, each out of 120. | Visual anomaly triggering has not beaten continuous Q. Earlier 17-success controls are not reused in this new batch. |
+| Cost versus performance | Visual triggering uses 7,190 vs 28,350 gradient steps (74.6% fewer), but 3,335 vs 2,835 policy queries and 719 interruptions. | Fewer gradient steps are not a measured total-latency or success-preserving efficiency gain. |
+| Input-attribution diagnosis | 25/120 natural-versus-visual-Q trajectories diverge before the first alarm. In one fixed-input case, changing only six wrist-image uint8 channel values by one exactly reproduces the historical first-chunk difference. | That image intervention explains one action discrepancy, not all 25 cases or terminal success changes. All 600 outcomes remain retained. |
 
-The October 26 check re-read live acceptance records for the official runs, recomputed validation episode counts/weighted diagnostics, and checked five earlier campaign report/acceptance hashes. It did not repeat full raw-tensor audits or retrain models. mc509 remains unreachable; no new physical robot outcome is inferred.
+The November 2 read-only check independently recomputed the 240/600-study success and rescue/harm totals from stored pair records, verified the 600-summary hash linkage, and checked input-replay hash/repeat/nonimage invariance records. It did not rerun simulation, video decoding or tensor-level inference. mc509 still times out; no new physical robot result is inferred.
 
-Read the [research rounds](docs/research-rounds.md) for the separated routes and [dated evidence ledger](evidence.md) for results. No raw data, private control code or model weights are published.
+Read the [research rounds](docs/research-rounds.md) and [dated evidence ledger](evidence.md). Official QGF reference gains, Corrector public-data learning, earlier custom negative results and current author-model adaptations remain separate protocols.
 
 ## Experiment map
 
@@ -52,4 +52,4 @@ The existing [ECDC pair selector](core/ecdc.py) and [PACE eligibility gate](core
 
 ## Next evidence gate
 
-Complete the frozen multi-task PI0.5 natural cohort and audit its real task/init identities before comparing native truncation and OGG on matching identities/noise. The 120-identity natural batch is in progress, not a completed correction benchmark; the 240 correction conditions have not started. Only after the two official lines have separately established their applicable evidence should shared-VLA task-Q/trigger integration be evaluated. Episode counts, independent initial states and repeat evaluations remain separate.
+Use shared real prefixes, observations and sampling noise to prove zero-intervention execution equivalence before adding the missing continuous-Q-plus-visual-interruption control. This separates guidance coverage from queue interruption. Do not delete mismatched cases, smooth images as a hidden fix, tune Q/thresholds, or retrain the author critic to improve these already-seen results. A finite mechanism comparison and subsequently frozen independent confirmation are still needed; no learned benefit-aware trigger or stable integrated-framework gain is claimed.

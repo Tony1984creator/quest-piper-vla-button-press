@@ -1,11 +1,29 @@
 # Dated evidence ledger
 
-**Reporting date:** 2026-10-26  
+**Reporting date:** 2026-11-02  
 **Evidence level:** offline simulation probe
 
 For the route → implementation → result → decision sequence, see [research rounds](docs/research-rounds.md). The table below groups completed measurements by study and should not be read as one combined benchmark.
 
-## Current completed evidence — 2026-10-26
+## Current completed evidence — 2026-11-02
+
+**New result:** released author visual-Q weights plus a QGF inference adaptation show a positive VLA development signal. **New attribution boundary:** visual triggering does not outperform continuous Q, and a controlled camera substitution explains one pre-alarm action discrepancy. These results supersede the earlier “integration not started” status without claiming stable framework effectiveness.
+
+| Completed study | Observation | Interpretation |
+| --- | --- | --- |
+| Custom PI0.5 closure | 1,760 full coverage/data-study trajectories; later alignment controls and a separate scene-repaired 100-identity/six-condition confirmation. Confirmation ZeroQ 98 successes vs Q seeds 98/97. | Real integration completed, but no consistent Q increment over the stronger same-rule control. Not the newer SmolVLA cohort. |
+| Author VGAS native reference | 240 trajectories: BC 17/120, eight-candidate VGAS 25/120, 16 recoveries/8 harms; +6.67 pp interval [−0.83,+14.17]. | Positive development signal with a different candidate budget; cannot directly compare with single-sample gradient guidance. |
+| Matched author-Q + QGF | Separate 240 trajectories: ZeroQ 17/120, guidance 23/120; 11 recoveries/5 harms, +5.0 pp interval [−0.83,+10.83]. | Real VLA task-gradient signal, one continuation seed / exposed identities; no stable or independent confirmation. Author TD+EGR Q is not a newly trained Berkeley visual-IQL critic. |
+| Full visual-control study | Separate 600 trajectories / 120 task-init identities × five conditions. Natural/replan/OGG/continuous-Q/visual-Q successes 18/17/18/23/19. | All outcomes preserved. Each development interval spans zero; visual anomaly triggering has not beaten continuous Q. |
+| Cost accounting | Visual-Q 7,190 vs continuous-Q 28,350 gradient steps, but 3,335 vs 2,835 policy queries plus 719 interruptions. | 74.6% fewer gradient steps is not measured total latency or equal-success efficiency. |
+| Pre-alarm prefix audit | Natural and visual-Q trajectories diverge before the first alarm in 25/120 cases. | Reset physics/RNG checks and tolerance-accepted images do not prove exact pre-intervention execution identity. Do not discard those cases to claim benefit. |
+| Fixed-input camera intervention | One state/language/actor/noise held fixed; four image variants × two exact repeats. Six wrist uint8 channel values differ by one and exactly reproduce historical first chunks. No policy control action executed. | Establishes image-input sufficiency for one action discrepancy, not all mismatches or terminal success changes. |
+
+**Fresh verification:** live success and rescue/harm totals were recomputed from both matched-study pair tables (240 and 600 trajectories); all 120 task/init identities are unique per table. The 600 summary SHA matches its independent outcome recheck. Input-replay result SHA matches acceptance; repeat/historical-match flags and nonimage input hashes agree. This is not a new full raw-tensor/video audit or model replay. Research SSH is reachable; mc509 still times out.
+
+**Next evidence:** shared-real-prefix/input/noise branching with zero-intervention execution equivalence, then the missing continuous-Q-plus-visual-interruption control. That comparison, independent confirmation, a learned benefit-aware trigger and new physical robot outcomes remain incomplete. See [rounds 21–23](docs/research-rounds.md) for the architecture and protocol separation.
+
+## Previously checked evidence — 2026-10-26
 
 **New positive reference:** official QGF guidance has strong final-checkpoint results in three supported task/seed configurations. **Separate VLA progress:** public-data Corrector training, action-use diagnostics and six native OGG controls complete, but corrective task benefit is not established. No integrated framework success is claimed.
 

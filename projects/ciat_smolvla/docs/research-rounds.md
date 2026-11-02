@@ -1,6 +1,6 @@
 # VLA-Corrector research rounds
 
-**Checked:** 2026-10-26. Distinct rounds/protocols must not be pooled. The latest route separately reproduces official QGF and public-data VLA-Corrector, retaining all custom SmolVLA evidence below. Live acceptance and numerical-summary checks are described in the dated ledger; no experiments were started by this monitor.
+**Checked:** 2026-11-02. Rounds are distinct protocols, not one leaderboard. Latest work closes custom PI0.5-Q tests, adapts an author-released SmolVLA visual critic to QGF, and audits visual control attribution. Report/pair-summary and input-replay integrity checks were performed read-only; no new experiments were started by this monitor.
 
 | Round | Question | Implementation and fixed comparison | Observed result | Decision |
 | --- | --- | --- | --- | --- |
@@ -26,6 +26,9 @@
 | 18 · Close custom selection hypotheses | Do better offline representation, return matching or observed state improve real candidate choices? | Fifteen frozen token-selection rollouts; matched-return and observed/masked-state training; fixed first-event replanning and gradient controls. | Token variants underperform old Q/uniform; new return and state ensembles select 0/3 heldout successes vs c0 1/3. Simple first-event replan gives 1 rescue/0 harms over nine states; matched gradient adds 0/1. | Keep the causal baseline and failure diagnosis; no threshold/capacity scan or effective-trigger claim. |
 | 19 · Official QGF reference | Can the source-pinned BC-flow/IQL guidance method show learning in a supported setting? | Full 100M cube-triple corpus, native 500k updates, three official task/seed configurations, all checkpoints/weights retained. | Preset final guidance 30/30, 27/30, 29/30 vs no guidance 0/30, 2/30, 0/30. | Clear positive reference in this setting, not strict paired-init inference, full paper replication, or VLA integration. |
 | 20 · Native Corrector method reproduction | Can public-data training, exact predictor/actor contracts and original OGG execute credibly? | Full public 1,693-episode corpus; native 30-epoch MLP, complete validation controls, full-reference inference diagnosis and six native control rollouts. | Actual actions outperform misaligned actions across all 169 validation episodes. Six rollouts preserve three successful controls; no stable OGG increment. | Method self-training and engineering passed; official task benefit and integrated architecture remain unverified. |
+| 21 · PI0.5 coverage and control closure | Does more task-Q data or an uninterrupted correction window yield consistent gain? | Full multi-task/data-coverage evaluation and execution-window controls; separate scene-reset-repaired confirmation. | High-baseline 100-identity confirmation: natural 96, matched-window ZeroQ 98, Q0/Q1 98/97 successes. | No consistent Q increment over the control. Freeze this custom combination; preserve all gains, harms and prefix limitations. |
+| 22 · Author visual critic + QGF | Does a released critic support native ranking and real clean-action gradient guidance? | Native eight-candidate reference, then a separate two-arm ZeroQ/QGF comparison using the same author model and fixed budget. | Matched 240-rollout study: 17/120 → 23/120, 11 recoveries/5 harms, +5.0 pp; 95% interval spans zero. | Positive exposed-state development signal, not independent confirmation or equal-budget superiority over eight-candidate selection. |
+| 23 · Visual control and input attribution | Do visual alarms improve Q intervention, and are pre-intervention controls truly equivalent? | Five-condition 600-rollout study; pre-alarm prefix audit; fixed-state/language/noise camera substitution with exact repeats. | Continuous Q succeeds 23/120 vs natural 18 and visual-Q 19. Twenty-five prefixes diverge before alarms; one six-channel image substitution exactly reproduces action differences. | Preserve whole-cohort counts, but restrict mechanistic attribution. Next compare shared-prefix controls, not another threshold scan. |
 
 ## How the rounds connect
 
@@ -295,6 +298,78 @@ All six intervention rollouts succeed, but all three natural controls already su
 The research workstation was checked live on October 26. Two QGF acceptance sets, the complete Corrector learning diagnostic and six-rollout raw-audit record were read; their acceptance-file hashes and numerical summaries were checked. Five custom-study report/acceptance hash links were also checked. This monitor did not independently repeat all 4,500 raw evaluations, checkpoint loading or six-rollout tensor audits.
 
 A fixed 120-task/init-identity natural PI0.5 cohort is running: ten tasks × twelve native initial states, with 117 new cases and three reused controls. Running coverage is not completed evidence, and the 240 matching truncation/OGG conditions have not started. Reused cases lack the full new raw-observation capture, so they cannot all be counted as new training transitions. No integrated VLA task-Q/benefit-trigger result or new physical robot outcome is reported. mc509 remains unreachable. Next acceptance is complete identity/coverage/raw-data auditing followed by the declared controlled correction conditions, not another local parameter search.
+
+## Round 21: PI0.5 scale and control studies are completed, not still pending
+
+The earlier 120-identity natural batch progressed into real integration and evaluation. Custom visual task-Q training coverage expands from 79 to 199 training identities and from 9,160 to 18,639 segments, with validation/audit groups unchanged. Old/new Q each use two fixed 50,000-update fits. The 160-identity, eleven-condition study completes **1,760 trajectories**. Natural success is 152/160; expanded-Q results differ by seed/control rather than show a consistent data-scaling gain. Fixed update counts also reduce replay frequency as data grow, so this is not evidence of fully scaled training.
+
+A later complete-window control brings the same historical comparison to fourteen conditions / 2,240 trajectories. Its apparent Q advantage over its new ZeroQ control must also be compared with the original stronger replanning baseline. Rendering/prefix mismatches are retained, not filtered into a favorable result. A real extra terminal-reset/scene-lifecycle defect is repaired before a **separate** 100-identity/six-condition, 600-trajectory confirmation:
+
+| Confirmation condition | Successes / 100 | Relevant recovery / harm comparison |
+| --- | ---: | --- |
+| Natural | 96 | Reference |
+| Early replanning | 96 | 2 / 2 vs natural |
+| Original OGG | 95 | 1 / 2 vs replanning |
+| Complete-window ZeroQ | 98 | 3 / 1 vs replanning |
+| Same-rule Q seed 0 | 98 | 1 / 1 vs ZeroQ |
+| Same-rule Q seed 1 | 97 | 2 / 3 vs ZeroQ |
+
+Intervals cross zero; the 96%-successful baseline leaves only four natural failures but does not excuse damage. Neither custom Q shows a consistent advantage over its same-rule control. Close this PI0.5 combination rather than scan amplitude/capacity again. This scene-confirmation cohort is not the later SmolVLA five-condition 600.
+
+## Round 22: author visual-Q support and a QGF inference adaptation
+
+The next substantive change is **model/critic provenance**, not another name for the custom PI0.5 critic. The released author SmolVLA SFT and Long visual critic stay frozen. Its Q uses visual-language features, normalized observed robot state, fifty-by-seven action segments, TD plus Explicit Geometric Regularization and minimum-of-two-head scoring. It is not Berkeley's original IQL critic and is not retrained in these experiments.
+
+A native eight-candidate selection study completes 240 trajectories: BC **17/120**, VGAS **25/120**, with 16 recoveries/8 harms. The development +6.67 pp interval [−0.83,+14.17] spans zero. Candidate budgets differ, so this is not a compute-matched comparison. Hooks confirm native score aggregation, but full candidate/index logs were not saved; do not invent retrospective choice-chain evidence.
+
+The new adaptation retains the critic but applies QGF's first-order clean-action guidance in the author's reversed flow time. Mean/std action coordinates are not a unit-box normalization; blindly clipping normalized actions to [−1,1] would change legitimate commands. Only the seven valid action dimensions are guided, with padding protected and original actor/critic weights frozen. This is an interface/research contribution, not a new critic algorithm.
+
+A **separate matched two-arm** study reloads its own ZeroQ control rather than reusing old BC:
+
+| Matched development comparison | ZeroQ | QGF |
+| --- | ---: | ---: |
+| Successful task/init identities | 17/120 | 23/120 |
+| Recovery / harm vs ZeroQ | — | 11 / 5 |
+| Difference | — | +5.0 percentage points |
+| Task-stratified development 95% interval | — | [−0.83,+10.83] pp |
+
+Ten tasks × twelve actual initial states share one continuation seed and are all exposed development identities. All outcomes remain included. The interval includes zero, so no stable or independent generalization claim is made. The earlier eight-candidate 25/120 result uses a different budget and protocol, not a valid gradient-versus-ranking win/loss comparison.
+
+## Round 23: visual monitoring, costs, and a stronger attribution check
+
+The completed five-condition study uses the matched author actor/critic and an explicitly separate old-encoder/connector/MLP monitor. Matching token shape alone did not certify encoder reuse; feature/predictor provenance, pure-monitor noninterference, native alarm logic, real queue clearing, ZeroQ equivalence and gradients reaching executed commands were checked before the development batch. OGG optimizes visual recovery; QGF optimizes task Q; the original anomaly alarm is not a learned benefit-aware trigger.
+
+| Condition, 120 task/init identities each | Successes | Recoveries / harms vs this batch's natural | Development difference interval, pp |
+| --- | ---: | ---: | --- |
+| Natural | 18 | — | — |
+| Alarm-triggered replanning | 17 | 6 / 7 | [−6.67,+5.00] |
+| Native visual OGG | 18 | 7 / 7 | [−5.83,+5.83] |
+| Continuous task-QGF | 23 | 10 / 5 | [−1.67,+10.00] |
+| Alarm-triggered task-QGF | 19 | 7 / 6 | [−5.00,+6.67] |
+
+These **600 complete trajectories** are development data, not independent confirmation. In particular this natural total is 18, not the earlier two-arm ZeroQ total 17; do not merge them. Visual-Q versus continuous-Q has 3 improved/7 worsened outcomes. Visual triggering uses 7,190 versus 28,350 gradient steps (74.6% fewer), but 3,335 versus 2,835 policy queries plus 719 queue interruptions. No end-to-end latency, deployment speedup or equal-success efficiency claim follows. Of the 719 guided queries, 178 execute fewer than twenty steps; not all are necessarily alarm interruptions rather than terminal/budget tails.
+
+### New causal-input evidence limits the trigger attribution
+
+A prefix audit finds **25/120** natural-versus-visual-Q trajectories already diverged before the first alarm. Equal reset physics, first RNG and tolerance-accepted images cannot be expanded into exact intervention-prefix equality. Preserve all 600 outcomes; do not drop those 25 and advertise a selected-subset gain.
+
+A fixed-input replay on one Task2/init0 holds actor, observed state, language and sampling noise fixed, disables Q/OGG, and swaps only saved camera images. Each of four image variants is repeated twice with cloned noise; all repeats and historical first chunks match exactly. The main camera is unchanged; six wrist-image uint8 channel values differ by one.
+
+| Replayed image source | Max normalized first-action difference | Max difference in the first twenty actions |
+| --- | ---: | ---: |
+| Natural / replan | 0 | 0 |
+| OGG-run first image | 0.007091 | 0.015712 |
+| Visual-Q-run first image | 0.007296 | 0.011793 |
+
+This controlled substitution establishes that the image change is sufficient for **this first-chunk discrepancy**, without waiting for a visual alarm or Q score. It does not prove all 25 cases share the cause or that those pixels change terminal success. The probe performs no policy control actions. A first diagnostic is retained as rejected because CPU-versus-GPU pixel division order differed; the corrected replay follows the real preprocessing path without relaxing checks. Image smoothing or quantization would change the actor and is not a harmless silent fix.
+
+Three posthoc explanation cases retain all five conditions, fifteen real videos overall, with both rescue and harm. They are review aids, not cherry-picked evaluation. Raw videos and private assets remain off this repository.
+
+### Verification and next gate
+
+On November 2 the monitor independently recomputed all success and recovery/harm totals from the stored 240- and 600-study pair tables, verified the 600 summary hash against its outcome recheck, and checked the input-replay result/acceptance linkage, repeat flags, historical-match flags and invariant nonimage hashes. It did not repeat the original raw-video/tensor audits or run new simulations. mc509 remains unreachable; no new physical robot result is claimed.
+
+Next reuse the established snapshot/input-audit machinery to branch from a **shared real prefix, observation and noise**, first proving zero-intervention execution equivalence. Only then add the missing continuous-Q-plus-visual-interruption factor to separate coverage from queue interruption. Do not retune critic weights, alarm thresholds or guidance amplitude on these seen outcomes. The shared-prefix control and subsequent frozen independent confirmation are not completed; the overall architecture has promising development signals but no established stable gain.
 
 ## Public evidence boundary
 

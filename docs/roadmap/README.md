@@ -20,15 +20,15 @@ Compare the ACT baseline with the auxiliary predictive objective under identical
 
 **Acceptance:** load/migration record, gradient and loss logs, comparable curves, and an explicit conclusion whether the auxiliary objective helps, hurts, or is inconclusive.
 
-## 3.5. Official baselines before shared-VLA integration
+## 3.5. Shared-prefix causal controls before framework claims
 
-**Completed evidence — checked 2026-10-26:** three supported official QGF task/seed configurations complete full-budget learning with strong preset-guidance results. Public-data Corrector method training, full validation action-use diagnostics, runtime scaling repair, predictor/actor contracts and six native control rollouts also complete. QGF is not yet a VLA result; successful Corrector controls started from already-successful natural cases and supply no rescue evidence.
+**Completed evidence — checked 2026-11-02:** custom PI0.5 integration/coverage studies are closed without consistent Q benefit. A released author SmolVLA visual critic with QGF shows 17/120 → 23/120 success in its own matched development batch (11 recoveries/5 harms; interval spans zero). A separate five-condition/600-trajectory study gives natural 18, continuous Q 23 and visual-Q 19 successes, not stable trigger advantage.
 
-**Next acceptance:** finish the frozen 120-identity natural PI0.5 cohort (117 new, three reused), audit task/init routing, real boundaries, raw-observation coverage, source/model identity and actual outcomes, then compare native truncation and truncation+OGG using the same declared identities/noise. Running natural coverage is not a completed corrective benchmark. Three reused cases without new full raw observations cannot be called 120 newly captured training trajectories.
+**Next acceptance:** branch from shared actual prefixes, exact processed observations and sampling noise; prove zero-intervention executed-plan/action equivalence before testing the missing continuous-Q-plus-visual-interruption factor. Current prefix analysis found 25/120 pre-alarm divergences; one fixed-input replay confirms that six wrist-image uint8 values differing by one can reproduce first-chunk differences. Do not silently smooth inputs or drop mismatches.
 
-**Integration gate:** separately establish applicable Corrector and task-Q guidance evidence before combining them in one VLA. Distinguish the original visual-residual detector/OGG from task-return Q and from any future learned benefit trigger. Keep original weights, independent evaluation criteria, harms and call costs protected.
+**Method boundary:** keep author TD+EGR visual-Q weights distinct from Berkeley IQL and earlier self-trained PI0.5 Q. QGF is the inference adaptation; the original visual anomaly alarm is not a learned benefit-aware trigger. Compare guidance coverage, interruption, harms and policy-query/gradient counts separately. Fewer gradients alone do not establish latency gains.
 
-**Historical closure:** simple first-event replanning has a local rescue; custom gradients, representation/return/state ablations did not establish incremental utility. Preserve those results rather than repeat threshold, radius, seed or capacity searches. [Research rounds](../../projects/ciat_smolvla/docs/research-rounds.md) retain the detailed evidence. No new physical robot result is reported.
+**Confirmation gate:** current identities and outcomes are exposed development data. Freeze any justified mechanism change before independent confirmation; do not tune thresholds, Q weights, amplitude or critic capacity on this cohort. Integration has run, but stable whole-framework benefit, learned benefit triggering and physical robot performance remain unverified. The [research rounds](../../projects/ciat_smolvla/docs/research-rounds.md) retain earlier official-reference and custom evidence without pooling.
 
 ## 4. Guarded closed-loop evaluation
 
