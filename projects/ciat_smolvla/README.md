@@ -16,21 +16,19 @@ This project is a **measurement and evidence-design study**, not a robot-control
 
 No raw trajectories, task descriptions, model files, environment configuration, execution paths, or simulator/control code are included. Public numbers are aggregated so the portfolio communicates experimental reasoning without exposing the underlying asset.
 
-## Current snapshot — 2026-11-02
+## Current snapshot — 2026-11-09
 
-**New VLA result:** a released author SmolVLA visual critic adapted to QGF guidance improves descriptive success from 17/120 to 23/120 in a fixed development comparison. A later five-condition study completes the visual-monitor + task-Q control loop, but does not establish stable trigger benefit. A controlled image-input replay now explains one pre-intervention action divergence, tightening what can be attributed to guidance.
+**Strongest result:** the author's native best-of-eight selection (Bo8) repeatedly beats single sampling on Task 2 in simulation. This is task-specific reproduction of an existing method, not a new selector, a learned trigger, or a general VLA gain.
 
-| Track | Completed result | Interpretation |
+| Study | Task 2 outcomes | Evidence boundary |
 | --- | --- | --- |
-| PI0.5 custom-Q closure | Full 1,760-rollout coverage/data study and later controls retained. Separate scene-repaired 100-identity confirmation: natural 96, same-rule ZeroQ 98, Q seeds 98/97 successes. | Custom-Q integration ran, but no consistent increment over its stronger control. Do not merge these cohorts with SmolVLA. |
-| Author VGAS + QGF | Matched 240 trajectories / 120 exposed task-init identities: ZeroQ 17 successes, QGF 23; 11 recoveries/5 harms, +5.0 pp; development 95% interval [−0.83,+10.83] pp. | Positive development signal, not stable/independent confirmation. This uses author TD+EGR visual-Q weights with a QGF inference adaptation, not Berkeley visual-IQL training. |
-| Five-condition visual control | Separate 600-trajectory study: natural/replan/OGG/continuous-Q/visual-Q successes 18/17/18/23/19, each out of 120. | Visual anomaly triggering has not beaten continuous Q. Earlier 17-success controls are not reused in this new batch. |
-| Cost versus performance | Visual triggering uses 7,190 vs 28,350 gradient steps (74.6% fewer), but 3,335 vs 2,835 policy queries and 719 interruptions. | Fewer gradient steps are not a measured total-latency or success-preserving efficiency gain. |
-| Input-attribution diagnosis | 25/120 natural-versus-visual-Q trajectories diverge before the first alarm. In one fixed-input case, changing only six wrist-image uint8 channel values by one exactly reproduces the historical first-chunk difference. | That image intervention explains one action discrepancy, not all 25 cases or terminal success changes. All 600 outcomes remain retained. |
+| Frozen confirmation | Single sampling 42/128; native Bo8 63/128 (33 recoveries, 12 harms, +16.41 pp). | 64 physical scenes with two policy draws each. Nominal adjusted scene-clustered interval [+3.91,+28.91] pp. QGF and Task 3 intervals still span zero. |
+| E1 timing and dose | Single sampling 91/256; dense Bo8 122/256 (+12.11 pp). | 128 new scenes, two draws per scene. Visual-residual and Q-gap gates did not beat random Bo8 in adjusted comparisons. |
+| E2 candidate count and timing | Single sampling 100/256; dense Bo8 119/256; dense Bo4 121/256. | Bo4 sampled 78.02 vs 156.72 candidates per episode. Close success point estimates and roughly half the candidates do not establish non-inferiority or lower end-to-end latency. |
 
-The November 2 read-only check independently recomputed the 240/600-study success and rescue/harm totals from stored pair records, verified the 600-summary hash linkage, and checked input-replay hash/repeat/nonimage invariance records. It did not rerun simulation, video decoding or tensor-level inference. mc509 still times out; no new physical robot result is inferred.
+These are inference/control evaluations of a frozen actor and released critic, not new model training. Earlier public-data training and QGF reference experiments remain separate. The November 9 check used local delivery evidence because both workstations timed out: manifest hashes and Task 2 confirmation pair counts were checked, and E2 summary copies matched. No fresh server or physical robot result is claimed.
 
-Read the [research rounds](docs/research-rounds.md) and [dated evidence ledger](evidence.md). Official QGF reference gains, Corrector public-data learning, earlier custom negative results and current author-model adaptations remain separate protocols.
+Read the [research rounds](docs/research-rounds.md) and [dated evidence ledger](evidence.md) for the complete comparisons.
 
 ## Experiment map
 
@@ -52,4 +50,4 @@ The existing [ECDC pair selector](core/ecdc.py) and [PACE eligibility gate](core
 
 ## Next evidence gate
 
-Use shared real prefixes, observations and sampling noise to prove zero-intervention execution equivalence before adding the missing continuous-Q-plus-visual-interruption control. This separates guidance coverage from queue interruption. Do not delete mismatched cases, smooth images as a hidden fix, tune Q/thresholds, or retrain the author critic to improve these already-seen results. A finite mechanism comparison and subsequently frozen independent confirmation are still needed; no learned benefit-aware trigger or stable integrated-framework gain is claimed.
+The current task-specific reproduction is reportable. A second-task Bo4 replication or further trigger work remains a research decision, not an accepted result. Keep the candidate-count trade-off separate from a prespecified success-retention gate and measured latency. Do not deploy or tune the relative-Q proxy without a true live-continuation comparator.

@@ -1,11 +1,22 @@
 # Dated evidence ledger
 
-**Reporting date:** 2026-11-02  
+**Reporting date:** 2026-11-09  
 **Evidence level:** offline simulation probe
 
 For the route → implementation → result → decision sequence, see [research rounds](docs/research-rounds.md). The table below groups completed measurements by study and should not be read as one combined benchmark.
 
-## Current completed evidence — 2026-11-02
+## Current completed evidence — 2026-11-09
+
+| Study | Outcome | Limit |
+| --- | --- | --- |
+| Task-specific confirmation | Task 2 native selection 42/128 → 63/128, 33 recoveries/12 harms. Task 2 QGF 51/128; Task 3 single/native/QGF 15/24/16 out of 64. | Only Task 2 native selection clears the reported adjusted comparison. Native vs single sampling does not isolate the contribution of Q ranking vs uniform selection. |
+| E1: timing and dose | 1,280 rollouts. Task 2 dense Bo8 122/256 vs single 91/256; visual gate 97/256, random Bo8 103/256, Q-gap gate 91/256. | Adjusted gate-vs-random intervals cross zero. Observed timing/dose differences do not establish that residual timing is harmful or that all queries are equally useful. |
+| E2: candidate allocation | 2,048 rollouts. Task 2 dense Bo4 121/256 vs dense Bo8 119/256; 78.02 vs 156.72 candidates per episode. | Dense Bo8 gain over single is +7.42 pp, below the +8 pp anchor. Gain-retention lower bound 0.231 misses 0.60. Candidate savings are descriptive, not a non-inferiority or latency result. |
+| Relative-Q proxy | 118 states, 826 candidate contrasts; rescue AUC 0.578, state-clustered 95% interval [0.400,0.722]. | BC0 is a newly sampled candidate, not the live queued continuation. No benefit estimator or trigger is validated. |
+
+Local verification: confirmation CSV, scene split and acceptance JSON match the delivery manifest; Task 2 pair counts were independently reconstructed from the CSV. E1 receipt reports 1,280 completed trajectories and exit code zero; E2 summary matches its handoff copy byte-for-byte. Both SSH attempts timed out, so raw server trajectories and latest live state were not re-audited.
+
+## Previously checked evidence — 2026-11-02
 
 **New result:** released author visual-Q weights plus a QGF inference adaptation show a positive VLA development signal. **New attribution boundary:** visual triggering does not outperform continuous Q, and a controlled camera substitution explains one pre-alarm action discrepancy. These results supersede the earlier “integration not started” status without claiming stable framework effectiveness.
 

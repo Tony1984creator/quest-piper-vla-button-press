@@ -1,6 +1,6 @@
 # VLA-Corrector research rounds
 
-**Checked:** 2026-11-02. Rounds are distinct protocols, not one leaderboard. Latest work closes custom PI0.5-Q tests, adapts an author-released SmolVLA visual critic to QGF, and audits visual control attribution. Report/pair-summary and input-replay integrity checks were performed read-only; no new experiments were started by this monitor.
+**Checked:** 2026-11-09 against local delivery records; both workstations timed out. These are distinct simulation protocols, not one leaderboard.
 
 | Round | Question | Implementation and fixed comparison | Observed result | Decision |
 | --- | --- | --- | --- | --- |
@@ -29,6 +29,8 @@
 | 21 · PI0.5 coverage and control closure | Does more task-Q data or an uninterrupted correction window yield consistent gain? | Full multi-task/data-coverage evaluation and execution-window controls; separate scene-reset-repaired confirmation. | High-baseline 100-identity confirmation: natural 96, matched-window ZeroQ 98, Q0/Q1 98/97 successes. | No consistent Q increment over the control. Freeze this custom combination; preserve all gains, harms and prefix limitations. |
 | 22 · Author visual critic + QGF | Does a released critic support native ranking and real clean-action gradient guidance? | Native eight-candidate reference, then a separate two-arm ZeroQ/QGF comparison using the same author model and fixed budget. | Matched 240-rollout study: 17/120 → 23/120, 11 recoveries/5 harms, +5.0 pp; 95% interval spans zero. | Positive exposed-state development signal, not independent confirmation or equal-budget superiority over eight-candidate selection. |
 | 23 · Visual control and input attribution | Do visual alarms improve Q intervention, and are pre-intervention controls truly equivalent? | Five-condition 600-rollout study; pre-alarm prefix audit; fixed-state/language/noise camera substitution with exact repeats. | Continuous Q succeeds 23/120 vs natural 18 and visual-Q 19. Twenty-five prefixes diverge before alarms; one six-channel image substitution exactly reproduces action differences. | Preserve whole-cohort counts, but restrict mechanistic attribution. Next compare shared-prefix controls, not another threshold scan. |
+| 24 · Task-specific confirmation | Does native selection reproduce on separate physical scenes? | Frozen Task 2/3 confirmation, two policy draws per scene; development and confirmation scenes disjoint. | Task 2 native Bo8 +16.41 pp versus single sampling; QGF and Task 3 adjusted intervals cross zero. | Task-specific reproduction, not a new selector or stable integrated gain. |
+| 25 · Timing and candidate allocation | Can less frequent selection or smaller pools retain gains? | E1 five-arm timing/dose and E2 eight-arm candidate/window comparisons. | Dense Bo8 remains positive on Task 2; Bo4 roughly halves sampled candidates, but the retention gate misses. | No validated trigger advantage, non-inferiority, or latency claim. |
 
 ## How the rounds connect
 
@@ -370,6 +372,22 @@ Three posthoc explanation cases retain all five conditions, fifteen real videos 
 On November 2 the monitor independently recomputed all success and recovery/harm totals from the stored 240- and 600-study pair tables, verified the 600 summary hash against its outcome recheck, and checked the input-replay result/acceptance linkage, repeat flags, historical-match flags and invariant nonimage hashes. It did not repeat the original raw-video/tensor audits or run new simulations. mc509 remains unreachable; no new physical robot result is claimed.
 
 Next reuse the established snapshot/input-audit machinery to branch from a **shared real prefix, observation and noise**, first proving zero-intervention execution equivalence. Only then add the missing continuous-Q-plus-visual-interruption factor to separate coverage from queue interruption. Do not retune critic weights, alarm thresholds or guidance amplitude on these seen outcomes. The shared-prefix control and subsequent frozen independent confirmation are not completed; the overall architecture has promising development signals but no established stable gain.
+
+## Rounds 24–25: task-specific reproduction, then cost and timing
+
+The frozen confirmation has 96 distinct physical scenes across Tasks 2 and 3, separate from the 48 development scenes. Two draws per scene and three controllers give 576 confirmation trajectories, not 576 independent scenes. On Task 2, native Bo8 improves from 42/128 to 63/128; 33 recoveries and 12 harms give +16.41 pp. The nominal adjusted scene-clustered interval is [+3.91,+28.91] pp. QGF gains +7.03 pp on Task 2, but its adjusted interval spans zero, as do the Task 3 comparisons. Native Bo8 changes the pool and ranking together; the development comparison against uniform choice from the same pool remains uncertain.
+
+| Task 2 batch | Single sampling | Dense Bo8 | Dense Bo4 | Main limit |
+| --- | ---: | ---: | ---: | --- |
+| Frozen confirmation | 42/128 | 63/128 | — | Task-specific reproduction, not ranking-only attribution. |
+| E1: five conditions, 1,280 rollouts | 91/256 | 122/256 | — | Visual and Q-gap gates do not beat random allocation in adjusted comparisons. |
+| E2: eight conditions, 2,048 rollouts | 100/256 | 119/256 | 121/256 | Descriptive candidate savings; gain retention not established. |
+
+E1's visual gate versus random Bo8 is −2.34 pp (adjusted 97.5% interval [−9.77,+5.47]); the Q-gap gate versus random is −4.69 pp [−11.72,+2.34]. Q-gap gating still scores eight candidates on every query, even when not choosing argmax. Post hoc timing analysis finds late calls concentrated among long-running episodes; this does not identify the causal value of late calls or show that timing is irrelevant.
+
+In E2, Bo4 uses 78.02 candidates per episode versus dense Bo8's 156.72. The retention lower bound 0.231 misses the preset 0.60 gate, and the dense anchor gain of +7.42 pp falls below the preset +8 pp. The early-window arm W1 does not beat full-horizon random Bo8 (−3.52 pp, adjusted interval [−8.98,+1.95]). The additional randomized W2 control was not run; conditioning on equal realized dose afterward cannot replace it.
+
+The reusable assets are the frozen scene splits, paired evaluation/audit pipeline, and documented rescue/harm examples. These experiments use frozen weights in simulation; they establish neither new training nor physical robot performance. Both SSH targets timed out on this check. Confirmation pair counts were recomputed from the local hash-bound CSV; E1/E2 counts were read from local completion/summary records, not rerun on the server.
 
 ## Public evidence boundary
 

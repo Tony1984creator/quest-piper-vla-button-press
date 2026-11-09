@@ -20,15 +20,11 @@ Compare the ACT baseline with the auxiliary predictive objective under identical
 
 **Acceptance:** load/migration record, gradient and loss logs, comparable curves, and an explicit conclusion whether the auxiliary objective helps, hurts, or is inconclusive.
 
-## 3.5. Shared-prefix causal controls before framework claims
+## 3.5. Task-specific selection and cost evidence
 
-**Completed evidence — checked 2026-11-02:** custom PI0.5 integration/coverage studies are closed without consistent Q benefit. A released author SmolVLA visual critic with QGF shows 17/120 → 23/120 success in its own matched development batch (11 recoveries/5 harms; interval spans zero). A separate five-condition/600-trajectory study gives natural 18, continuous Q 23 and visual-Q 19 successes, not stable trigger advantage.
+Task 2 native Bo8 gains repeat across three batches; QGF and Task 3 remain uncertain. Dense Bo4's candidate savings are reportable, but the gain-retention gate did not pass. Preserve the frozen comparisons and distinguish candidate count from latency.
 
-**Next acceptance:** branch from shared actual prefixes, exact processed observations and sampling noise; prove zero-intervention executed-plan/action equivalence before testing the missing continuous-Q-plus-visual-interruption factor. Current prefix analysis found 25/120 pre-alarm divergences; one fixed-input replay confirms that six wrist-image uint8 values differing by one can reproduce first-chunk differences. Do not silently smooth inputs or drop mismatches.
-
-**Method boundary:** keep author TD+EGR visual-Q weights distinct from Berkeley IQL and earlier self-trained PI0.5 Q. QGF is the inference adaptation; the original visual anomaly alarm is not a learned benefit-aware trigger. Compare guidance coverage, interruption, harms and policy-query/gradient counts separately. Fewer gradients alone do not establish latency gains.
-
-**Confirmation gate:** current identities and outcomes are exposed development data. Freeze any justified mechanism change before independent confirmation; do not tune thresholds, Q weights, amplitude or critic capacity on this cohort. Integration has run, but stable whole-framework benefit, learned benefit triggering and physical robot performance remain unverified. The [research rounds](../../projects/ciat_smolvla/docs/research-rounds.md) retain earlier official-reference and custom evidence without pooling.
+A second-task Bo4 check and further trigger work remain separate research decisions. For any next trigger test, fix the live-continuation comparator, dose controls, success retention and timing measurement before observing outcomes. Current results do not establish a learned benefit gate or a physical robot gain. See the [research rounds](../../projects/ciat_smolvla/docs/research-rounds.md).
 
 ## 4. Guarded closed-loop evaluation
 
